@@ -1,7 +1,6 @@
 /.phpunit.cache
 /bootstrap/ssr
 /node_modules
-/public/build
 /public/fonts-manifest.dev.json
 /public/hot
 /public/storage
@@ -41,3 +40,6 @@ yarn-error.log
 /boost.json
 /opencode.json
 /opencode.jsonc
+
+# public/build is committed on purpose: the server has no Node, so the
+# compiled assets travel with the code. Run npm run build before committing.

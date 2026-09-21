@@ -1,0 +1,1 @@
+import{C as e,p as t,y as n}from"./app-CbBGm3hX.js";import{t as r}from"./CityPage-Bxau_9ia.js";var i=n({__name:`PlaceBialowieza`,setup(n){return(n,i)=>(e(),t(r,{city:`bialowieza`,lon:23.8419,lat:52.7003}))}});export{i as default};

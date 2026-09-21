@@ -1,0 +1,1 @@
+import{C as e,p as t,y as n}from"./app-CbBGm3hX.js";import{t as r}from"./CityPage-Bxau_9ia.js";var i=n({__name:`PlaceLublin`,setup(n){return(n,i)=>(e(),t(r,{city:`lublin`,lon:22.5684,lat:51.2465}))}});export{i as default};
