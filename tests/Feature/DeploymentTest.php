@@ -156,3 +156,17 @@ it('loads no counting script until one is configured', function (): void {
         ->toContain('data-domain="knowpoland.com"')
         ->toContain('https://example.test/js/script.js');
 });
+
+it('says why the live figures could not be fetched', function (): void {
+    Http::fake(['*' => Http::response('Forbidden', 403)]);
+
+    Cache::flush();
+
+    // on a production log level the lookups' own notes are dropped, so the
+    // command itself has to name the reason
+    $this->artisan('poland:warm')
+        ->expectsOutputToContain('0 exchange rates and 0 statistics cached.')
+        ->expectsOutputToContain('National Bank of Poland: HTTP 403')
+        ->expectsOutputToContain('Statistics Poland: HTTP 403')
+        ->assertSuccessful();
+});
