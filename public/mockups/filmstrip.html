@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Thousand Years Sideways</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;900&family=Lora:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+  /* Single-theme by design: a night-blue reel. */
+  :root {
+    --night: #080c14;
+    --night-2: #101725;
+    --bone: #eef1f6;
+    --bone-2: #98a3b5;
+    --ice: #62cbd4;
+    --ice-deep: #1d5b60;
+    --gold: #e0b268;
+    --line: rgba(238,241,246,.14);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  body { margin: 0; background: var(--night); color: var(--bone);
+    font-family: Lora, Georgia, serif; font-size: 17px; line-height: 1.6; }
+  h1, h2, h3, .cond { font-family: "Big Shoulders Display", "Arial Narrow", sans-serif; font-weight: 900;
+    text-transform: uppercase; line-height: .86; letter-spacing: .005em; margin: 0; }
+  a { color: var(--ice); }
+
+  .hud { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 60;
+    display: flex; align-items: center; gap: 18px; padding: 14px 22px;
+    background: linear-gradient(180deg, rgba(8,12,20,.92), rgba(8,12,20,0)); }
+  .hud .mark { font-family: "Big Shoulders Display", sans-serif; font-weight: 700; font-size: 20px;
+    letter-spacing: .1em; color: var(--bone); text-decoration: none; }
+  .hud .mark span { color: var(--ice); }
+  .hud nav { margin-left: auto; display: flex; gap: 18px; }
+  .hud nav a { font-family: "Big Shoulders Display", sans-serif; font-size: 15px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--bone-2); text-decoration: none; }
+  .hud nav a:hover { color: var(--bone); }
+
+  /* opening */
+  .open { position: relative; min-height: 100dvh; display: flex; align-items: center; overflow: hidden; }
+  .open .bg { position: absolute; inset: 0;
+    background:
+      radial-gradient(64% 52% at 74% 22%, rgba(98,203,212,.20) 0%, rgba(98,203,212,0) 62%),
+      radial-gradient(70% 60% at 16% 88%, rgba(224,178,104,.18) 0%, rgba(224,178,104,0) 60%),
+      linear-gradient(200deg, #16203a 0%, #080c14 76%); }
+  .open .vig { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,12,20,.55), rgba(8,12,20,.15) 40%, rgba(8,12,20,.95)); }
+  .open .in { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; padding: 120px 24px 80px; }
+  .eyebrow { font-family: "Big Shoulders Display", sans-serif; font-weight: 700; font-size: 15px;
+    letter-spacing: .34em; text-transform: uppercase; color: var(--ice); margin: 0; }
+  .open h1 { font-size: clamp(52px, 13vw, 180px); margin-top: 14px; }
+  .open h1 .gold { color: var(--gold); }
+  .open .lede { max-width: 48ch; color: var(--bone-2); font-size: clamp(17px, 2vw, 21px); margin-top: 22px; }
+  .hint { margin-top: 38px; display: inline-flex; align-items: center; gap: 14px; text-decoration: none;
+    font-family: "Big Shoulders Display", sans-serif; font-size: 15px; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--bone); border: 1px solid var(--line); padding: 12px 24px; border-radius: 2px; }
+  .hint:hover, .hint:focus-visible { border-color: var(--ice); background: rgba(98,203,212,.08); outline: none; }
+
+  /* horizontal reel */
+  .reel { position: relative; }
+  .pin { position: sticky; top: 0; height: 100dvh; overflow: hidden; }
+  .track { display: flex; height: 100%; will-change: transform; transition: transform .12s linear; }
+  .frame { position: relative; flex: 0 0 100vw; max-width: 100vw; height: 100%;
+    display: flex; align-items: flex-end; overflow: hidden; border-right: 1px solid var(--line); }
+  .frame .art { position: absolute; inset: 0; }
+  .frame .grade { position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(8,12,20,.5) 0%, rgba(8,12,20,.12) 40%, rgba(8,12,20,.96) 92%); }
+  .frame .in { position: relative; width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 28px 116px; }
+  .frame .no { font-family: "Big Shoulders Display", sans-serif; font-weight: 700; font-size: 15px;
+    letter-spacing: .3em; color: var(--ice); }
+  .frame .yr { font-family: "Big Shoulders Display", sans-serif; font-weight: 900;
+    font-size: clamp(60px, 11vw, 150px); line-height: .82; color: var(--gold); margin-top: 8px; }
+  .frame h2 { font-size: clamp(28px, 4.2vw, 56px); margin-top: 10px; }
+  .frame .txt { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; margin-top: 22px; align-items: start; }
+  .frame .txt p { margin: 0; color: var(--bone-2); max-width: 52ch; }
+  .frame .txt p em { color: var(--bone); font-style: normal; }
+  .side { border-left: 2px solid var(--ice-deep); padding-left: 16px; }
+  .side .k { font-family: "Big Shoulders Display", sans-serif; font-size: 14px; letter-spacing: .24em;
+    text-transform: uppercase; color: var(--ice); }
+  .side p { margin: 6px 0 0; font-size: 16px; color: var(--bone); }
+  .side a { display: inline-block; margin-top: 14px; font-family: "Big Shoulders Display", sans-serif;
+    font-size: 15px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none;
+    border-bottom: 1px solid var(--ice-deep); padding-bottom: 4px; }
+
+  /* progress rail */
+  .rail { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; padding: 0 22px 18px;
+    padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    background: linear-gradient(0deg, rgba(8,12,20,.94), rgba(8,12,20,0)); }
+  .rail .bar { position: relative; height: 2px; background: var(--line); margin-bottom: 12px; }
+  .rail .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--ice); transition: width .12s linear; }
+  .rail .ticks { display: flex; justify-content: space-between; gap: 6px; }
+  .rail button { background: none; border: 0; cursor: pointer; padding: 2px 0;
+    font-family: "Big Shoulders Display", sans-serif; font-size: 15px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--bone-2); }
+  .rail button:hover { color: var(--bone); }
+  .rail button[aria-current="true"] { color: var(--ice); }
+  .rail button:focus-visible { outline: 2px solid var(--ice); outline-offset: 3px; }
+
+  /* end */
+  .end { padding: 100px 24px 90px; max-width: 1200px; margin: 0 auto; }
+  .end h2 { font-size: clamp(34px, 6vw, 80px); }
+  .end .lede { color: var(--bone-2); max-width: 56ch; margin-top: 14px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 38px; }
+  .card { background: var(--night-2); border: 1px solid var(--line); padding: 24px; text-decoration: none; color: var(--bone); display: block; }
+  .card:hover { border-color: var(--ice); }
+  .card h3 { font-size: 24px; }
+  .card p { margin: 10px 0 0; color: var(--bone-2); font-size: 15px; }
+  footer { margin-top: 56px; border-top: 1px solid var(--line); padding-top: 20px;
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; color: var(--bone-2); font-size: 13px; }
+  footer a { color: var(--bone-2); text-decoration: none; }
+  footer a:hover { color: var(--ice); }
+
+  @media (max-width: 900px) {
+    .hud nav { display: none; }
+    .pin { position: static; height: auto; }
+    .track { display: block; transform: none !important; }
+    .frame { flex: none; width: 100%; max-width: 100%; min-height: 92dvh; border-right: 0; border-bottom: 1px solid var(--line); }
+    .frame .in { padding: 0 20px 92px; }
+    .frame .txt { grid-template-columns: 1fr; gap: 22px; }
+    .cards { grid-template-columns: 1fr; }
+    .rail .ticks { overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <a class="mark" href="#top">Come to Poland<span>.</span></a>
+  <nav>
+    <a href="#reel">The reel</a>
+    <a href="#end">Go deeper</a>
+  </nav>
+</div>
+
+<section class="open" id="top">
+  <div class="bg"></div><div class="vig"></div>
+  <div class="in">
+    <p class="eyebrow">Six frames · one thousand years</p>
+    <h1>Scroll down.<br><span class="gold">History moves</span><br>sideways.</h1>
+    <p class="lede">A country that was once the largest state in Europe, then nothing at all for 123 years, then rebuilt from photographs. Take it one frame at a time - then decide where in it you want to stand.</p>
+    <a class="hint" href="#reel">Roll the first frame →</a>
+  </div>
+</section>
+
+<section class="reel" id="reel">
+  <div class="pin">
+    <div class="track" id="v3-track">
+
+      <article class="frame">
+        <div class="art" style="background:radial-gradient(60% 52% at 34% 26%, rgba(126,170,120,.26) 0%, rgba(126,170,120,0) 62%), linear-gradient(200deg,#16261f 0%,#080c14 78%)"></div>
+        <div class="grade"></div>
+        <div class="in">
+          <p class="no">FRAME 01</p>
+          <p class="yr">966</p>
+          <h2>A duke is baptised</h2>
+          <div class="txt">
+            <p>Mieszko I accepts Christianity and pulls a cluster of Slavic tribes into Latin Europe - <em>western alphabet, western law, a border argument that has not finished yet</em>. Everything after this frame is a consequence of it.</p>
+            <div class="side">
+              <span class="k">Stand in it</span>
+              <p>Gniezno Cathedral, with bronze doors cast in the 1170s showing the country's first saint.</p>
+              <a href="#">Read the chapter</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="art" style="background:radial-gradient(60% 52% at 66% 26%, rgba(224,178,104,.24) 0%, rgba(224,178,104,0) 62%), linear-gradient(200deg,#2a2317 0%,#080c14 78%)"></div>
+        <div class="grade"></div>
+        <div class="in">
+          <p class="no">FRAME 02</p>
+          <p class="yr">1791</p>
+          <h2>A constitution, four years too late</h2>
+          <div class="txt">
+            <p>The Polish-Lithuanian Commonwealth - elected kings, a parliament any single deputy could paralyse - writes <em>Europe's first modern codified constitution</em> on 3 May. Its neighbours respond by finishing the partition of the country in 1795.</p>
+            <div class="side">
+              <span class="k">Stand in it</span>
+              <p>The Royal Castle in Warsaw, where it was adopted - and which was itself rebuilt after 1971.</p>
+              <a href="#">Read the chapter</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="art" style="background:radial-gradient(60% 52% at 28% 30%, rgba(130,142,162,.22) 0%, rgba(130,142,162,0) 60%), linear-gradient(200deg,#1a1f2b 0%,#080c14 78%)"></div>
+        <div class="grade"></div>
+        <div class="in">
+          <p class="no">FRAME 03</p>
+          <p class="yr">1795</p>
+          <h2>Off the map for 123 years</h2>
+          <div class="txt">
+            <p>Russia, Prussia and Austria divide what is left. Four generations grow up without a state - <em>but with a language, a literature and a habit of uprising</em>. It is why 1918 restores a country rather than inventing one.</p>
+            <div class="side">
+              <span class="k">Stand in it</span>
+              <p>Any 19th-century city centre: three empires built them, and you can still tell which is which.</p>
+              <a href="#">Read the chapter</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="art" style="background:radial-gradient(60% 50% at 72% 24%, rgba(176,70,56,.28) 0%, rgba(176,70,56,0) 58%), linear-gradient(200deg,#241715 0%,#080c14 78%)"></div>
+        <div class="grade"></div>
+        <div class="in">
+          <p class="no">FRAME 04</p>
+          <p class="yr">1939</p>
+          <h2>The war starts here</h2>
+          <div class="txt">
+            <p>Germany invades on 1 September, the Soviet Union on the 17th. The occupation kills millions of Polish citizens, <em>including almost the entire pre-war Jewish population</em>, and ends with Warsaw deliberately levelled. This frame is not scenery; it is the reason for most of what you'll see.</p>
+            <div class="side">
+              <span class="k">Visit it properly</span>
+              <p>Westerplatte, the Warsaw Rising Museum, Auschwitz-Birkenau - booked ahead, entered quietly.</p>
+              <a href="#">Read the chapter</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="art" style="background:radial-gradient(60% 52% at 40% 26%, rgba(224,178,104,.26) 0%, rgba(224,178,104,0) 60%), linear-gradient(200deg,#26231a 0%,#080c14 78%)"></div>
+        <div class="grade"></div>
+        <div class="in">
+          <p class="no">FRAME 05</p>
+          <p class="yr">1980</p>
+          <h2>A strike that outlasted a system</h2>
+          <div class="txt">
+            <p>Workers occupy the Gdańsk shipyard and win an independent trade union - <em>ten million members within a year</em>. Martial law follows in 1981; the June 1989 elections finish the argument, and the rest of the bloc goes within months.</p>
+            <div class="side">
+              <span class="k">Stand in it</span>
+              <p>The European Solidarity Centre, built against gate number two of the shipyard.</p>
+              <a href="#">Read the chapter</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="art" style="background:radial-gradient(60% 52% at 58% 24%, rgba(98,203,212,.24) 0%, rgba(98,203,212,0) 60%), linear-gradient(200deg,#15242e 0%,#080c14 78%)"></div>
+        <div class="grade"></div>
+        <div class="in">
+          <p class="no">FRAME 06</p>
+          <p class="yr">Now</p>
+          <h2>The country you'll actually land in</h2>
+          <div class="txt">
+            <p>Mountains in the south, two thousand lakes in the north-east, a Baltic coast, and very flat in between. Card payments everywhere, trains that run on time, <em>the złoty rather than the euro</em> - and a milk bar on the corner serving the same lunch it served in 1975.</p>
+            <div class="side">
+              <span class="k">Before you go</span>
+              <p>Money, trains, SIM cards, tipping and memorial-site etiquette - each note dated.</p>
+              <a href="#">Read the practical notes</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="rail" id="v3-rail" hidden>
+  <div class="bar"><div class="fill" id="v3-fill"></div></div>
+  <div class="ticks" id="v3-ticks"></div>
+</div>
+
+<section class="end" id="end">
+  <p class="eyebrow">After the reel</p>
+  <h2>Pick a thread<br>and pull it</h2>
+  <p class="lede">Six frames is the outline. Everything underneath is written out properly - sourced, dated, and corrected in the open when we get something wrong.</p>
+  <div class="cards">
+    <a class="card" href="#"><h3>The full timeline</h3><p>Forty entries from 966 to now, each about five minutes, each ending somewhere you can actually visit.</p></a>
+    <a class="card" href="#"><h3>Everyday Poland</h3><p>Language, food, manners, holidays and the small rules nobody writes down for visitors.</p></a>
+    <a class="card" href="#"><h3>The difficult places</h3><p>What happened where, and how to visit sites of mass murder with the seriousness they require.</p></a>
+  </div>
+  <footer>
+    <span>Come to Poland - an independent guide to the country. Nothing for sale.</span>
+    <span><a href="#">Sources</a> · <a href="#">Corrections</a> · <a href="#">Contact</a></span>
+  </footer>
+</section>
+
+<script>
+  var reel = document.getElementById('reel');
+  var track = document.getElementById('v3-track');
+  var frames = track.querySelectorAll('.frame');
+  var rail = document.getElementById('v3-rail');
+  var fill = document.getElementById('v3-fill');
+  var ticks = document.getElementById('v3-ticks');
+  var LABELS = ['966', '1791', '1795', '1939', '1980', 'Now'];
+  var horizontal = window.matchMedia('(min-width: 901px)');
+
+  LABELS.forEach(function (l, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = l;
+    b.setAttribute('aria-current', String(i === 0));
+    b.addEventListener('click', function () { goTo(i); });
+    ticks.appendChild(b);
+  });
+
+  function setHeight() {
+    if (horizontal.matches) {
+      reel.style.height = (frames.length * 100) + 'dvh';
+    } else {
+      reel.style.height = 'auto';
+      track.style.transform = 'none';
+    }
+  }
+
+  function span() { return reel.offsetHeight - window.innerHeight; }
+
+  function goTo(i) {
+    if (!horizontal.matches) {
+      frames[i].scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+    var p = i / (frames.length - 1);
+    window.scrollTo({ top: reel.offsetTop + p * span(), behavior: 'smooth' });
+  }
+
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var top = reel.getBoundingClientRect().top;
+    var inView = top <= 0 && -top <= span();
+    rail.hidden = !(inView || (!horizontal.matches && top < window.innerHeight && top > -reel.offsetHeight));
+
+    var p = 0;
+    if (horizontal.matches) {
+      p = Math.min(1, Math.max(0, -top / span()));
+      track.style.transform = 'translate3d(' + (-p * (frames.length - 1) * 100) + 'vw, 0, 0)';
+    } else {
+      var seen = 0;
+      frames.forEach(function (f, i) { if (f.getBoundingClientRect().top < window.innerHeight * 0.5) { seen = i; } });
+      p = seen / (frames.length - 1);
+    }
+    fill.style.width = (p * 100) + '%';
+    var active = Math.round(p * (frames.length - 1));
+    Array.prototype.forEach.call(ticks.children, function (b, i) { b.setAttribute('aria-current', String(i === active)); });
+  }
+
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+
+  setHeight();
+  update();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function () { setHeight(); update(); });
+  if (horizontal.addEventListener) { horizontal.addEventListener('change', function () { setHeight(); update(); }); }
+</script>
+</body>
+</html>

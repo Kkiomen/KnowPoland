@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sea to Summit - Poland</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&display=swap">
+<style>
+  /* Single-theme by design: a descent through the country, always dark. */
+  :root {
+    --deep: #0a0f0d;
+    --deep-2: #121a17;
+    --bone: #efeade;
+    --bone-2: #9aa29c;
+    --rust: #c9602f;
+    --sea: #4f9ea8;
+    --line: rgba(239,234,222,.14);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  body { margin: 0; background: var(--deep); color: var(--bone);
+    font-family: Spectral, Georgia, serif; font-size: 17px; line-height: 1.62; }
+  h1, h2, h3, .slab { font-family: Anton, Impact, sans-serif; font-weight: 400; text-transform: uppercase;
+    letter-spacing: .01em; line-height: .9; margin: 0; }
+  a { color: var(--rust); }
+
+  .hud { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 60;
+    display: flex; align-items: center; gap: 18px; padding: 14px 22px;
+    background: linear-gradient(180deg, rgba(10,15,13,.92), rgba(10,15,13,0)); }
+  .hud .mark { font-family: Anton, sans-serif; font-size: 17px; letter-spacing: .1em; color: var(--bone); text-decoration: none; }
+  .hud .mark span { color: var(--rust); }
+  .hud nav { margin-left: auto; display: flex; gap: 18px; }
+  .hud nav a { font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--bone-2); text-decoration: none; }
+  .hud nav a:hover { color: var(--bone); }
+
+  /* instrument panel */
+  .gauge { position: fixed; left: 22px; bottom: 22px; bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+    z-index: 55; border: 1px solid var(--line); background: rgba(10,15,13,.72); padding: 12px 16px; min-width: 190px; }
+  .gauge .k { font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--bone-2); }
+  .gauge .v { font-family: Anton, sans-serif; font-size: 24px; letter-spacing: .03em; margin-top: 2px;
+    font-variant-numeric: tabular-nums; }
+  .gauge .v.alt { color: var(--rust); }
+  .gauge .split { display: flex; gap: 22px; }
+  .gauge .meter { height: 3px; background: var(--line); margin-top: 12px; position: relative; }
+  .gauge .meter i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--sea); width: 0; transition: width .3s ease; }
+
+  /* opening */
+  .open { position: relative; min-height: 100dvh; display: flex; align-items: center; overflow: hidden; }
+  .open .bg { position: absolute; inset: 0;
+    background:
+      radial-gradient(70% 55% at 70% 20%, rgba(79,158,168,.26) 0%, rgba(79,158,168,0) 62%),
+      radial-gradient(80% 65% at 16% 90%, rgba(201,96,47,.22) 0%, rgba(201,96,47,0) 60%),
+      linear-gradient(198deg, #16221e 0%, #0a0f0d 76%); }
+  .open .vig { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,15,13,.55), rgba(10,15,13,.12) 42%, rgba(10,15,13,.96)); }
+  .open .in { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; padding: 118px 24px 84px; }
+  .eyebrow { font-size: 12px; letter-spacing: .32em; text-transform: uppercase; color: var(--sea); margin: 0;
+    font-family: Spectral, serif; }
+  .open h1 { font-size: clamp(50px, 12.5vw, 172px); margin-top: 16px; }
+  .open h1 .rust { color: var(--rust); }
+  .open .lede { max-width: 48ch; color: var(--bone-2); font-size: clamp(17px, 2vw, 21px); margin-top: 22px; }
+  .go { margin-top: 34px; display: inline-flex; align-items: center; gap: 14px; text-decoration: none;
+    font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--bone);
+    border: 1px solid var(--line); padding: 13px 26px; }
+  .go:hover, .go:focus-visible { border-color: var(--rust); background: rgba(201,96,47,.10); outline: none; }
+
+  /* stacking chapters */
+  .stack { position: relative; }
+  .layer { position: sticky; top: 0; height: 100dvh; overflow: hidden;
+    display: flex; align-items: flex-end; border-top: 1px solid var(--line); }
+  .layer .art { position: absolute; inset: 0; }
+  .layer .grade { position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,15,13,.42) 0%, rgba(10,15,13,.08) 36%, rgba(10,15,13,.96) 92%); }
+  .layer .in { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px 96px; }
+  .stamp { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .stamp .n { font-family: Anton, sans-serif; font-size: 13px; letter-spacing: .3em; color: var(--rust); }
+  .stamp .coord { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--bone-2);
+    font-variant-numeric: tabular-nums; }
+  .layer h2 { font-size: clamp(38px, 8vw, 110px); margin-top: 12px; }
+  .layer .cols { display: grid; grid-template-columns: 1.1fr .9fr; gap: 42px; margin-top: 24px; align-items: start; }
+  .layer .cols p { margin: 0; color: var(--bone-2); max-width: 52ch; font-size: 18px; }
+  .layer .cols p em { color: var(--bone); font-style: normal; }
+  .note { border-left: 2px solid var(--sea); padding-left: 16px; }
+  .note .k { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--sea); }
+  .note p { margin: 8px 0 0 !important; color: var(--bone) !important; font-size: 16px !important; }
+  .note a { display: inline-block; margin-top: 14px; font-size: 12px; letter-spacing: .2em;
+    text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,96,47,.5); padding-bottom: 5px; }
+
+  /* end */
+  .end { position: relative; background: var(--deep); border-top: 1px solid var(--line);
+    padding: 96px 24px 88px; }
+  .end .in { max-width: 1200px; margin: 0 auto; }
+  .end h2 { font-size: clamp(32px, 6vw, 76px); }
+  .end .lede { color: var(--bone-2); max-width: 56ch; margin-top: 14px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+  .card { background: var(--deep-2); border: 1px solid var(--line); padding: 24px; text-decoration: none; color: var(--bone); display: block; }
+  .card:hover { border-color: var(--rust); }
+  .card h3 { font-size: 22px; }
+  .card p { margin: 10px 0 0; color: var(--bone-2); font-size: 15px; }
+  footer { margin-top: 52px; border-top: 1px solid var(--line); padding-top: 20px;
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; color: var(--bone-2); font-size: 13px; }
+  footer a { color: var(--bone-2); text-decoration: none; }
+  footer a:hover { color: var(--rust); }
+
+  @media (max-width: 900px) {
+    .hud nav { display: none; }
+    .layer .cols { grid-template-columns: 1fr; gap: 20px; }
+    .layer .in { padding-bottom: 116px; }
+    .cards { grid-template-columns: 1fr; }
+    .gauge { left: 16px; right: 16px; min-width: 0; }
+    .gauge .split { justify-content: space-between; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <a class="mark" href="#top">Come to Poland<span>.</span></a>
+  <nav>
+    <a href="#stack">The descent</a>
+    <a href="#end">Go deeper</a>
+  </nav>
+</div>
+
+<div class="gauge" aria-hidden="true">
+  <div class="split">
+    <div>
+      <div class="k">Latitude</div>
+      <div class="v" id="st-lat">54.8°N</div>
+    </div>
+    <div>
+      <div class="k">Altitude</div>
+      <div class="v alt" id="st-alt">0 m</div>
+    </div>
+  </div>
+  <div class="meter"><i id="st-meter"></i></div>
+</div>
+
+<section class="open" id="top">
+  <div class="bg"></div><div class="vig"></div>
+  <div class="in">
+    <p class="eyebrow">Five landscapes · 700 kilometres · one country</p>
+    <h1>From the Baltic<br><span class="rust">to 2 499 metres</span><br>without leaving</h1>
+    <p class="lede">Poland changes completely as you go south: dunes, then two thousand lakes, then flat farmland, then a limestone plateau, then granite. Take the descent one landscape at a time - the gauge in the corner keeps track of where you are.</p>
+    <a class="go" href="#stack">Begin at sea level →</a>
+  </div>
+</section>
+
+<div class="stack" id="stack">
+
+  <section class="layer" data-lat="54.6°N" data-alt="0 m" data-p="0">
+    <div class="art" style="background:radial-gradient(64% 52% at 42% 24%, rgba(120,180,196,.30) 0%, rgba(120,180,196,0) 62%), linear-gradient(198deg,#1b2c33 0%,#0a0f0d 78%)"></div>
+    <div class="grade"></div>
+    <div class="in">
+      <div class="stamp"><span class="n">STAGE 01</span><span class="coord">54.6°N · Baltic coast · sea level</span></div>
+      <h2>The cold sea</h2>
+      <div class="cols">
+        <p>Five hundred kilometres of coastline, most of it sand. The water is <em>brackish and rarely warm</em>, the dunes at Łeba move several metres a year, and the Hel peninsula is a thirty-kilometre spit of sand you can walk the width of in ten minutes. Amber washes up after storms; it has been traded from here since antiquity.</p>
+        <div class="note">
+          <span class="k">What it explains</span>
+          <p>Access to this coast - Gdańsk, Szczecin, the ports - is what half of Poland's wars were about.</p>
+          <a href="#">Read the coast chapter →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="layer" data-lat="53.8°N" data-alt="120 m" data-p="25">
+    <div class="art" style="background:radial-gradient(64% 52% at 62% 26%, rgba(110,160,120,.28) 0%, rgba(110,160,120,0) 62%), linear-gradient(198deg,#18251c 0%,#0a0f0d 78%)"></div>
+    <div class="grade"></div>
+    <div class="in">
+      <div class="stamp"><span class="n">STAGE 02</span><span class="coord">53.8°N · Masuria &amp; Podlasie · 120 m</span></div>
+      <h2>Two thousand lakes</h2>
+      <div class="cols">
+        <p>The glaciers left the north-east covered in water - <em>a landscape of interconnected lakes you can sail across for days</em>. Further east stands Białowieża, one of the last fragments of the primeval forest that once covered the continent, and the home of the European bison, brought back from near-extinction after the First World War.</p>
+        <div class="note">
+          <span class="k">What it explains</span>
+          <p>Why the east feels emptier, older and more Orthodox than the rest of the country.</p>
+          <a href="#">Read the lakes chapter →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="layer" data-lat="52.2°N" data-alt="100 m" data-p="50">
+    <div class="art" style="background:radial-gradient(64% 52% at 34% 24%, rgba(200,150,80,.26) 0%, rgba(200,150,80,0) 62%), linear-gradient(198deg,#272117 0%,#0a0f0d 78%)"></div>
+    <div class="grade"></div>
+    <div class="in">
+      <div class="stamp"><span class="n">STAGE 03</span><span class="coord">52.2°N · the central plain · 100 m</span></div>
+      <h2>The flat middle</h2>
+      <div class="cols">
+        <p>Most of Poland is a plain - which is the single most important fact in its history. <em>There is nothing here to stop an army</em>, in either direction, and there never was. Warsaw sits in the middle of it, on a river that runs the whole length of the country, from the mountains to the sea.</p>
+        <div class="note">
+          <span class="k">What it explains</span>
+          <p>Partitions, invasions and shifting borders: geography wrote most of the timeline.</p>
+          <a href="#">Read the plain chapter →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="layer" data-lat="50.1°N" data-alt="220 m" data-p="75">
+    <div class="art" style="background:radial-gradient(64% 52% at 66% 26%, rgba(214,168,96,.28) 0%, rgba(214,168,96,0) 62%), linear-gradient(198deg,#2a2318 0%,#0a0f0d 78%)"></div>
+    <div class="grade"></div>
+    <div class="in">
+      <div class="stamp"><span class="n">STAGE 04</span><span class="coord">50.1°N · the limestone uplands · 220 m</span></div>
+      <h2>Rock, salt<br>and old towns</h2>
+      <div class="cols">
+        <p>South of the plain the ground rises into limestone: caves, ruined castles on white crags, and <em>a salt mine worked continuously from the 13th century until 1996</em>. Kraków sits at the edge of it - the one big city the Second World War left standing, which is why it looks the way the others were rebuilt to look.</p>
+        <div class="note">
+          <span class="k">What it explains</span>
+          <p>Why the south is the oldest-looking part of the country, and the most visited.</p>
+          <a href="#">Read the uplands chapter →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="layer" data-lat="49.2°N" data-alt="2 499 m" data-p="100">
+    <div class="art" style="background:radial-gradient(64% 50% at 48% 20%, rgba(176,196,214,.30) 0%, rgba(176,196,214,0) 60%), linear-gradient(198deg,#1e262e 0%,#0a0f0d 78%)"></div>
+    <div class="grade"></div>
+    <div class="in">
+      <div class="stamp"><span class="n">STAGE 05</span><span class="coord">49.2°N · the Tatras · 2 499 m</span></div>
+      <h2>Granite, finally</h2>
+      <div class="cols">
+        <p>The Tatras are small - fifty kilometres end to end - and genuinely alpine: <em>bare granite, chamois, marmots and weather that turns in twenty minutes</em>. Rysy, at 2 499 m, is the highest point in the country. Below sits Zakopane, with its own wooden architecture, its own dialect and a highlander culture older than the modern state.</p>
+        <div class="note">
+          <span class="k">Before you go up</span>
+          <p>Trails are graded and often chained. Check the forecast and the avalanche level the way the locals do.</p>
+          <a href="#">Read the mountains chapter →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<section class="end" id="end">
+  <div class="in">
+    <p class="eyebrow">End of the descent</p>
+    <h2>Same country,<br>five different ones</h2>
+    <p class="lede">Each landscape produced a different history, a different dialect and a different kitchen. Follow whichever one you actually want to stand in.</p>
+    <div class="cards">
+      <a class="card" href="#"><h3>Where the people are</h3><p>Six cities, one at a time - what survived the war, what was rebuilt, and what was replaced entirely.</p></a>
+      <a class="card" href="#"><h3>A thousand years</h3><p>The timeline that explains the borders: 966 to 1989, in chapters of five minutes each.</p></a>
+      <a class="card" href="#"><h3>Before you go</h3><p>Trains, money, mountain rules, national-park rules. Practical, dated, re-checked.</p></a>
+    </div>
+    <footer>
+      <span>Come to Poland - an independent guide to the country. Nothing for sale.</span>
+      <span><a href="#">Sources</a> · <a href="#">Corrections</a> · <a href="#">Contact</a></span>
+    </footer>
+  </div>
+</section>
+
+<script>
+  var layers = Array.prototype.slice.call(document.querySelectorAll('.layer'));
+  var lat = document.getElementById('st-lat');
+  var alt = document.getElementById('st-alt');
+  var meter = document.getElementById('st-meter');
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) { return; }
+      var d = e.target.dataset;
+      lat.textContent = d.lat;
+      alt.textContent = d.alt;
+      meter.style.width = d.p + '%';
+    });
+  }, { threshold: 0.6 });
+  layers.forEach(function (l) { io.observe(l); });
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme inline {
+    --font-sans:
+        'Source Sans 3', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    /* Display face for chapter titles and the masthead. */
+    --font-display: 'Archivo Black', Impact, sans-serif;
+
+    /* Cinematic palette - the site is presented as a trailer, so it stays dark. */
+    --color-ink: #07080a;
+    --color-ink-raised: #0e1013;
+    --color-bone: #f2efe9;
+    --color-bone-muted: #aba8a1;
+    --color-amber: #f0a23c;
+    --color-amber-deep: #7a4f13;
+    --color-hairline: rgba(242, 239, 233, 0.14);
+
+    /* National colours, used only where the country itself is the subject. */
+    --color-flag-white: #ffffff;
+    --color-flag-red: #dc143c; /* the red of the shield in the coat of arms */
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        /* Chapters settle into place without trapping an ordinary scroll. */
+        scroll-snap-type: y proximity;
+    }
+
+    /* On a phone a section is taller than the screen, so snapping would fight
+       the reader. There the page scrolls like any other page. */
+    @media (max-width: 767px) {
+        html {
+            scroll-snap-type: none;
+        }
+    }
+
+    /* Every article ends with a link back to the history section. It is a small
+       uppercase label sitting on a hairline rule, so it cannot simply be made
+       taller without moving that rule. Instead it keeps its size and gets an
+       invisible overlay that lifts the tap area to 45px, which is what a thumb
+       needs. */
+    a[href='/history'] {
+        position: relative;
+    }
+
+    a[href='/history']::after {
+        content: '';
+        position: absolute;
+        inset: -11px 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+            transition-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+        }
+    }
+}
+
+@utility text-outline {
+    -webkit-text-stroke: 1.5px var(--color-bone);
+    color: transparent;
+}

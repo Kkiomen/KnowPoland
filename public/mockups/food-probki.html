@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jedzenie - próbki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#eceae6;color:#1b1814;
+ font:16px/1.6 'Source Sans 3',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+h1,h2,h3{margin:0;font-family:'Archivo Black',Impact,sans-serif;font-weight:400;
+ text-transform:uppercase;letter-spacing:-.01em;line-height:1.05}
+.top{background:#1b1814;color:#f6f2ea;padding:34px 20px}
+.top .in{max-width:1080px;margin:0 auto}
+.top h1{font-size:clamp(1.5rem,3.4vw,2.4rem)}
+.top p{max-width:70ch;color:#bdb4a6;margin:.7rem 0 0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.sample{background:#fff;border-radius:10px;margin:22px 0;overflow:hidden;
+ box-shadow:0 1px 3px rgba(27,24,20,.09)}
+.hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;padding:14px 18px;
+ background:#f6f4f0;border-bottom:1px solid #e3ded6}
+.hd b{font-family:'Archivo Black',sans-serif;font-size:1.15rem;
+ background:#1b1814;color:#fff;border-radius:6px;padding:3px 10px;font-weight:400}
+.hd strong{font-size:1.02rem}
+.hd span{color:#6c6458;font-size:.93rem}
+.stage{padding:26px 18px;background:#fbfaf8}
+section{padding:26px 0 8px}
+section>h2{font-size:1.2rem;padding:0 20px;max-width:1080px;margin:26px auto 0}
+
+/* 1 */
+.s1{max-width:300px;border-radius:16px;overflow:hidden;background:#fff;
+ box-shadow:0 2px 10px rgba(27,24,20,.12)}
+.s1 .ph img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.s1 .bd{padding:14px}
+.s1 .pill{display:inline-block;background:#c0651a1a;color:#a8520f;border-radius:999px;
+ padding:4px 10px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.s1 h3{font-size:1rem;margin-top:8px}
+.s1 .said{color:#8a8177;font-size:.72rem;letter-spacing:.14em;margin:.2rem 0 0}
+.s1 p{font-size:.88rem;color:#4a443c;margin:.5rem 0 0}
+/* 2 */
+.s2{max-width:340px}
+.s2 img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.s2 h3{font-size:1.3rem;margin-top:22px}
+.s2 .meta{color:#8a8177;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin:.35rem 0 0}
+.s2 p{color:#4a443c;margin:.8rem 0 0}
+/* 3 */
+.s3{position:relative;max-width:330px;border-radius:4px;overflow:hidden}
+.s3 img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.s3 .ov{position:absolute;inset:auto 0 0 0;padding:52px 16px 16px;color:#fff;
+ background:linear-gradient(0deg,rgba(0,0,0,.88),rgba(0,0,0,0))}
+.s3 .k{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#ffd08a}
+.s3 h3{font-size:1.5rem;margin-top:6px}
+.s3 p{font-size:.86rem;margin:.5rem 0 0;color:#e2dbd0}
+/* 4 */
+.s4{display:grid;grid-template-columns:132px 1fr;gap:18px;align-items:center;
+ max-width:560px;padding:16px 0;border-top:1px solid #ddd6ca;border-bottom:1px solid #ddd6ca}
+.s4 img{width:132px;height:132px;object-fit:cover;border-radius:3px}
+.s4 h3{font-size:1.15rem}
+.s4 .meta{color:#8a8177;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;margin:.3rem 0 0}
+.s4 p{font-size:.92rem;color:#4a443c;margin:.55rem 0 0}
+/* 5 */
+.s5{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center;max-width:580px}
+.s5 .circ img{width:150px;height:150px;object-fit:cover;border-radius:50%}
+.s5 h3{font-size:1.2rem}
+.s5 .meta{color:#8a8177;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;margin:.3rem 0 0}
+.s5 p{font-size:.92rem;color:#4a443c;margin:.55rem 0 0}
+/* 6 */
+.s6{display:grid;grid-template-columns:210px 1fr;gap:28px;align-items:center;max-width:600px}
+.s6 .pol{background:#fff;padding:12px 12px 0;border-radius:2px;transform:rotate(-2.5deg);
+ box-shadow:0 8px 22px rgba(27,24,20,.22)}
+.s6 .pol img{width:100%;aspect-ratio:1;object-fit:cover}
+.s6 .pol span{display:block;text-align:center;padding:12px 0 14px;font-size:.95rem;
+ font-family:'Caveat',cursive}
+.s6 h3{font-size:1.2rem}
+.s6 p{font-size:.92rem;color:#4a443c;margin:.55rem 0 0}
+/* 7 */
+.s7{position:relative;max-width:560px;padding-right:110px}
+.s7 .blk{background:#7c1d32;color:#fff;border-radius:6px;padding:26px 130px 26px 26px}
+.s7 .k{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#f3b6a0}
+.s7 h3{font-size:1.5rem;margin-top:8px}
+.s7 p{font-size:.92rem;color:#f0d9d0;margin:.7rem 0 0}
+.s7 .out{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+.s7 .out img{width:200px;height:200px;object-fit:cover;border-radius:6px;
+ box-shadow:0 12px 30px rgba(27,24,20,.3)}
+/* 8 */
+.s8{display:grid;grid-template-columns:auto 1fr 96px;gap:22px;align-items:center;max-width:620px;
+ border-bottom:2px solid #1b1814;padding-bottom:16px}
+.s8 .no{font-family:'Archivo Black',sans-serif;font-size:3.4rem;line-height:.8;color:#d9d2c6}
+.s8 h3{font-size:1.5rem}
+.s8 p{font-size:.92rem;color:#4a443c;margin:.4rem 0 0}
+.s8 img{width:96px;height:96px;object-fit:cover;border-radius:3px}
+/* 9 */
+.s9{max-width:300px;background:#fff;border:1px solid #e0dacf}
+.s9 .ph{overflow:hidden}
+.s9 .ph img{aspect-ratio:4/3;object-fit:cover;width:100%;filter:grayscale(1);
+ transition:filter .4s ease,transform .5s ease}
+.s9:hover .ph img{filter:grayscale(0);transform:scale(1.05)}
+.s9 .bd{padding:14px}
+.s9 h3{font-size:1.05rem}
+.s9 .meta{color:#8a8177;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin:.25rem 0 0}
+.s9 p{font-size:.88rem;color:#4a443c;margin:.5rem 0 0}
+/* 10 */
+.s10{max-width:250px}
+.s10 img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:2px}
+.s10 h3{font-size:1.05rem;margin-top:14px}
+.s10 p{font-size:.86rem;color:#4a443c;margin:.5rem 0 0}
+/* 11 */
+.s11{position:relative;max-width:330px}
+.s11 img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:3px}
+.s11 .lab{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);
+ background:#fffdf7;border:1px solid #1b1814;outline:3px solid #fffdf7;
+ padding:12px 22px;text-align:center;min-width:72%}
+.s11 .lab span{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#8a7a52}
+.s11 .lab h3{font-size:1.15rem;margin-top:4px}
+.s11 .lab p{font-size:.68rem;letter-spacing:.14em;color:#8a8177;margin:.25rem 0 0}
+/* 12 */
+.s12{max-width:300px}
+.s12 .fr{border:5px solid #1b1814;background:#e8b93f;padding:10px}
+.s12 .fr img{width:100%;aspect-ratio:1;object-fit:cover}
+.s12 h3{font-size:1.2rem;margin-top:14px}
+.s12 p{font-size:.88rem;color:#4a443c;margin:.5rem 0 0}
+
+/* heroes */
+.hero-stage{padding:0;background:#fbfaf8}
+.hA{position:relative;min-height:330px;display:flex;align-items:flex-end;overflow:hidden;background:#12100c}
+.hA img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7}
+.hA>div{position:relative;padding:28px;color:#fff;max-width:640px}
+.hA h2{font-size:clamp(1.6rem,4vw,2.8rem)}
+.hA em{font-style:normal;display:block;color:#f5b24f}
+.hA .k{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#f5b24f;margin:0}
+.hA .l{color:#ded5c7;margin:.7rem 0 0;font-size:.95rem}
+.hB{background:#c8102e;color:#fff}
+.hB .in{padding:34px 28px 26px}
+.hB h2{font-size:clamp(1.6rem,4vw,2.8rem)}
+.hB em{font-style:normal;display:block;color:#ffdf8a}
+.hB .k{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#ffc9c2;margin:0}
+.hB .l{color:#ffe4e0;margin:.7rem 0 0;font-size:.95rem;max-width:56ch}
+.hB .row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 6px 6px}
+.hB .row img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px 10px 0 0}
+.hC{position:relative;min-height:380px;display:flex;align-items:flex-end;overflow:hidden}
+.hC img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hC>div{position:relative;padding:22px;color:#fff;
+ background:linear-gradient(0deg,rgba(0,0,0,.75),transparent);width:100%}
+.hC h2{font-size:1.15rem;letter-spacing:.06em}
+.hC .l{font-size:.86rem;color:#ded5c7;margin:.4rem 0 0;max-width:52ch}
+.hD{position:relative;min-height:380px;display:grid;place-items:center;overflow:hidden}
+.hD .bg{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);
+ grid-auto-rows:1fr;gap:3px}
+.hD .bg img{width:100%;height:100%;object-fit:cover}
+.hD .box{position:relative;background:#fffdf7;padding:26px 30px;text-align:center;
+ box-shadow:0 18px 44px rgba(0,0,0,.34);max-width:82%}
+.hD h2{font-size:clamp(1.3rem,3.4vw,2.2rem)}
+.hD em{font-style:normal;display:block;color:#c8102e}
+.hD .k{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8a7a52;margin:0}
+.hE{background:#f7f3ea;padding:56px 28px;border-top:6px solid #1b1814}
+.hE h2{font-size:clamp(1.8rem,5vw,3.4rem)}
+.hE em{font-style:normal;display:block;color:#c8102e}
+.hE .k{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8a7a52;margin:0}
+.hE .l{color:#5d5348;margin:1rem 0 0;max-width:56ch}
+.hF{display:grid;grid-template-columns:1fr;background:#fffdf7}
+@media(min-width:760px){.hF{grid-template-columns:1fr 1fr}}
+.hF img{width:100%;height:100%;min-height:280px;object-fit:cover}
+.hF>div{padding:34px 28px;align-self:center}
+.hF h2{font-size:clamp(1.5rem,3.6vw,2.6rem)}
+.hF em{font-style:normal;display:block;color:#c8102e}
+.hF .k{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8a7a52;margin:0}
+.hF .l{color:#5d5348;margin:.8rem 0 0}
+footer{background:#1b1814;color:#bdb4a6;padding:30px 20px 70px;margin-top:40px}
+footer .in{max-width:1080px;margin:0 auto}
+</style>
+</head>
+<body>
+<div class="top"><div class="in">
+  <h1>Próbki do strony o jedzeniu</h1>
+  <p>Dwie ścianki. Najpierw dwanaście wersji jednego kafelka z daniem: wszędzie to samo zdjęcie i ten sam tekst, różni się tylko sposób pokazania. Potem sześć wersji nagłówka strony. Wskaż numery, które ci się podobają, choćby po jednym z każdej ścianki, i z tego zbuduję stronę. Można też mieszać: „kafelek 4, nagłówek D”.</p>
+</div></div>
+
+<h2 style="font-family:'Archivo Black',sans-serif;text-transform:uppercase">Kafelek dania</h2>
+<div class="wrap"><div class="sample">
+  <div class="hd"><b>1</b><strong>Karta z cieniem</strong><span>To, co jest teraz na stronie: biała karta, zaokrąglone rogi, cień, plakietka kategorii.</span></div>
+  <div class="stage">
+<article class="s1">
+  <div class="ph"><img class="" src="/images/food-zurek-sm.jpg" srcset="/images/food-zurek-sm.jpg 960w, /images/food-zurek-lg.jpg 1280w" sizes="(min-width:800px) 40vw, 90vw" alt="" loading="lazy"></div>
+  <div class="bd">
+    <span class="pill">Zupa</span>
+    <h3>Żurek</h3><p class="said">ZHOO-rek</p><p>Zupa zakwaszona zakwasem z mąki żytniej, z białą kiełbasą i połówką jajka, często podawana w wydrążonym bochenku chleba. Kwaśna tak, że nic innego z tej listy do tego nie przygotowuje.</p>
+  </div>
+</article></div>
+</div><div class="sample">
+  <div class="hd"><b>2</b><strong>Bez karty, dużo powietrza</strong><span>Żadnej ramki i żadnego cienia. Zdjęcie, nazwa, tekst. Wszystko trzyma odstęp, nie pudełko.</span></div>
+  <div class="stage">
+<article class="s2">
+  <img class="" src="/images/food-zurek-sm.jpg" srcset="/images/food-zurek-sm.jpg 960w, /images/food-zurek-lg.jpg 1280w" sizes="(min-width:800px) 40vw, 90vw" alt="" loading="lazy">
+  <h3>Żurek</h3>
+  <p class="meta">Zupa &middot; ZHOO-rek</p>
+  <p>Zupa zakwaszona zakwasem z mąki żytniej, z białą kiełbasą i połówką jajka, często podawana w wydrążonym bochenku chleba. Kwaśna tak, że nic innego z tej listy do tego nie przygotowuje.</p>
+</article></div>
+</div><div class="sample">
+  <div class="hd"><b>3</b><strong>Tekst na zdjęciu</strong><span>Nazwa leży na fotografii, przyciemnionej u dołu. Gęsto, mocno, mało tekstu.</span></div>
+  <div class="stage">
+<article class="s3">
+  <img class="" src="/images/food-zurek-sm.jpg" srcset="/images/food-zurek-sm.jpg 960w, /images/food-zurek-lg.jpg 1280w" sizes="(min-width:800px) 40vw, 90vw" alt="" loading="lazy">
+  <div class="ov"><span class="k">Zupa</span><h3>Żurek</h3><p>Zupa zakwaszona zakwasem z mąki żytniej, z białą kiełbasą i połówką jajka, często podawana w wydrążonym bochenku chleba.</p></div>
+</article></div>
+</div><div class="sample">
+  <div class="hd"><b>4</b><strong>Zdjęcie obok tekstu</strong><span>Poziomy pasek: zdjęcie z lewej, tekst z prawej. Czyta się jak lista, nie jak galeria.</span></div>
+  <div class="stage">
+<article class="s4">
+  <img class="" src="/images/food-zurek-sm.jpg" srcset="/images/food-zurek-sm.jpg 960w, /images/food-zurek-lg.jpg 1280w" sizes="(min-width:800px) 40vw, 90vw" alt="" loading="lazy">
+  <div><h3>Żurek</h3><p class="meta">Zupa &middot; ZHOO-rek</p><p>Zupa zakwaszona zakwasem z mąki żytniej, z białą kiełbasą i połówką jajka, często podawana w wydrążonym bochenku chleba. Kwaśna tak, że nic innego z tej listy do tego nie przygotowuje.</p></div>
+</article></div>
+</div><div class="sample">
+  <div class="hd"><b>5</b><strong>Okrągłe zdjęcie</strong><span>Zdjęcie wycięte w koło, jak w starej książce kucharskiej. Miękko i przyjaźnie.</span></div>
+  <div class="stage">
+<article class="s5">
+  <div class="circ"><img class="" src="/images/food-zurek-sm.jpg" srcset="/images/food-zurek-sm.jpg 960w, /images/food-zurek-lg.jpg 1280w" sizes="(min-width:800px) 40vw, 90vw" alt="" loading="lazy"></div>
+  <div><h3>Żurek</h3><p class="meta">Zupa &middot; ZHOO-rek</p><p>Zupa zakwaszona zakwasem z mąki żytniej, z białą kiełbasą i połówką jajka, często podawana w wydrążonym bochenku chleba. Kwaśna tak, że nic innego z tej listy do tego nie przygotowuje.</p></div>
+</article></div>
+</div><div class="sample">
+  <div class="hd"><b>6</b><strong>Polaroid</strong><span>Białe obramowanie, lekki obrót, cień. Wygląda jak zdjęcie położone na stole.</span></div>
+  <div class="stage">
+<article class="s6">
+  <div class="pol"><img class="" src="/images/food-zurek-sm.jpg" srcset="/images/food-zurek-sm.jpg 960w, /images/food-zurek-lg.jpg 1280w" sizes="(min-width:800px) 40vw, 90vw" alt="" loading="lazy"><span>Żurek</span></div>
+  <div><h3>Żurek</h3><p>Zupa zakwaszona zakwasem z mąki żytniej, z białą kiełbasą i połówką jajka, często podawana w wydrążonym bochenku chleba. Kwaśna tak, że nic innego z tej listy do tego nie przygotowuje.</p></div>
+</article></div>
+</div><div class="sample">
+  <div class="hd"><b>7</b><strong>Kolorowy blok</strong><span>Tekst leży na płaskim kolorze, zdjęcie wychodzi poza blok i zachodzi na tło.</span></div>
+  <div class="stage">
+<article class="s7">
+  <div class="blk"><span class="k">Zupa</span><h3>Żurek</h3><p>Zupa zakwaszona zakwasem z mąki żytniej, z białą kiełbasą i połówką jajka, często podawana w wydrążonym bochenku chleba. Kwaśna tak, że nic innego z tej listy do tego nie przygotowuje.</p></div>
+  <div class="out"><img class="" src="/images/food-zurek-sm.jpg" srcset="/images/food-zurek-sm.jpg 960w, /images/food-zurek-lg.jpg 1280w" sizes="(min-width:800px) 40vw, 90vw" alt="" loading="lazy"></div>
+</article></div>
+</div><div class="sample">
+  <div class="hd"><b>8</b><strong>Wielki numer</strong><span>Prawie sama typografia: ogromny numer, nazwa, jedno zdanie. Zdjęcie małe, z boku.</span></div>
+  <div class="stage">
+<article class="s8">
+  <span class="no">02</span>
+  <div><h3>Żurek</h3><p>Zupa zakwaszona zakwasem z mąki żytniej, z białą kiełbasą i połówką jajka, często podawana w wydrążonym bochenku chleba.</p></div>
+  <img class="" src="/images/food-zurek-sm.jpg" srcset="/images/food-zurek-sm.jpg 960w, /images/food-zurek-lg.jpg 1280w" sizes="(min-width:800px) 40vw, 90vw" alt="" loading="lazy">
+</article></div>
+</div><div class="sample">
+  <div class="hd"><b>9</b><strong>Czarno-białe, kolor po najechaniu</strong><span>Zdjęcia spokojne i jednolite, kolor wraca dopiero, gdy najedziesz myszą.</span></div>
+  <div class="stage">
+<article class="s9">
+  <div class="ph"><img class="" src="/images/food-zurek-sm.jpg" srcset="/images/food-zurek-sm.jpg 960w, /images/food-zurek-lg.jpg 1280w" sizes="(min-width:800px) 40vw, 90vw" alt="" loading="lazy"></div>
+  <div class="bd"><h3>Żurek</h3><p class="meta">Zupa</p><p>Zupa zakwaszona zakwasem z mąki żytniej, z białą kiełbasą i połówką jajka, często podawana w wydrążonym bochenku chleba. Kwaśna tak, że nic innego z tej listy do tego nie przygotowuje.</p></div>
+</article></div>
+</div><div class="sample">
+  <div class="hd"><b>10</b><strong>Wysokie zdjęcie</strong><span>Kadr pionowy, jak w magazynie. Tekst wąską kolumną pod spodem.</span></div>
+  <div class="stage">
+<article class="s10">
+  <img class="" src="/images/food-zurek-sm.jpg" srcset="/images/food-zurek-sm.jpg 960w, /images/food-zurek-lg.jpg 1280w" sizes="(min-width:800px) 40vw, 90vw" alt="" loading="lazy">
+  <h3>Żurek</h3><p>Zupa zakwaszona zakwasem z mąki żytniej, z białą kiełbasą i połówką jajka, często podawana w wydrążonym bochenku chleba. Kwaśna tak, że nic innego z tej listy do tego nie przygotowuje.</p>
+</article></div>
+</div><div class="sample">
+  <div class="hd"><b>11</b><strong>Etykieta jak ze słoika</strong><span>Zdjęcie w tle, a na nim biała etykieta z obwódką, jak naklejka na przetworach.</span></div>
+  <div class="stage">
+<article class="s11">
+  <img class="" src="/images/food-zurek-sm.jpg" srcset="/images/food-zurek-sm.jpg 960w, /images/food-zurek-lg.jpg 1280w" sizes="(min-width:800px) 40vw, 90vw" alt="" loading="lazy">
+  <div class="lab"><span>Zupa</span><h3>Żurek</h3><p>ZHOO-rek</p></div>
+</article></div>
+</div><div class="sample">
+  <div class="hd"><b>12</b><strong>Gruba ramka</strong><span>Czarna ramka i mocny kolor za nią. Bardziej plakat niż karta.</span></div>
+  <div class="stage">
+<article class="s12">
+  <div class="fr"><img class="" src="/images/food-zurek-sm.jpg" srcset="/images/food-zurek-sm.jpg 960w, /images/food-zurek-lg.jpg 1280w" sizes="(min-width:800px) 40vw, 90vw" alt="" loading="lazy"></div>
+  <h3>Żurek</h3><p>Zupa zakwaszona zakwasem z mąki żytniej, z białą kiełbasą i połówką jajka, często podawana w wydrążonym bochenku chleba. Kwaśna tak, że nic innego z tej listy do tego nie przygotowuje.</p>
+</article></div>
+</div></div>
+
+<h2 style="font-family:'Archivo Black',sans-serif;text-transform:uppercase">Nagłówek strony</h2>
+<div class="wrap"><div class="sample">
+  <div class="hd"><b>A</b><strong>Ciemne zdjęcie i duży napis</strong></div>
+  <div class="stage hero-stage">
+<div class="hA"><img src="/images/food-hero-lg.jpg" alt=""><div>
+<p class="k">Jedzenie i stół</p><h2>Kwaśne, kiszone,<em>robione na zapas</em></h2><p class="l">Polska kuchnia wzięła się z zimnego kraju o krótkim lecie, więc prawie wszystko, co w niej dobre, zaczęło się jako sposób na przetrzymanie jedzenia do wiosny. Wystarczy znać kilka słów, żeby zamówić w całym kraju.</p></div></div></div>
+</div><div class="sample">
+  <div class="hd"><b>B</b><strong>Napis na kolorze, zdjęcia pod spodem</strong></div>
+  <div class="stage hero-stage">
+<div class="hB"><div class="in"><p class="k">Jedzenie i stół</p><h2>Kwaśne, kiszone,<em>robione na zapas</em></h2>
+<p class="l">Polska kuchnia wzięła się z zimnego kraju o krótkim lecie, więc prawie wszystko, co w niej dobre, zaczęło się jako sposób na przetrzymanie jedzenia do wiosny. Wystarczy znać kilka słów, żeby zamówić w całym kraju.</p></div><div class="row">
+<img src="/images/food-barszcz-sm.jpg" alt=""><img src="/images/food-paczki-sm.jpg" alt="">
+<img src="/images/food-placki-sm.jpg" alt=""><img src="/images/food-ogorki-sm.jpg" alt=""></div></div></div>
+</div><div class="sample">
+  <div class="hd"><b>C</b><strong>Zdjęcie na cały ekran, napis mały u dołu</strong></div>
+  <div class="stage hero-stage">
+<div class="hC"><img src="/images/food-hero-lg.jpg" alt=""><div>
+<h2>Kwaśne, kiszone, robione na zapas</h2><p class="l">Polska kuchnia wzięła się z zimnego kraju o krótkim lecie, więc prawie wszystko, co w niej dobre, zaczęło się jako sposób na przetrzymanie jedzenia do wiosny. Wystarczy znać kilka słów, żeby zamówić w całym kraju.</p></div></div></div>
+</div><div class="sample">
+  <div class="hd"><b>D</b><strong>Siatka zdjęć jako tło, napis w białym pudełku</strong></div>
+  <div class="stage hero-stage">
+<div class="hD"><div class="bg">
+<img src="/images/food-barszcz-sm.jpg" alt=""><img src="/images/food-pierogi-sm.jpg" alt="">
+<img src="/images/food-placki-sm.jpg" alt=""><img src="/images/food-paczki-sm.jpg" alt="">
+<img src="/images/food-bigos-sm.jpg" alt=""><img src="/images/food-sernik-sm.jpg" alt="">
+<img src="/images/food-ogorki-sm.jpg" alt=""><img src="/images/food-golabki-sm.jpg" alt="">
+<img src="/images/food-zurek-sm.jpg" alt=""></div>
+<div class="box"><p class="k">Jedzenie i stół</p><h2>Kwaśne, kiszone,<em>robione na zapas</em></h2></div></div></div>
+</div><div class="sample">
+  <div class="hd"><b>E</b><strong>Sama typografia, bez zdjęcia</strong></div>
+  <div class="stage hero-stage">
+<div class="hE"><p class="k">Jedzenie i stół</p><h2>Kwaśne, kiszone,<em>robione na zapas</em></h2><p class="l">Polska kuchnia wzięła się z zimnego kraju o krótkim lecie, więc prawie wszystko, co w niej dobre, zaczęło się jako sposób na przetrzymanie jedzenia do wiosny. Wystarczy znać kilka słów, żeby zamówić w całym kraju.</p></div></div>
+</div><div class="sample">
+  <div class="hd"><b>F</b><strong>Zdjęcie z lewej, napis z prawej na jasnym</strong></div>
+  <div class="stage hero-stage">
+<div class="hF"><img src="/images/food-hero-lg.jpg" alt=""><div>
+<p class="k">Jedzenie i stół</p><h2>Kwaśne, kiszone,<em>robione na zapas</em></h2><p class="l">Polska kuchnia wzięła się z zimnego kraju o krótkim lecie, więc prawie wszystko, co w niej dobre, zaczęło się jako sposób na przetrzymanie jedzenia do wiosny. Wystarczy znać kilka słów, żeby zamówić w całym kraju.</p></div></div></div>
+</div></div>
+
+<footer><div class="in">Wszystkie próbki na prawdziwych zdjęciach i prawdziwym tekście ze strony.</div></footer>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ComeToPoland - makiety</title>
+<style>
+  :root {
+    --bg: #f5f6f7; --panel: #fff; --border: #e1e5ea; --text: #15181d; --muted: #646c78;
+    --accent: #2f5bff; --accent-fg: #fff;
+    --shadow: 0 1px 2px rgba(16,18,29,.06), 0 10px 28px rgba(16,18,29,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d0f12; --panel: #16191e; --border: #272c33; --text: #eef0f3; --muted: #99a1ac;
+      --accent: #8aa2ff; --accent-fg: #0d0f12;
+      --shadow: 0 1px 2px rgba(0,0,0,.45), 0 10px 28px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d0f12; --panel: #16191e; --border: #272c33; --text: #eef0f3; --muted: #99a1ac;
+    --accent: #8aa2ff; --accent-fg: #0d0f12;
+    --shadow: 0 1px 2px rgba(0,0,0,.45), 0 10px 28px rgba(0,0,0,.4);
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text); display: flex; flex-direction: column;
+    font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { position: sticky; top: 0; z-index: 5; background: var(--panel); border-bottom: 1px solid var(--border);
+    padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .brand { font-weight: 650; letter-spacing: -.01em; margin-right: 4px; }
+  .group { display: flex; gap: 6px; flex-wrap: wrap; }
+  .spacer { flex: 1 1 auto; }
+  button, .linkbtn { font: inherit; cursor: pointer; text-decoration: none; border: 1px solid var(--border);
+    background: transparent; color: var(--text); border-radius: 999px; padding: 7px 14px; line-height: 1.2;
+    transition: background .15s, border-color .15s, color .15s; }
+  button:hover, .linkbtn:hover { border-color: var(--accent); }
+  button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+  button:focus-visible, .linkbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .vp { font-size: 13px; padding: 6px 11px; }
+  .note { color: var(--muted); font-size: 13px; margin: 0; }
+  main { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; padding: 16px; gap: 10px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+  .meta h1 { font-size: 16px; margin: 0; letter-spacing: -.01em; }
+  .stage { flex: 1 1 auto; display: flex; justify-content: center; min-height: 0; }
+  .frame-wrap { width: 100%; max-width: 100%; height: 100%; min-height: 62vh; background: var(--panel);
+    border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden;
+    transition: max-width .2s ease; }
+  iframe { width: 100%; height: 100%; border: 0; display: block; background: #fff; }
+  @media (max-width: 760px) { .vp-group { display: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="brand">ComeToPoland - makiety</span>
+  <div class="group" id="tabs" role="tablist" aria-label="Warianty"></div>
+  <span class="spacer"></span>
+  <div class="group vp-group" role="group" aria-label="Szerokość podglądu">
+    <button class="vp" type="button" data-w="0" aria-pressed="true">Desktop</button>
+    <button class="vp" type="button" data-w="834" aria-pressed="false">Tablet</button>
+    <button class="vp" type="button" data-w="390" aria-pressed="false">Mobile</button>
+  </div>
+  <a class="linkbtn vp" id="openNew" href="trailer.html" target="_blank" rel="noopener">Otwórz osobno ↗</a>
+</header>
+
+<main>
+  <div class="meta">
+    <h1 id="vName"></h1>
+    <p class="note" id="vNote"></p>
+  </div>
+  <div class="stage">
+    <div class="frame-wrap" id="wrap">
+      <iframe id="frame" title="Podgląd wariantu"></iframe>
+    </div>
+  </div>
+</main>
+
+<script>
+  const VARIANTS = [
+    { id: "food-menu", name: "Jedzenie: Menu", note: "Ciepły papier, czerwień i musztarda, dania jak karta w restauracji. Najeżdżasz na pozycję i zdjęcie się powiększa.", file: "food-menu.html" },
+    { id: "food-tiles", name: "Jedzenie: Kafelki", note: "Mocne kolory, wielkie kafle ze zdjęciami, blok czerwieni na wejściu. Najbardziej kolorowe i najmniej ciężkie.", file: "food-tiles.html" },
+    { id: "food-supper", name: "Jedzenie: Kolacja", note: "Ciemno, ale ciepło: kolacja przy świetle, duże kadry, złote akcenty. Najbliżej reszty serwisu.", file: "food-supper.html" },
+    { id: "trailer", name: "Trailer", note: "Historia w rozdziałach na scroll-snap - jeden ekran = jeden rozdział. Kandydat na stronę główną.", file: "trailer.html" },
+    { id: "cast", name: "Obsada", note: "Sześć miast jak postacie: wielka nazwa przyklejona z lewej zmienia się przy scrollu. Na podstronę „Miasta”.", file: "cast.html" },
+    { id: "filmstrip", name: "Taśma filmowa", note: "Scroll w dół przesuwa kadry w bok. Na podstronę „Oś czasu”.", file: "filmstrip.html" },
+    { id: "stack", name: "Od morza po szczyt", note: "Warstwy nasuwające się na siebie + wskaźnik szerokości i wysokości n.p.m. Na podstronę „Geografia”.", file: "stack.html" },
+    { id: "seasons", name: "Cztery pory roku", note: "Paralaksa trzech planów, jedna pora roku na scenę. Na podstronę „Kiedy przyjechać”.", file: "seasons.html" },
+    { id: "words", name: "Sześć słów", note: "Typografia na pełny ekran - polskie słowa i co mówią o kraju. Na podstronę „Język”.", file: "words.html" },
+    { id: "journey", name: "Trasa", note: "Przyklejona mapa Polski, trasa rysuje się w miarę scrolla. Na podstronę „Trasy / regiony”.", file: "journey.html" }
+  ];
+
+  const tabs = document.getElementById('tabs');
+  const frame = document.getElementById('frame');
+  const wrap = document.getElementById('wrap');
+  const vName = document.getElementById('vName');
+  const vNote = document.getElementById('vNote');
+  const openNew = document.getElementById('openNew');
+  const KEY = 'ctp-mockup-variant';
+
+  function store(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function restore() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+
+  VARIANTS.forEach(function (v) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = v.name;
+    b.setAttribute('role', 'tab');
+    b.dataset.id = v.id;
+    b.addEventListener('click', function () { select(v.id, true); });
+    tabs.appendChild(b);
+  });
+
+  function select(id, push) {
+    const v = VARIANTS.find(function (x) { return x.id === id; }) || VARIANTS[0];
+    if (frame.getAttribute('src') !== v.file) { frame.src = v.file; }
+    vName.textContent = v.name;
+    vNote.textContent = v.note || '';
+    openNew.href = v.file;
+    Array.prototype.forEach.call(tabs.children, function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.id === v.id));
+    });
+    store(v.id);
+    if (push && location.hash.slice(1) !== v.id) { history.replaceState(null, '', '#' + v.id); }
+  }
+
+  document.querySelectorAll('.vp[data-w]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      const w = Number(b.dataset.w);
+      wrap.style.maxWidth = w ? w + 'px' : '100%';
+      document.querySelectorAll('.vp[data-w]').forEach(function (o) {
+        o.setAttribute('aria-pressed', String(o === b));
+      });
+    });
+  });
+
+  window.addEventListener('hashchange', function () { select(location.hash.slice(1), false); });
+  select(location.hash.slice(1) || restore() || VARIANTS[0].id, true);
+</script>
+</body>
+</html>

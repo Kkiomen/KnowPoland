@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jedzenie - Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fffaf2;color:#231c15;
+ font:17px/1.6 'Source Sans 3',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:#c8102e;margin:0}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:-.01em;margin:0}
+.hero{position:relative;min-height:76vh;display:flex;align-items:flex-end;
+ background:#231c15;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
+.hero:after{content:"";position:absolute;inset:0;
+ background:linear-gradient(0deg,rgba(35,28,21,.92) 0%,rgba(35,28,21,.35) 55%,rgba(35,28,21,.1) 100%)}
+.hero .wrap{position:relative;z-index:1;padding-bottom:56px;padding-top:120px;width:100%}
+.hero h1{color:#fffaf2;font-size:clamp(2.6rem,7vw,5.4rem);line-height:.98}
+.hero h1 em{font-style:normal;color:#f0b429;display:block}
+.hero p{color:#efe4d4;max-width:52ch;font-size:1.1rem}
+.hero .eyebrow{color:#f0b429}
+.rail{display:flex;gap:2px;overflow-x:auto;scroll-snap-type:x mandatory;background:#231c15;
+ scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail img{flex:0 0 auto;width:min(34vw,320px);aspect-ratio:1;object-fit:cover;scroll-snap-align:start}
+section{padding:72px 0}
+.lede{font-size:1.28rem;line-height:1.5;max-width:30ch;font-family:'Fraunces',Georgia,serif}
+.two{display:grid;gap:34px;grid-template-columns:1fr}
+@media(min-width:900px){.two{grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}}
+.rules{display:grid;gap:0;margin-top:14px;border-top:2px solid #231c15}
+.rules div{display:grid;gap:4px;padding:14px 0;border-bottom:1px solid #e3d5c0}
+@media(min-width:720px){.rules div{grid-template-columns:240px 1fr;gap:24px}}
+.rules dt{font-weight:700;color:#c8102e}
+.rules dd{margin:0;color:#5d5348}
+.menu{margin-top:30px;display:grid;gap:0;grid-template-columns:1fr}
+@media(min-width:860px){.menu{grid-template-columns:1fr 1fr;column-gap:56px}}
+.row{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;
+ padding:18px 0;border-bottom:1px solid #e9dcc8;position:relative}
+.row .th{width:64px;height:64px;border-radius:8px;object-fit:cover;
+ transition:transform .35s ease,box-shadow .35s ease}
+.row:hover .th{transform:scale(1.9) translateX(10px);box-shadow:0 14px 34px rgba(35,28,21,.3);z-index:3;position:relative}
+.row .no{position:absolute;left:-30px;top:20px;font-family:'Fraunces',serif;font-size:13px;color:#b9a88d}
+.row h3{font-size:1.32rem;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+.row h3 span{font-family:'Source Sans 3',sans-serif;font-size:.7rem;letter-spacing:.14em;
+ text-transform:uppercase;color:#a07a12;font-weight:700}
+.row p{margin:.35rem 0 0;color:#5d5348;font-size:.97rem;line-height:1.55}
+.band{background:#231c15;color:#f4ece0}
+.band .eyebrow{color:#f0b429}
+.band h2{color:#fffaf2}
+.day{display:grid;gap:0;margin-top:26px;border-top:1px solid rgba(255,255,255,.16)}
+.day li{list-style:none;display:grid;gap:6px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+@media(min-width:760px){.day li{grid-template-columns:120px 200px 1fr;gap:26px;align-items:baseline}}
+.day .t{font-family:'Fraunces',serif;font-size:1.7rem;color:#f0b429;line-height:1}
+.day .n{font-weight:700;letter-spacing:.02em}
+.day p{margin:0;color:#c3b6a4}
+.day li.big{background:linear-gradient(90deg,rgba(240,180,41,.14),transparent)}
+.plates{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
+@media(min-width:900px){.plates{grid-template-columns:repeat(4,1fr)}}
+.plates figure{margin:0}
+.plates img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px}
+.plates figcaption{font-size:.85rem;color:#5d5348;margin-top:8px}
+footer{padding:40px 0 80px;color:#8a7c6b;font-size:.9rem}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="/images/food-hero-lg.jpg" alt="">
+  <div class="wrap">
+    <p class="eyebrow">Jedzenie i stół</p>
+    <h1>Kwaśne, kiszone,<em>robione na zapas</em></h1>
+    <p>Polska kuchnia wzięła się z zimnego kraju o krótkim lecie, więc prawie wszystko, co w niej dobre, zaczęło się jako sposób na przetrzymanie jedzenia do wiosny. Wystarczy znać kilka słów, żeby zamówić w całym kraju.</p>
+  </div>
+</div>
+<div class="rail"><img src="/images/food-barszcz-sm.jpg" alt="" loading="lazy"><img src="/images/food-pierogi-sm.jpg" alt="" loading="lazy"><img src="/images/food-placki-sm.jpg" alt="" loading="lazy"><img src="/images/food-paczki-sm.jpg" alt="" loading="lazy"><img src="/images/food-ogorki-sm.jpg" alt="" loading="lazy"><img src="/images/food-golabki-sm.jpg" alt="" loading="lazy"><img src="/images/food-bigos-sm.jpg" alt="" loading="lazy"><img src="/images/food-sernik-sm.jpg" alt="" loading="lazy"></div>
+
+<section><div class="wrap">
+  <p class="eyebrow">Co to jest</p>
+  <div class="two" style="margin-top:14px">
+    <h2 style="font-size:clamp(1.8rem,3.6vw,2.9rem);line-height:1.05">Kuchnia zbudowana przez zimę i dwa razy przebudowana</h2>
+    <div>
+      <p class="lede" style="margin:0 0 14px">Polska ma pół roku chłodu i sezon wegetacyjny kończący się w październiku, a zanim pojawiły się lodówki, znaczyło to, że cały rok szło na odkładanie jedzenia. Kapusta i ogórki szły do solanki, mleko na twaróg, mięso w dym, żyto na zakwas, owoce do słoików, a grzyby na sznurki nad piecem. To, co czuje się jako charakter tej kuchni, czyli kwaśność, to właśnie konserwowanie.</p>
+      <p style="color:#5d5348;margin:0">W ostatnim stuleciu stół przebudowano dwa razy. Wojna i przesunięcie granic w 1945 roku zabrały większość wiejskiego gotowania Kresów i prawie całą żydowską Polskę, a dekady komunizmu oddały władzę niedoborom, i stąd bierze się przywiązanie do schabowego, sałatek z majonezem i wszystkiego z puszki. Od lat dziewięćdziesiątych wróciły dobre składniki, a całe pokolenie kucharzy poszło szukać starych przepisów. To, co się dziś dostaje, ma trzy warstwy i wszystkie trzy warto zjeść.</p>
+    </div>
+  </div>
+  <p class="eyebrow" style="margin-top:46px;color:#a07a12">Zanim usiądziesz</p>
+  <h3 style="font-size:1.5rem;margin-top:6px">Sześć rzeczy, które ratują sytuację</h3>
+  <dl class="rules"><div><dt>Obiad to nie lunch</dt><dd>Główny posiłek je się między trzynastą a siedemnastą i składa się z dwóch dań.</dd></div><div><dt>Zupa to danie</dt><dd>Jest pierwsza i nie jest przystawką. Zamówienie samej zupy jest normalne i tanie.</dd></div><div><dt>Mówi się smacznego</dt><dd>Do wszystkich przy stole, zanim ktokolwiek zacznie. Obcokrajowcowi wystarczy smahch-NEH-go.</dd></div><div><dt>Dostaniesz dokładkę</dt><dd>W domu prywatnym jedna odmowa jest traktowana jako grzeczność, a nie jako odpowiedź.</dd></div><div><dt>Napiwek</dt><dd>Jakieś dziesięć procent w restauracji, nic w barze mlecznym ani w piekarni.</dd></div><div><dt>Płatność</dt><dd>Karta działa prawie wszędzie, także na straganach. Małe bary mleczne bywają wciąż tylko na gotówkę.</dd></div></dl>
+</div></section>
+
+<section style="background:#f7ecdb"><div class="wrap">
+  <p class="eyebrow">Lista</p>
+  <h2 style="font-size:clamp(1.9rem,4vw,3.1rem);margin-top:6px">Szesnaście rzeczy do zjedzenia</h2>
+  <p style="max-width:60ch;color:#5d5348">W kolejności, w jakiej spotyka się je w ciągu dnia, a nie według ważności. Kliknij zdjęcie, aby zobaczyć je na pełnym ekranie.</p>
+  <div class="menu"><div class="row">
+  <span class="no">01</span>
+  <img src="/images/food-pierogi-sm.jpg" srcset="/images/food-pierogi-sm.jpg 960w, /images/food-pierogi-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Pierogi <span>Danie główne</span></h3>
+    <p>Ciasto zalepione z nadzieniem, gotowane, a potem często odsmażane. Ruskie są z ziemniaków i twarogu, a nazwa wskazuje na Ruś na wschodzie, nie na Rosję.</p>
+  </div>
+</div><div class="row">
+  <span class="no">02</span>
+  <img src="/images/food-zurek-sm.jpg" srcset="/images/food-zurek-sm.jpg 960w, /images/food-zurek-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Żurek <span>Zupa</span></h3>
+    <p>Zupa zakwaszona zakwasem z mąki żytniej, z białą kiełbasą i połówką jajka, często podawana w wydrążonym bochenku chleba. Kwaśna tak, że nic innego z tej listy do tego nie przygotowuje.</p>
+  </div>
+</div><div class="row">
+  <span class="no">03</span>
+  <img src="/images/food-barszcz-sm.jpg" srcset="/images/food-barszcz-sm.jpg 960w, /images/food-barszcz-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Barszcz czerwony <span>Zupa</span></h3>
+    <p>Klarowna zupa z buraków, ciemnoczerwona i raczej ostra niż słodka. Na Wigilię podaje się go z uszkami, małymi pierożkami z grzybami, i nigdy ze śmietaną.</p>
+  </div>
+</div><div class="row">
+  <span class="no">04</span>
+  <img src="/images/food-rosol-sm.jpg" srcset="/images/food-rosol-sm.jpg 960w, /images/food-rosol-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Rosół <span>Zupa</span></h3>
+    <p>Bulion z kury z makaronem, gotowany godzinami i szumowany. Tak pachnie niedziela, i od tego zaczyna się duży obiad.</p>
+  </div>
+</div><div class="row">
+  <span class="no">05</span>
+  <img src="/images/food-bigos-sm.jpg" srcset="/images/food-bigos-sm.jpg 960w, /images/food-bigos-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Bigos <span>Danie główne</span></h3>
+    <p>Kiszona i świeża kapusta duszona przez kilka dni z kilkoma mięsami, grzybami i suszonymi śliwkami. Trzeciego dnia jest lepszy i każdy ci to powie.</p>
+  </div>
+</div><div class="row">
+  <span class="no">06</span>
+  <img src="/images/food-schabowy-sm.jpg" srcset="/images/food-schabowy-sm.jpg 960w, /images/food-schabowy-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Kotlet schabowy <span>Danie główne</span></h3>
+    <p>Schab rozbity, panierowany i usmażony, z ziemniakami i surówką. Najczęściej zamawiany talerz w kraju i miara, po której ocenia się kuchnię.</p>
+  </div>
+</div><div class="row">
+  <span class="no">07</span>
+  <img src="/images/food-golabki-sm.jpg" srcset="/images/food-golabki-sm.jpg 960w, /images/food-golabki-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Gołąbki <span>Danie główne</span></h3>
+    <p>Liście kapusty zawinięte wokół mięsa mielonego z ryżem i zapieczone w sosie pomidorowym. Nazwa znaczy małe gołębie, a gołębi w tym nie ma.</p>
+  </div>
+</div><div class="row">
+  <span class="no">08</span>
+  <img src="/images/food-placki-sm.jpg" srcset="/images/food-placki-sm.jpg 960w, /images/food-placki-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Placki ziemniaczane <span>Danie główne</span></h3>
+    <p>Starte ziemniaki smażone, aż brzegi ciemnieją. Je się je ze śmietaną, z cukrem albo zatopione w gulaszu, i każda wersja ma swoich obrońców.</p>
+  </div>
+</div><div class="row">
+  <span class="no">09</span>
+  <img src="/images/food-kielbasa-sm.jpg" srcset="/images/food-kielbasa-sm.jpg 960w, /images/food-kielbasa-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Kiełbasa <span>Wędlina</span></h3>
+    <p>Wędzona kiełbasa wieprzowa w kilkudziesięciu nazwanych rodzajach, jedzona na zimno w plastrach albo z grilla. Proś o konkretną, nie o kiełbasę.</p>
+  </div>
+</div><div class="row">
+  <span class="no">10</span>
+  <img src="/images/food-sledz-sm.jpg" srcset="/images/food-sledz-sm.jpg 960w, /images/food-sledz-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Śledź <span>Przystawka</span></h3>
+    <p>Śledź solony, w oleju z cebulą albo w śmietanie z jabłkiem. Pojawia się pierwszy na każdym stole, na którym ma się pojawić wódka.</p>
+  </div>
+</div><div class="row">
+  <span class="no">11</span>
+  <img src="/images/food-tatar-sm.jpg" srcset="/images/food-tatar-sm.jpg 960w, /images/food-tatar-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Tatar <span>Przystawka</span></h3>
+    <p>Surowa wołowina mielona z surowym żółtkiem, cebulą, ogórkiem kiszonym i pieczarkami, mieszana przy stole. Zamawiaj go tam, gdzie masz zaufanie.</p>
+  </div>
+</div><div class="row">
+  <span class="no">12</span>
+  <img src="/images/food-chlodnik-sm.jpg" srcset="/images/food-chlodnik-sm.jpg 960w, /images/food-chlodnik-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Chłodnik <span>Zupa na zimno</span></h3>
+    <p>Zimna zupa z zsiadłego mleka i młodych buraków, w niepokojącym różu, z koperkiem i połówką jajka na twardo. Tylko latem, i to działa.</p>
+  </div>
+</div><div class="row">
+  <span class="no">13</span>
+  <img src="/images/food-ogorki-sm.jpg" srcset="/images/food-ogorki-sm.jpg 960w, /images/food-ogorki-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Ogórki kiszone <span>Kiszonka</span></h3>
+    <p>Ogórki kiszone w solance z koprem i czosnkiem, a nie w occie, więc są kwaśne, a nie ostre. Słoik, który stoi w każdej kuchni.</p>
+  </div>
+</div><div class="row">
+  <span class="no">14</span>
+  <img src="/images/food-sernik-sm.jpg" srcset="/images/food-sernik-sm.jpg 960w, /images/food-sernik-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Sernik <span>Ciasto</span></h3>
+    <p>Ciasto z twarogu, czyli z białego sera, przez co jest bardziej zwarte, suchsze i dużo mniej słodkie niż to, co zna reszta świata.</p>
+  </div>
+</div><div class="row">
+  <span class="no">15</span>
+  <img src="/images/food-szarlotka-sm.jpg" srcset="/images/food-szarlotka-sm.jpg 960w, /images/food-szarlotka-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Szarlotka <span>Ciasto</span></h3>
+    <p>Ciasto z jabłkami, w którym jabłek jest więcej niż ciasta, podawane na ciepło z gałką lodów, jeśli lokal jest cokolwiek wart. Domyślne zamówienie do kawy.</p>
+  </div>
+</div><div class="row">
+  <span class="no">16</span>
+  <img src="/images/food-paczki-sm.jpg" srcset="/images/food-paczki-sm.jpg 960w, /images/food-paczki-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="th" alt="" loading="lazy" >
+  <div>
+    <h3>Pączki <span>Ciasto</span></h3>
+    <p>Smażone pączki z nadzieniem z konfitury różanej. W tłusty czwartek cały kraj stoi po nie w kolejce, a piekarnie liczą je w milionach.</p>
+  </div>
+</div></div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <p class="eyebrow">Jak wygląda dzień</p>
+  <h2 style="font-size:clamp(1.9rem,4vw,3rem);margin-top:6px">Pięć posiłków, a ten największy jest po południu</h2>
+  <ul class="day" style="padding:0;margin:0"><li><span class="t">07:00</span>
+ <span class="n">Śniadanie</span><p>Chleb, wędlina, ser, pomidor i ogórek, do tego herbata. Jajka w weekend.</p></li><li><span class="t">11:00</span>
+ <span class="n">Drugie śniadanie</span><p>Kanapka zjedzona przy biurku albo w szkole. Nikomu nie wydaje się to dziwne.</p></li><li class="big"><span class="t">14:00</span>
+ <span class="n">Obiad</span><p>Ten posiłek. Zupa, potem drugie danie, wczesnym popołudniem. W niedzielę potrafi trwać trzy godziny.</p></li><li><span class="t">17:00</span>
+ <span class="n">Podwieczorek</span><p>Ciasto i herbata późnym popołudniem, głównie dla dzieci i dziadków, i wciąż powszechnie trzymany.</p></li><li><span class="t">19:30</span>
+ <span class="n">Kolacja</span><p>Lekka: znowu chleb, resztki obiadu albo coś ciepłego, jeśli obiadu nie było.</p></li></ul>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">Jeden posiłek ponad wszystkie</p>
+  <h2 style="font-size:clamp(1.9rem,4vw,3rem);margin-top:6px">Wigilia, wieczorem 24 grudnia</h2>
+  <p class="lede" style="max-width:56ch;margin-top:14px">Jeśli masz zrozumieć jeden polski posiłek, niech to będzie ten. Je się go wieczorem 24 grudnia, tradycyjnie po pojawieniu się pierwszej gwiazdki i tradycyjnie bez mięsa. Dań jest dwanaście, liczba tłumaczona różnie w zależności od tego, kogo się zapyta, i każdy próbuje przynajmniej po trochu z każdego.</p>
+  <div class="plates"><figure><img src="/images/food-stol-sm.jpg" srcset="/images/food-stol-sm.jpg 960w, /images/food-stol-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="" alt="" loading="lazy" ><figcaption>Barszcz z uszkami</figcaption></figure><figure><img src="/images/food-barszcz-sm.jpg" srcset="/images/food-barszcz-sm.jpg 960w, /images/food-barszcz-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="" alt="" loading="lazy" ><figcaption>Barszcz z uszkami</figcaption></figure><figure><img src="/images/food-sledz-sm.jpg" srcset="/images/food-sledz-sm.jpg 960w, /images/food-sledz-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="" alt="" loading="lazy" ><figcaption>Karp</figcaption></figure><figure><img src="/images/food-oplatek-sm.jpg" srcset="/images/food-oplatek-sm.jpg 960w, /images/food-oplatek-lg.jpg 1280w" sizes="(min-width:900px) 45vw, 92vw" class="" alt="" loading="lazy" ><figcaption>Opłatek, którym łamie się rodzina, zanim ktokolwiek zacznie jeść</figcaption></figure></div>
+</div></section>
+
+<footer><div class="wrap">Makieta - kierunek „Menu”. Prawdziwe teksty i zdjęcia.</div></footer>
+
+</body>
+</html>

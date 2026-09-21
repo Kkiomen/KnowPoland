@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Section Styles - Places</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Source+Sans+3:wght@300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ink: #07080a;
+    --ink-2: #0e1013;
+    --bone: #f2efe9;
+    --bone-2: #a7a49d;
+    --amber: #f0a23c;
+    --red: #dc143c;
+    --line: rgba(242,239,233,.14);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ink); color: var(--bone);
+    font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif; font-size: 17px; line-height: 1.6; }
+  h1, h2, h3, .display { font-family: "Archivo Black", Impact, sans-serif; text-transform: uppercase;
+    letter-spacing: -.02em; margin: 0; font-weight: 400; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  .tag { position: sticky; top: 0; z-index: 30; background: #1b1b1b; border-bottom: 1px solid var(--line);
+    padding: 10px 20px; font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--amber); }
+  .flagbar { display: inline-flex; width: 3px; height: 22px; flex-direction: column; overflow: hidden;
+    border-radius: 2px; vertical-align: middle; }
+  .flagbar i { flex: 1; display: block; }
+  .flagbar i:first-child { background: #fff; }
+  .flagbar i:last-child { background: var(--red); }
+
+  /* ---------- A: full-bleed cinema ---------- */
+  .a { position: relative; min-height: 100vh; display: flex; align-items: flex-end; overflow: hidden; }
+  .a img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .a .grade { position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(7,8,10,.94) 0%, rgba(7,8,10,.72) 38%, rgba(7,8,10,.25) 72%, rgba(7,8,10,.5) 100%),
+      linear-gradient(0deg, rgba(7,8,10,.96) 0%, rgba(7,8,10,.2) 42%, rgba(7,8,10,.5) 100%); }
+  .a .in { position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px 56px; }
+  .a .num { position: absolute; right: 24px; top: 96px; font-family: "Archivo Black", sans-serif;
+    font-size: clamp(90px, 16vw, 230px); line-height: .8; color: rgba(242,239,233,.07); }
+  .a .eyebrow { display: flex; align-items: center; gap: 12px; font-size: 12px; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--amber); }
+  .a h2 { font-size: clamp(38px, 7.4vw, 104px); line-height: .94; margin-top: 16px; max-width: 16ch; }
+  .a .lede { max-width: 46ch; color: var(--bone-2); font-size: 19px; margin-top: 20px; }
+  .a .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 34px;
+    border-top: 1px solid var(--line); }
+  .a .facts div { padding: 16px 22px 0 0; border-right: 1px solid var(--line); }
+  .a .facts div:last-child { border-right: 0; }
+  .a .facts b { display: block; font-family: "Archivo Black", sans-serif; font-size: 17px; text-transform: uppercase; }
+  .a .facts span { display: block; color: var(--bone-2); font-size: 15px; margin-top: 6px; }
+  .a .cap { position: absolute; right: 32px; bottom: 20px; font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: rgba(242,239,233,.55); }
+
+  /* ---------- B: split screen ---------- */
+  .b { position: relative; min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+  .b .art { position: relative; overflow: hidden; }
+  .b .art img { width: 100%; height: 100%; object-fit: cover; }
+  .b .art .wash { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,8,10,.85), rgba(7,8,10,0) 45%); }
+  .b .txt { display: flex; flex-direction: column; justify-content: center; padding: 96px 56px 56px;
+    border-left: 1px solid var(--line); }
+  .b .row { display: flex; align-items: baseline; gap: 14px; }
+  .b .row .n { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--bone-2); }
+  .b .eyebrow { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--amber); }
+  .b h2 { font-size: clamp(34px, 4.4vw, 68px); line-height: .98; margin-top: 18px; max-width: 14ch; }
+  .b .lede { color: var(--bone-2); margin-top: 20px; max-width: 44ch; }
+  .b ul { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 0; }
+  .b li { border-top: 1px solid var(--line); padding: 14px 0; display: grid; grid-template-columns: 9rem 1fr; gap: 18px; }
+  .b li b { font-family: "Archivo Black", sans-serif; font-size: 14px; text-transform: uppercase; }
+  .b li span { color: var(--bone-2); font-size: 15px; }
+  .b .cap { margin-top: 26px; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .1em;
+    text-transform: uppercase; color: rgba(242,239,233,.45); }
+
+  /* ---------- C: poster grid ---------- */
+  .c { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden;
+    background: linear-gradient(200deg, #141a20 0%, #07080a 74%); }
+  .c .in { position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: 96px 32px 56px;
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+  .c .big { font-family: "Archivo Black", sans-serif; font-size: 13px; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--amber); display: flex; align-items: center; gap: 12px; }
+  .c h2 { font-size: clamp(34px, 5vw, 76px); line-height: .96; margin-top: 18px; }
+  .c h2 em { font-style: normal; color: var(--red); }
+  .c .lede { color: var(--bone-2); margin-top: 20px; max-width: 42ch; }
+  .c .stack { position: relative; }
+  .c .stack img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
+  .c .stack .frame { position: relative; border: 1px solid var(--line); }
+  .c .stack .plate { position: absolute; left: -26px; bottom: -26px; width: 52%; aspect-ratio: 1;
+    border: 1px solid var(--line); overflow: hidden; background: var(--ink-2); }
+  .c .stack .plate img { aspect-ratio: 1; }
+  .c .stack .tagline { position: absolute; right: -14px; top: 26px; writing-mode: vertical-rl;
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: rgba(242,239,233,.5); }
+  .c ul { list-style: none; padding: 0; margin: 34px 0 0; display: grid; gap: 0; max-width: 46ch; }
+  .c li { border-top: 1px solid var(--line); padding: 13px 0; }
+  .c li b { font-family: "Archivo Black", sans-serif; font-size: 14px; text-transform: uppercase; display: block; }
+  .c li span { color: var(--bone-2); font-size: 15px; }
+
+  @media (max-width: 900px) {
+    .a .facts { grid-template-columns: 1fr; }
+    .a .facts div { border-right: 0; border-bottom: 1px solid var(--line); padding: 12px 0; }
+    .b { grid-template-columns: 1fr; }
+    .b .art { min-height: 42vh; }
+    .b .txt { padding: 40px 22px; border-left: 0; }
+    .b li { grid-template-columns: 1fr; gap: 4px; }
+    .c .in { grid-template-columns: 1fr; padding: 72px 22px 48px; }
+    .c .stack .plate { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="tag">Wariant A - kino na pelnym ekranie</div>
+<section class="a">
+  <img src="/images/tlo-places.jpg" alt="">
+  <span class="grade"></span>
+  <span class="num">02</span>
+  <div class="in">
+    <p class="eyebrow"><span class="flagbar"><i></i><i></i></span> Places <span class="mono" style="color:var(--bone-2);letter-spacing:.2em">02 / 06</span></p>
+    <h2>Cities that were rebuilt</h2>
+    <p class="lede">Every Polish city carries a date. Some survived the war, some were reconstructed from paintings, one changed country without moving.</p>
+    <div class="facts">
+      <div><b>Krakow</b><span>The big city the war left standing, with Wawel above it.</span></div>
+      <div><b>Gdansk</b><span>Where the war began in 1939 and where Solidarity began in 1980.</span></div>
+      <div><b>The Tatras</b><span>Fifty kilometres of granite, rising to 2 499 m at Rysy.</span></div>
+    </div>
+  </div>
+  <span class="cap">The Old Town in Krakow &middot; CC0</span>
+</section>
+
+<div class="tag">Wariant B - podzial ekranu na pol</div>
+<section class="b">
+  <div class="art">
+    <img src="/images/tlo-places.jpg" alt="">
+    <span class="wash"></span>
+  </div>
+  <div class="txt">
+    <p class="row"><span class="eyebrow"><span class="flagbar" style="height:16px"><i></i><i></i></span> Places</span> <span class="n">02 / 06</span></p>
+    <h2>Cities that were rebuilt</h2>
+    <p class="lede">Every Polish city carries a date. Some survived the war, some were reconstructed from paintings, one changed country without moving. Knowing which is which changes what you are looking at.</p>
+    <ul>
+      <li><b>Krakow</b><span>The big city the war left standing, with Wawel above it.</span></li>
+      <li><b>Gdansk</b><span>Where the war began in 1939 and where Solidarity began in 1980.</span></li>
+      <li><b>The Tatras</b><span>Fifty kilometres of granite, rising to 2 499 m at Rysy.</span></li>
+    </ul>
+    <p class="cap">Photograph: the Old Town in Krakow &middot; CC0</p>
+  </div>
+</section>
+
+<div class="tag">Wariant C - plakat z warstwami</div>
+<section class="c">
+  <div class="in">
+    <div>
+      <p class="big"><span class="flagbar" style="height:16px"><i></i><i></i></span> Places <span class="mono" style="color:var(--bone-2)">02 / 06</span></p>
+      <h2>Cities that were <em>rebuilt</em>, and the country between them</h2>
+      <p class="lede">Every Polish city carries a date. Some survived the war, some were reconstructed from paintings, one changed country without moving.</p>
+      <ul>
+        <li><b>Krakow</b><span>The big city the war left standing, with Wawel above it.</span></li>
+        <li><b>Gdansk</b><span>Where the war began in 1939 and where Solidarity began in 1980.</span></li>
+        <li><b>The Tatras</b><span>Fifty kilometres of granite, rising to 2 499 m at Rysy.</span></li>
+      </ul>
+    </div>
+    <div class="stack">
+      <div class="frame"><img src="/images/tlo-places.jpg" alt=""></div>
+      <div class="plate"><img src="/images/tlo-history.jpg" alt=""></div>
+      <span class="tagline">The Old Town in Krakow &middot; CC0</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

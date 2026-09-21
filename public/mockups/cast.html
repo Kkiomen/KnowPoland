@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meet the Cast - Poland</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;500;600&display=swap">
+<style>
+  /* Single-theme cinematic: a reveal page, always dark. */
+  :root {
+    --ink: #0a0a0c;
+    --ink-2: #131317;
+    --bone: #f4f2ee;
+    --bone-2: #9b9a96;
+    --red: #e0372a;
+    --red-deep: #6d1a13;
+    --line: rgba(244,242,238,.13);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  body { margin: 0; background: var(--ink); color: var(--bone);
+    font-family: "Work Sans", ui-sans-serif, system-ui, sans-serif; font-size: 17px; line-height: 1.6; }
+  h1, h2, h3, .big { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; letter-spacing: .01em;
+    line-height: .88; margin: 0; text-transform: uppercase; }
+  a { color: var(--red); }
+
+  .hud { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 60;
+    display: flex; align-items: center; gap: 20px; padding: 14px 22px;
+    background: linear-gradient(180deg, rgba(10,10,12,.9), rgba(10,10,12,0)); }
+  .hud .mark { font-family: "Bebas Neue", sans-serif; font-size: 22px; letter-spacing: .08em;
+    color: var(--bone); text-decoration: none; }
+  .hud .mark span { color: var(--red); }
+  .hud .count { margin-left: auto; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--bone-2); }
+  .hud .count b { color: var(--bone); font-weight: 500; }
+
+  /* opening */
+  .open { position: relative; min-height: 100dvh; display: flex; align-items: center; overflow: hidden; }
+  .open .bg { position: absolute; inset: 0;
+    background:
+      radial-gradient(60% 50% at 80% 24%, rgba(224,55,42,.28) 0%, rgba(224,55,42,0) 62%),
+      radial-gradient(70% 60% at 14% 84%, rgba(60,80,120,.30) 0%, rgba(60,80,120,0) 60%),
+      linear-gradient(200deg, #1a1a20 0%, #0a0a0c 76%); }
+  .open .vig { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,12,.6), rgba(10,10,12,.2) 40%, rgba(10,10,12,.95)); }
+  .open .in { position: relative; max-width: 1240px; margin: 0 auto; padding: 120px 24px 72px; width: 100%; }
+  .eyebrow { font-size: 12px; letter-spacing: .32em; text-transform: uppercase; color: var(--red); margin: 0; }
+  .open h1 { font-size: clamp(56px, 15vw, 210px); margin-top: 16px; }
+  .open h1 .out { -webkit-text-stroke: 2px var(--bone); color: transparent; }
+  .open .lede { max-width: 50ch; color: var(--bone-2); font-size: clamp(17px, 2vw, 21px); margin-top: 24px; }
+  .open .scroll { margin-top: 40px; display: inline-flex; align-items: center; gap: 12px;
+    font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--bone-2); text-decoration: none; }
+  .open .scroll .bar { width: 64px; height: 1px; background: var(--red); display: inline-block; }
+
+  /* cast */
+  .cast { position: relative; display: grid; grid-template-columns: 44% 56%; }
+  .stage { position: sticky; top: 0; height: 100dvh; overflow: hidden; }
+  .stage .art { position: absolute; inset: 0; transition: background .5s ease; }
+  .stage .fade { position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(10,10,12,.35) 0%, rgba(10,10,12,.1) 50%, rgba(10,10,12,.9) 100%); }
+  .stage .label { position: absolute; left: 28px; right: 28px; bottom: 34px; }
+  .stage .label .idx { font-size: 12px; letter-spacing: .3em; color: var(--red); }
+  .stage .label h2 { font-size: clamp(44px, 6vw, 96px); margin-top: 10px; }
+  .stage .label .pl { font-size: 14px; letter-spacing: .18em; text-transform: uppercase; color: var(--bone-2); margin-top: 10px; }
+
+  .panels { border-left: 1px solid var(--line); }
+  .panel { min-height: 100dvh; display: flex; flex-direction: column; justify-content: center;
+    padding: 90px 42px; border-bottom: 1px solid var(--line); }
+  .panel .tag { font-size: 12px; letter-spacing: .26em; text-transform: uppercase; color: var(--red); margin: 0; }
+  .panel h3 { font-size: clamp(30px, 4vw, 52px); margin: 14px 0 18px; }
+  .panel > p { margin: 0 0 22px; color: var(--bone-2); max-width: 52ch; font-size: 18px; }
+  .panel > p em { color: var(--bone); font-style: normal; }
+  .dossier { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); max-width: 560px; }
+  .dossier .row { background: var(--ink-2); padding: 14px 18px; display: grid; grid-template-columns: 150px 1fr; gap: 16px; }
+  .dossier .k { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--bone-2); padding-top: 3px; }
+  .dossier .v { font-size: 16px; }
+  .panel .go { margin-top: 24px; align-self: flex-start; display: inline-flex; gap: 10px; text-decoration: none;
+    font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--bone);
+    border: 1px solid var(--line); padding: 12px 22px; border-radius: 999px; transition: border-color .2s, background .2s; }
+  .panel .go:hover, .panel .go:focus-visible { border-color: var(--red); background: rgba(224,55,42,.10); outline: none; }
+
+  /* closing */
+  .close { padding: 96px 24px 90px; max-width: 1240px; margin: 0 auto; }
+  .close h2 { font-size: clamp(34px, 6vw, 84px); }
+  .close .lede { color: var(--bone-2); max-width: 56ch; margin-top: 16px; }
+  .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line);
+    border: 1px solid var(--line); margin-top: 40px; }
+  .strip a { background: var(--ink-2); padding: 24px 20px 26px; text-decoration: none; color: var(--bone); display: block; }
+  .strip a:hover { background: #191920; }
+  .strip .yr { font-family: "Bebas Neue", sans-serif; font-size: 34px; color: var(--red); }
+  .strip h3 { font-size: 20px; margin-top: 6px; }
+  .strip p { margin: 8px 0 0; font-size: 15px; color: var(--bone-2); }
+  footer { border-top: 1px solid var(--line); margin-top: 60px; padding-top: 22px;
+    display: flex; gap: 18px; flex-wrap: wrap; justify-content: space-between; color: var(--bone-2); font-size: 13px; }
+  footer a { color: var(--bone-2); text-decoration: none; }
+  footer a:hover { color: var(--red); }
+
+  @media (max-width: 900px) {
+    .cast { grid-template-columns: 1fr; }
+    .stage { height: 46dvh; }
+    .stage .label h2 { font-size: clamp(34px, 9vw, 56px); }
+    .panels { border-left: 0; }
+    .panel { min-height: auto; padding: 44px 22px; }
+    .dossier .row { grid-template-columns: 1fr; gap: 4px; }
+    .strip { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 520px) { .strip { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <a class="mark" href="#top">Come to Poland<span>.</span></a>
+  <span class="count">Part <b id="v2-count">01</b> / 06</span>
+</div>
+
+<section class="open" id="top">
+  <div class="bg"></div><div class="vig"></div>
+  <div class="in">
+    <p class="eyebrow">Six places, one country, in order</p>
+    <h1>You've heard<br><span class="out">of two of them.</span><br>Meet the rest.</h1>
+    <p class="lede">Poland is not one destination - it is six very different ones that happen to share a border, a language and a complicated century. Scroll, and we'll introduce them one at a time.</p>
+    <a class="scroll" href="#cast"><span class="bar"></span> Scroll to begin</a>
+  </div>
+</section>
+
+<div class="cast" id="cast">
+  <div class="stage">
+    <div class="art" id="v2-art" style="background:radial-gradient(60% 50% at 40% 30%, rgba(214,120,60,.30) 0%, rgba(214,120,60,0) 62%), linear-gradient(200deg,#2b2320 0%,#0a0a0c 76%)"></div>
+    <div class="fade"></div>
+    <div class="label">
+      <span class="idx" id="v2-idx">01 / 06</span>
+      <h2 id="v2-name">Warsaw</h2>
+      <p class="pl" id="v2-pl">Warszawa · Mazovia · the rebuilt capital</p>
+    </div>
+  </div>
+
+  <div class="panels">
+
+    <article class="panel" id="p1" data-name="Warsaw" data-pl="Warszawa · Mazovia · the rebuilt capital"
+      data-art="radial-gradient(60% 50% at 40% 30%, rgba(214,120,60,.30) 0%, rgba(214,120,60,0) 62%), linear-gradient(200deg,#2b2320 0%,#0a0a0c 76%)">
+      <p class="tag">Part 01</p>
+      <h3>The city that was rebuilt<br>from paintings</h3>
+      <p>Warsaw was deliberately destroyed after the 1944 uprising - <em>street by street, on orders</em>. What you walk through today was put back between 1945 and 1984 using surviving fragments, pre-war photographs and 18th-century cityscapes by Bernardo Bellotto. The Old Town is medieval in shape and post-war in fact.</p>
+      <div class="dossier">
+        <div class="row"><span class="k">Known for</span><span class="v">Reconstruction, glass towers, the best museums in the country</span></div>
+        <div class="row"><span class="k">Go for</span><span class="v">The Warsaw Rising Museum and POLIN, the museum of Polish Jews</span></div>
+        <div class="row"><span class="k">Nobody tells you</span><span class="v">The ghetto boundary is marked in the pavement. You will cross it without noticing.</span></div>
+      </div>
+      <a class="go" href="#">Read about Warsaw →</a>
+    </article>
+
+    <article class="panel" id="p2" data-name="Kraków" data-pl="Kraków · Lesser Poland · the one that survived"
+      data-art="radial-gradient(60% 50% at 62% 28%, rgba(226,186,96,.26) 0%, rgba(226,186,96,0) 62%), linear-gradient(200deg,#2a2519 0%,#0a0a0c 76%)">
+      <p class="tag">Part 02</p>
+      <h3>The one the war<br>left standing</h3>
+      <p>Kraków kept its medieval centre, its royal castle on Wawel hill and a market square the size of a small district. It is also <em>an hour from Auschwitz-Birkenau</em>, and the two facts belong to the same city - which is why we treat the second as history, not as a day trip.</p>
+      <div class="dossier">
+        <div class="row"><span class="k">Known for</span><span class="v">Wawel, the Cloth Hall, Kazimierz - the old Jewish quarter</span></div>
+        <div class="row"><span class="k">Go for</span><span class="v">Europe's oldest continuously operating salt mine, at Wieliczka</span></div>
+        <div class="row"><span class="k">Nobody tells you</span><span class="v">A trumpet call sounds from the church tower every hour, and breaks off mid-note. On purpose.</span></div>
+      </div>
+      <a class="go" href="#">Read about Kraków →</a>
+    </article>
+
+    <article class="panel" id="p3" data-name="Gdańsk" data-pl="Gdańsk · Pomerania · where things started"
+      data-art="radial-gradient(60% 50% at 34% 26%, rgba(96,150,190,.28) 0%, rgba(96,150,190,0) 62%), linear-gradient(200deg,#1a222b 0%,#0a0a0c 76%)">
+      <p class="tag">Part 03</p>
+      <h3>Where the war started,<br>and where it ended</h3>
+      <p>The first shots of the Second World War were fired here in September 1939. Forty-one years later, <em>a strike in the same city's shipyard began the end of communism in Europe</em>. The merchant houses along the main street look 17th-century and were rebuilt in the 1950s.</p>
+      <div class="dossier">
+        <div class="row"><span class="k">Known for</span><span class="v">The Baltic, amber, cranes, and Solidarity</span></div>
+        <div class="row"><span class="k">Go for</span><span class="v">The European Solidarity Centre, built against the shipyard gate</span></div>
+        <div class="row"><span class="k">Nobody tells you</span><span class="v">For centuries it was a semi-independent city, German-speaking as often as Polish. That argument is the whole region's history.</span></div>
+      </div>
+      <a class="go" href="#">Read about Gdańsk →</a>
+    </article>
+
+    <article class="panel" id="p4" data-name="Wrocław" data-pl="Wrocław · Lower Silesia · the moved city"
+      data-art="radial-gradient(60% 50% at 56% 30%, rgba(120,176,140,.26) 0%, rgba(120,176,140,0) 62%), linear-gradient(200deg,#1a2620 0%,#0a0a0c 76%)">
+      <p class="tag">Part 04</p>
+      <h3>The city that changed<br>country without moving</h3>
+      <p>Until 1945 this was Breslau, a German city. After the war the borders shifted west, the German population left or was expelled, and <em>people arrived from Polish towns that had just become Soviet</em>. An entire city was replaced, population and all, within a few years.</p>
+      <div class="dossier">
+        <div class="row"><span class="k">Known for</span><span class="v">Islands, a hundred bridges, and a market square rebuilt in colour</span></div>
+        <div class="row"><span class="k">Go for</span><span class="v">The Racławice Panorama - a 15-metre-high painting in the round</span></div>
+        <div class="row"><span class="k">Nobody tells you</span><span class="v">There are several hundred small bronze dwarves hidden around the streets. They started as anti-communist street protest.</span></div>
+      </div>
+      <a class="go" href="#">Read about Wrocław →</a>
+    </article>
+
+    <article class="panel" id="p5" data-name="The Tatras" data-pl="Tatry · the southern border"
+      data-art="radial-gradient(60% 50% at 46% 22%, rgba(168,188,208,.28) 0%, rgba(168,188,208,0) 60%), linear-gradient(200deg,#202830 0%,#0a0a0c 76%)">
+      <p class="tag">Part 05</p>
+      <h3>Alps, compressed<br>into fifty kilometres</h3>
+      <p>The Tatras are small, steep and shared with Slovakia. Rysy, the highest point in Poland, reaches <em>2,499 metres</em>. Below them sits Zakopane, a town with its own architectural style, its own dialect and a highlander culture that predates the modern state.</p>
+      <div class="dossier">
+        <div class="row"><span class="k">Known for</span><span class="v">Granite peaks, mountain huts, sheep's cheese smoked over a fire</span></div>
+        <div class="row"><span class="k">Go for</span><span class="v">A full-day ridge walk in summer, or the wooden churches in the valleys</span></div>
+        <div class="row"><span class="k">Nobody tells you</span><span class="v">Weather turns fast and mountain rescue is called out often. Check the forecast the way locals do.</span></div>
+      </div>
+      <a class="go" href="#">Read about the Tatras →</a>
+    </article>
+
+    <article class="panel" id="p6" data-name="Białowieża" data-pl="Białowieża · Podlasie · the last old forest"
+      data-art="radial-gradient(60% 50% at 40% 26%, rgba(110,150,96,.28) 0%, rgba(110,150,96,0) 60%), linear-gradient(200deg,#1b2418 0%,#0a0a0c 76%)">
+      <p class="tag">Part 06</p>
+      <h3>The forest Europe<br>forgot to cut down</h3>
+      <p>On the eastern border stands one of the last large remnants of the primeval lowland forest that once covered the continent. It is <em>the home of the European bison</em>, brought back from near-extinction after the First World War, and it is split in half by the Polish-Belarusian border.</p>
+      <div class="dossier">
+        <div class="row"><span class="k">Known for</span><span class="v">Bison, thousand-year-old oaks, strict-protection zones</span></div>
+        <div class="row"><span class="k">Go for</span><span class="v">A guided dawn walk - the strict reserve cannot be entered alone</span></div>
+        <div class="row"><span class="k">Nobody tells you</span><span class="v">The surrounding region is Orthodox as often as Catholic, with wooden churches to match.</span></div>
+      </div>
+      <a class="go" href="#">Read about Białowieża →</a>
+    </article>
+
+  </div>
+</div>
+
+<section class="close">
+  <p class="eyebrow">And the century behind all six</p>
+  <h2>Four dates that explain<br>everything you just read</h2>
+  <p class="lede">Every one of these places was shaped by the same short list of years. Start anywhere - each entry takes about five minutes and links to the next.</p>
+  <div class="strip">
+    <a href="#"><span class="yr">1795</span><h3>Erased</h3><p>Three empires divide the country. No Poland on the map for 123 years.</p></a>
+    <a href="#"><span class="yr">1939</span><h3>Invasion</h3><p>Germany on 1 September, the Soviet Union on the 17th. Occupation follows.</p></a>
+    <a href="#"><span class="yr">1945</span><h3>Moved west</h3><p>New borders, emptied cities, and millions of people resettled.</p></a>
+    <a href="#"><span class="yr">1989</span><h3>The turn</h3><p>Partly free elections. Everything modern about Poland dates from here.</p></a>
+  </div>
+  <footer>
+    <span>Come to Poland - an independent guide to the country, not a travel agency.</span>
+    <span><a href="#">Sources</a> · <a href="#">Corrections</a> · <a href="#">Contact</a></span>
+  </footer>
+</section>
+
+<script>
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+  var art = document.getElementById('v2-art');
+  var nameEl = document.getElementById('v2-name');
+  var plEl = document.getElementById('v2-pl');
+  var idxEl = document.getElementById('v2-idx');
+  var countEl = document.getElementById('v2-count');
+
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) { return; }
+      var i = panels.indexOf(e.target);
+      var d = e.target.dataset;
+      art.style.background = d.art;
+      nameEl.textContent = d.name;
+      plEl.textContent = d.pl;
+      idxEl.textContent = pad(i + 1) + ' / ' + pad(panels.length);
+      countEl.textContent = pad(i + 1);
+    });
+  }, { threshold: 0.5 });
+  panels.forEach(function (p) { io.observe(p); });
+</script>
+</body>
+</html>

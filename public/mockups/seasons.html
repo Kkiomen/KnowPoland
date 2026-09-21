@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Four Seasons, Four Countries</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,400&display=swap">
+<style>
+  /* Single-theme by design: a slow parallax descent through the year. */
+  :root {
+    --night: #0b0d12;
+    --night-2: #141821;
+    --bone: #f1eee8;
+    --bone-2: #9a9ba4;
+    --ember: #d9743f;
+    --frost: #86b6cf;
+    --line: rgba(241,238,232,.14);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  body { margin: 0; background: var(--night); color: var(--bone);
+    font-family: Newsreader, Georgia, serif; font-size: 18px; line-height: 1.6; }
+  h1, h2, h3, .slab { font-family: "Fjalla One", Impact, sans-serif; font-weight: 400; text-transform: uppercase;
+    letter-spacing: .015em; line-height: .94; margin: 0; }
+  a { color: var(--ember); }
+
+  .hud { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 60;
+    display: flex; align-items: center; gap: 18px; padding: 14px 22px;
+    background: linear-gradient(180deg, rgba(11,13,18,.92), rgba(11,13,18,0)); }
+  .hud .mark { font-family: "Fjalla One", sans-serif; font-size: 17px; letter-spacing: .1em; color: var(--bone); text-decoration: none; }
+  .hud .mark span { color: var(--ember); }
+  .hud .now { margin-left: auto; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--bone-2); }
+  .hud .now b { color: var(--bone); font-weight: 400; }
+
+  /* opening */
+  .open { position: relative; min-height: 100dvh; display: flex; align-items: center; overflow: hidden; }
+  .open .bg { position: absolute; inset: 0;
+    background:
+      radial-gradient(66% 54% at 74% 22%, rgba(134,182,207,.24) 0%, rgba(134,182,207,0) 62%),
+      radial-gradient(74% 62% at 18% 88%, rgba(217,116,63,.22) 0%, rgba(217,116,63,0) 60%),
+      linear-gradient(198deg, #1a1f2b 0%, #0b0d12 76%); }
+  .open .vig { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,13,18,.5), rgba(11,13,18,.12) 42%, rgba(11,13,18,.96)); }
+  .open .in { position: relative; width: 100%; max-width: 1180px; margin: 0 auto; padding: 118px 24px 84px; }
+  .eyebrow { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--frost); margin: 0; }
+  .open h1 { font-size: clamp(48px, 11vw, 150px); margin-top: 16px; }
+  .open h1 .em { color: var(--ember); }
+  .open .lede { max-width: 50ch; color: var(--bone-2); font-size: clamp(17px, 2vw, 21px); margin-top: 22px; }
+  .go { margin-top: 32px; display: inline-flex; gap: 14px; align-items: center; text-decoration: none;
+    font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--bone);
+    border: 1px solid var(--line); padding: 13px 26px; }
+  .go:hover, .go:focus-visible { border-color: var(--ember); background: rgba(217,116,63,.10); outline: none; }
+
+  /* parallax scenes */
+  .scene { position: relative; min-height: 118dvh; overflow: hidden; border-top: 1px solid var(--line); }
+  .plane { position: absolute; left: 0; right: 0; will-change: transform; }
+  .sky { top: 0; height: 130%; }
+  .mid { top: 12%; height: 120%; }
+  .fore { bottom: -14%; height: 62%; }
+  .scene .grade { position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(11,13,18,.34) 0%, rgba(11,13,18,.06) 34%, rgba(11,13,18,.94) 90%); }
+  .scene .in { position: relative; min-height: 100dvh; display: flex; align-items: center;
+    max-width: 1180px; margin: 0 auto; padding: 90px 24px; }
+  .card { max-width: 620px; }
+  .card .season { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .card .season .n { font-family: "Fjalla One", sans-serif; font-size: 13px; letter-spacing: .3em; color: var(--ember); }
+  .card .season .m { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--bone-2); }
+  .card h2 { font-size: clamp(38px, 7vw, 92px); margin-top: 12px; }
+  .card .pl { font-family: Newsreader, serif; font-style: italic; color: var(--frost); font-size: 19px; margin: 10px 0 0; }
+  .card p { color: var(--bone-2); margin: 18px 0 0; }
+  .card p em { color: var(--bone); font-style: normal; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line);
+    border: 1px solid var(--line); margin-top: 24px; }
+  .facts div { background: rgba(11,13,18,.72); padding: 14px 16px; }
+  .facts .k { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--bone-2); }
+  .facts .v { font-family: "Fjalla One", sans-serif; font-size: 20px; margin-top: 4px; }
+  .card .more { margin-top: 22px; display: inline-flex; gap: 10px; text-decoration: none; font-size: 12px;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--bone);
+    border-bottom: 1px solid rgba(217,116,63,.5); padding-bottom: 5px; }
+  .card .more:hover { color: var(--ember); }
+
+  /* end */
+  .end { padding: 92px 24px 88px; max-width: 1180px; margin: 0 auto; border-top: 1px solid var(--line); }
+  .end h2 { font-size: clamp(32px, 6vw, 72px); }
+  .end .lede { color: var(--bone-2); max-width: 56ch; margin-top: 14px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+  .cards a { background: var(--night-2); border: 1px solid var(--line); padding: 24px; text-decoration: none; color: var(--bone); display: block; }
+  .cards a:hover { border-color: var(--ember); }
+  .cards h3 { font-size: 21px; }
+  .cards p { margin: 10px 0 0; color: var(--bone-2); font-size: 15px; }
+  footer { margin-top: 50px; border-top: 1px solid var(--line); padding-top: 20px;
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; color: var(--bone-2); font-size: 13px; }
+  footer a { color: var(--bone-2); text-decoration: none; }
+  footer a:hover { color: var(--ember); }
+
+  @media (max-width: 860px) {
+    .hud .now { display: none; }
+    .facts { grid-template-columns: 1fr; }
+    .cards { grid-template-columns: 1fr; }
+    .scene { min-height: 108dvh; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <a class="mark" href="#top">Come to Poland<span>.</span></a>
+  <span class="now">Now showing: <b id="se-now">Winter</b></span>
+</div>
+
+<section class="open" id="top">
+  <div class="bg"></div><div class="vig"></div>
+  <div class="in">
+    <p class="eyebrow">The same country, four times over</p>
+    <h1>It is not one<br>place. It is <span class="em">four,</span><br>in rotation.</h1>
+    <p class="lede">Ask when to come to Poland and you'll get four different answers, because the country genuinely rearranges itself: −15 °C and dark at four in the afternoon, or 30 °C and light until ten. Scroll through the year before you pick your month.</p>
+    <a class="go" href="#winter">Start in January →</a>
+  </div>
+</section>
+
+<section class="scene" id="winter" data-season="Winter">
+  <div class="plane sky" style="background:linear-gradient(180deg,#25303f 0%,#131820 68%)"></div>
+  <div class="plane mid" style="background:radial-gradient(60% 46% at 46% 34%, rgba(160,192,214,.30) 0%, rgba(160,192,214,0) 64%)"></div>
+  <div class="plane fore" style="background:linear-gradient(180deg, rgba(11,13,18,0) 0%, rgba(30,40,54,.85) 46%, #0b0d12 100%)"></div>
+  <div class="grade"></div>
+  <div class="in">
+    <div class="card">
+      <div class="season"><span class="n">SEASON 01</span><span class="m">December - February</span></div>
+      <h2>Winter</h2>
+      <p class="pl">zima</p>
+      <p>Short days, long nights and a country that moves indoors. The mountains fill with skiers, the cities smell of smoke and mulled wine, and <em>Christmas Eve - not Christmas Day - is the evening everything stops for</em>: twelve meatless dishes, an empty place set at the table, and no shops open on the 25th or 26th.</p>
+      <div class="facts">
+        <div><div class="k">Daylight in January</div><div class="v">~8 hours</div></div>
+        <div><div class="k">Typical low</div><div class="v">−5 °C</div></div>
+        <div><div class="k">Best for</div><div class="v">Mountains, museums</div></div>
+      </div>
+      <a class="more" href="#">What happens at a Polish Christmas →</a>
+    </div>
+  </div>
+</section>
+
+<section class="scene" data-season="Spring">
+  <div class="plane sky" style="background:linear-gradient(180deg,#27362c 0%,#141a16 68%)"></div>
+  <div class="plane mid" style="background:radial-gradient(60% 46% at 58% 32%, rgba(150,196,140,.28) 0%, rgba(150,196,140,0) 64%)"></div>
+  <div class="plane fore" style="background:linear-gradient(180deg, rgba(11,13,18,0) 0%, rgba(28,46,34,.85) 46%, #0b0d12 100%)"></div>
+  <div class="grade"></div>
+  <div class="in">
+    <div class="card">
+      <div class="season"><span class="n">SEASON 02</span><span class="m">March - May</span></div>
+      <h2>Spring</h2>
+      <p class="pl">wiosna</p>
+      <p>Everything happens at once: the parks fill within a week, the storks come back to the north-east, and the calendar stacks up. Easter Monday is <em>a national water fight - strangers included</em>, and the first days of May bring two public holidays back to back, which empties the cities and fills the mountains.</p>
+      <div class="facts">
+        <div><div class="k">Daylight in May</div><div class="v">~16 hours</div></div>
+        <div><div class="k">Typical high</div><div class="v">18 °C</div></div>
+        <div><div class="k">Best for</div><div class="v">Cities, before the crowds</div></div>
+      </div>
+      <a class="more" href="#">Why 1-3 May shuts the country →</a>
+    </div>
+  </div>
+</section>
+
+<section class="scene" data-season="Summer">
+  <div class="plane sky" style="background:linear-gradient(180deg,#3a3524 0%,#1a1a14 68%)"></div>
+  <div class="plane mid" style="background:radial-gradient(60% 46% at 40% 30%, rgba(226,186,104,.30) 0%, rgba(226,186,104,0) 64%)"></div>
+  <div class="plane fore" style="background:linear-gradient(180deg, rgba(11,13,18,0) 0%, rgba(48,42,26,.85) 46%, #0b0d12 100%)"></div>
+  <div class="grade"></div>
+  <div class="in">
+    <div class="card">
+      <div class="season"><span class="n">SEASON 03</span><span class="m">June - August</span></div>
+      <h2>Summer</h2>
+      <p class="pl">lato</p>
+      <p>Light until ten at night, the whole country outdoors, and the coast and lakes full of Poles rather than foreigners. It is the loudest, warmest and most expensive quarter - and the only one in which <em>the Baltic is arguably swimmable</em>. Expect thunderstorms in the afternoon and long, slow evenings afterwards.</p>
+      <div class="facts">
+        <div><div class="k">Daylight in June</div><div class="v">~17 hours</div></div>
+        <div><div class="k">Typical high</div><div class="v">25 °C</div></div>
+        <div><div class="k">Best for</div><div class="v">Coast, lakes, hiking</div></div>
+      </div>
+      <a class="more" href="#">Where Poles actually go in July →</a>
+    </div>
+  </div>
+</section>
+
+<section class="scene" data-season="Autumn">
+  <div class="plane sky" style="background:linear-gradient(180deg,#3a2a22 0%,#1a1513 68%)"></div>
+  <div class="plane mid" style="background:radial-gradient(60% 46% at 54% 32%, rgba(217,116,63,.28) 0%, rgba(217,116,63,0) 64%)"></div>
+  <div class="plane fore" style="background:linear-gradient(180deg, rgba(11,13,18,0) 0%, rgba(46,30,22,.85) 46%, #0b0d12 100%)"></div>
+  <div class="grade"></div>
+  <div class="in">
+    <div class="card">
+      <div class="season"><span class="n">SEASON 04</span><span class="m">September - November</span></div>
+      <h2>Autumn</h2>
+      <p class="pl">jesień</p>
+      <p>The best light of the year, mushroom season in the forests - <em>a genuine national pastime, not a metaphor</em> - and on 1 November a country lit by candles: All Saints' Day empties the motorways and fills every cemetery, including the ones nobody has family in any more. If you want to understand how Poland relates to its dead, come in November.</p>
+      <div class="facts">
+        <div><div class="k">Daylight in October</div><div class="v">~11 hours</div></div>
+        <div><div class="k">Typical high</div><div class="v">12 °C</div></div>
+        <div><div class="k">Best for</div><div class="v">Forests, cities, quiet</div></div>
+      </div>
+      <a class="more" href="#">All Saints' Day, explained →</a>
+    </div>
+  </div>
+</section>
+
+<section class="end">
+  <p class="eyebrow">Having picked a month</p>
+  <h2>Now pick<br>a direction</h2>
+  <p class="lede">The season changes what is worth doing far more than the region does. These three take it from here.</p>
+  <div class="cards">
+    <a href="#"><h3>Sea to summit</h3><p>Five landscapes, north to south, and what each one did to the history above it.</p></a>
+    <a href="#"><h3>A thousand years</h3><p>966 to 1989 in chapters, each ending somewhere you can stand today.</p></a>
+    <a href="#"><h3>The holiday calendar</h3><p>Which dates close the shops, fill the trains, or are worth planning a trip around.</p></a>
+  </div>
+  <footer>
+    <span>Come to Poland - an independent guide to the country. Weather figures are long-term averages, not forecasts.</span>
+    <span><a href="#">Sources</a> · <a href="#">Corrections</a> · <a href="#">Contact</a></span>
+  </footer>
+</section>
+
+<script>
+  var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
+  var now = document.getElementById('se-now');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var ticking = false;
+
+  function frame() {
+    ticking = false;
+    var vh = window.innerHeight;
+    scenes.forEach(function (s) {
+      var r = s.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) { return; }
+      var p = (vh - r.top) / (vh + r.height);
+      if (reduce.matches) { return; }
+      var sky = s.querySelector('.sky');
+      var mid = s.querySelector('.mid');
+      var fore = s.querySelector('.fore');
+      if (sky) { sky.style.transform = 'translate3d(0,' + (p * -60) + 'px,0)'; }
+      if (mid) { mid.style.transform = 'translate3d(0,' + (p * -150) + 'px,0)'; }
+      if (fore) { fore.style.transform = 'translate3d(0,' + (p * 70) + 'px,0)'; }
+    });
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { now.textContent = e.target.dataset.season; } });
+  }, { threshold: 0.45 });
+  scenes.forEach(function (s) { io.observe(s); });
+
+  frame();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Section Moods - Places</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Source+Sans+3:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+    font-size: 17px; line-height: 1.6; }
+  h2, .display { font-family: "Archivo Black", Impact, sans-serif; font-weight: 400;
+    text-transform: uppercase; letter-spacing: -.02em; margin: 0; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  .tag { position: sticky; top: 0; z-index: 30; background: #1b1b1b; color: #f0a23c;
+    border-bottom: 1px solid #333; padding: 10px 20px; font-family: "IBM Plex Mono", monospace;
+    font-size: 12px; letter-spacing: .18em; text-transform: uppercase; }
+  .flag { display: inline-flex; width: 3px; height: 16px; flex-direction: column; overflow: hidden;
+    border-radius: 2px; vertical-align: middle; }
+  .flag i { flex: 1; display: block; }
+  .flag i:first-child { background: #fff; }
+  .flag i:last-child { background: #dc143c; }
+  .flag.on-light i:first-child { background: #fff; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15); }
+
+  section { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+  .art { position: relative; overflow: hidden; }
+  .art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .txt { display: flex; flex-direction: column; justify-content: center; padding: 72px 56px; }
+  .head { display: flex; align-items: center; gap: 12px; font-size: 12px; letter-spacing: .3em;
+    text-transform: uppercase; }
+  h2 { font-size: clamp(32px, 4vw, 60px); line-height: .98; margin-top: 18px; max-width: 14ch; }
+  .lede { margin-top: 20px; max-width: 44ch; }
+  ul { list-style: none; padding: 0; margin: 30px 0 0; }
+  li { padding: 13px 0; display: grid; grid-template-columns: 9rem 1fr; gap: 18px; }
+  li b { font-family: "Archivo Black", sans-serif; font-size: 14px; text-transform: uppercase; }
+  .more { margin-top: 26px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase;
+    text-decoration: none; padding-bottom: 6px; display: inline-block; width: fit-content; }
+  .cap { margin-top: 22px; font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: .1em; text-transform: uppercase; }
+
+  /* ---- 1. teraz: noc i czern ---- */
+  .now-mood { background: #07080a; color: #f2efe9; }
+  .now-mood .art .wash { position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(7,8,10,.9), rgba(7,8,10,0) 45%); }
+  .now-mood .head { color: #f0a23c; }
+  .now-mood .lede, .now-mood li span { color: #a7a49d; }
+  .now-mood h2 em { font-style: normal; color: #dc143c; }
+  .now-mood li { border-top: 1px solid rgba(242,239,233,.14); }
+  .now-mood .more { color: #f2efe9; border-bottom: 1px solid #7a4f13; }
+  .now-mood .cap { color: rgba(242,239,233,.45); }
+  .now-mood .txt { border-left: 1px solid rgba(242,239,233,.14); }
+
+  /* ---- 2. cieple ciemne ---- */
+  .warm { background: #17120f; color: #f6f1e7; }
+  .warm .art .wash { position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(23,18,15,.8), rgba(23,18,15,0) 42%); }
+  .warm .head { color: #e8a33d; }
+  .warm .lede, .warm li span { color: #b8ad9c; }
+  .warm h2 em { font-style: normal; color: #e8a33d; }
+  .warm li { border-top: 1px solid rgba(246,241,231,.16); }
+  .warm .more { color: #f6f1e7; border-bottom: 1px solid #7d5a25; }
+  .warm .cap { color: rgba(246,241,231,.45); }
+  .warm .txt { border-left: 1px solid rgba(246,241,231,.16); }
+
+  /* ---- 3. jasne, dzienne ---- */
+  .light { background: #f4f1ea; color: #18160f; }
+  .light .art .wash { display: none; }
+  .light .head { color: #a8481f; }
+  .light .lede, .light li span { color: #5d5749; }
+  .light h2 em { font-style: normal; color: #a8481f; }
+  .light li { border-top: 1px solid rgba(24,22,15,.14); }
+  .light .more { color: #18160f; border-bottom: 1px solid #a8481f; }
+  .light .cap { color: rgba(24,22,15,.45); }
+  .light .txt { border-left: 1px solid rgba(24,22,15,.12); }
+
+  @media (max-width: 900px) {
+    section { grid-template-columns: 1fr; }
+    .art { min-height: 40vh; }
+    .txt { padding: 40px 22px; border-left: 0 !important; }
+    li { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="tag">1. Teraz - noc, czern, krwista czerwien</div>
+<section class="now-mood">
+  <div class="art">
+    <img src="/images/tlo-places-1400.jpg" alt="">
+    <span class="wash"></span>
+  </div>
+  <div class="txt">
+    <p class="head"><span class="flag"><i></i><i></i></span> Places <span class="mono" style="opacity:.6">02 / 06</span></p>
+    <h2>Cities that were <em>rebuilt</em></h2>
+    <p class="lede">Every Polish city carries a date. Some survived the war, some were reconstructed from paintings, one changed country without moving.</p>
+    <ul>
+      <li><b>Krakow</b><span>The big city the war left standing, with Wawel above it.</span></li>
+      <li><b>Gdansk</b><span>Where the war began in 1939 and where Solidarity began in 1980.</span></li>
+      <li><b>The Tatras</b><span>Fifty kilometres of granite, rising to 2 499 m at Rysy.</span></li>
+    </ul>
+    <a class="more" href="#">See the places &rarr;</a>
+    <p class="cap">The crane on the Motlawa, Gdansk &middot; CC0</p>
+  </div>
+</section>
+
+<div class="tag">2. Cieple ciemne - ta sama noc, ale bez chlodu</div>
+<section class="warm">
+  <div class="art">
+    <img src="/images/tlo-places-1400.jpg" alt="">
+    <span class="wash"></span>
+  </div>
+  <div class="txt">
+    <p class="head"><span class="flag"><i></i><i></i></span> Places <span class="mono" style="opacity:.6">02 / 06</span></p>
+    <h2>Cities that were <em>rebuilt</em></h2>
+    <p class="lede">Every Polish city carries a date. Some survived the war, some were reconstructed from paintings, one changed country without moving.</p>
+    <ul>
+      <li><b>Krakow</b><span>The big city the war left standing, with Wawel above it.</span></li>
+      <li><b>Gdansk</b><span>Where the war began in 1939 and where Solidarity began in 1980.</span></li>
+      <li><b>The Tatras</b><span>Fifty kilometres of granite, rising to 2 499 m at Rysy.</span></li>
+    </ul>
+    <a class="more" href="#">See the places &rarr;</a>
+    <p class="cap">The crane on the Motlawa, Gdansk &middot; CC0</p>
+  </div>
+</section>
+
+<div class="tag">3. Jasne, dzienne - zdjecie w pelnym kolorze</div>
+<section class="light">
+  <div class="art">
+    <img src="/images/tlo-day-1400.jpg" alt="">
+    <span class="wash"></span>
+  </div>
+  <div class="txt">
+    <p class="head"><span class="flag on-light"><i></i><i></i></span> Places <span class="mono" style="opacity:.6">02 / 06</span></p>
+    <h2>Cities that were <em>rebuilt</em></h2>
+    <p class="lede">Every Polish city carries a date. Some survived the war, some were reconstructed from paintings, one changed country without moving.</p>
+    <ul>
+      <li><b>Krakow</b><span>The big city the war left standing, with Wawel above it.</span></li>
+      <li><b>Gdansk</b><span>Where the war began in 1939 and where Solidarity began in 1980.</span></li>
+      <li><b>The Tatras</b><span>Fifty kilometres of granite, rising to 2 499 m at Rysy.</span></li>
+    </ul>
+    <a class="more" href="#">See the places &rarr;</a>
+    <p class="cap">The Old Town in Krakow &middot; CC0</p>
+  </div>
+</section>
+
+</body>
+</html>

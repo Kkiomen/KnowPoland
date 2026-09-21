@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Six Stops Down the Country</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Staatliches&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+<style>
+  /* Single-theme by design: a route drawn in the dark. */
+  :root {
+    --char: #0b0d0f;
+    --char-2: #14181c;
+    --bone: #eceee9;
+    --bone-2: #949a9e;
+    --flare: #e2663c;
+    --steel: #7fa6b8;
+    --line: rgba(236,238,233,.14);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  body { margin: 0; background: var(--char); color: var(--bone);
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; font-size: 17px; line-height: 1.6; }
+  h1, h2, h3, .slab { font-family: Staatliches, Impact, sans-serif; font-weight: 400; letter-spacing: .02em;
+    line-height: .94; margin: 0; text-transform: uppercase; }
+  a { color: var(--flare); }
+
+  .hud { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 60;
+    display: flex; align-items: center; gap: 18px; padding: 14px 22px;
+    background: linear-gradient(180deg, rgba(11,13,15,.94), rgba(11,13,15,0)); }
+  .hud .mark { font-family: Staatliches, sans-serif; font-size: 20px; letter-spacing: .08em; color: var(--bone); text-decoration: none; }
+  .hud .mark span { color: var(--flare); }
+  .hud .km { margin-left: auto; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--bone-2);
+    font-variant-numeric: tabular-nums; }
+  .hud .km b { color: var(--bone); font-weight: 500; }
+
+  /* opening */
+  .open { position: relative; min-height: 100dvh; display: flex; align-items: center; overflow: hidden; }
+  .open .bg { position: absolute; inset: 0;
+    background:
+      radial-gradient(66% 54% at 72% 22%, rgba(127,166,184,.24) 0%, rgba(127,166,184,0) 62%),
+      radial-gradient(74% 62% at 18% 88%, rgba(226,102,60,.22) 0%, rgba(226,102,60,0) 60%),
+      linear-gradient(198deg, #1a2026 0%, #0b0d0f 76%); }
+  .open .vig { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,13,15,.5), rgba(11,13,15,.1) 42%, rgba(11,13,15,.96)); }
+  .open .in { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; padding: 118px 24px 84px; }
+  .eyebrow { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--steel); margin: 0; }
+  .open h1 { font-size: clamp(50px, 12vw, 164px); margin-top: 16px; }
+  .open h1 .fl { color: var(--flare); }
+  .open .lede { max-width: 50ch; color: var(--bone-2); font-size: clamp(17px, 2vw, 21px); margin-top: 22px; }
+  .go { margin-top: 32px; display: inline-flex; gap: 14px; align-items: center; text-decoration: none;
+    font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--bone);
+    border: 1px solid var(--line); padding: 13px 26px; }
+  .go:hover, .go:focus-visible { border-color: var(--flare); background: rgba(226,102,60,.1); outline: none; }
+
+  /* route */
+  .route { display: grid; grid-template-columns: 42% 58%; border-top: 1px solid var(--line); }
+  .mapwrap { position: sticky; top: 0; height: 100dvh; display: flex; align-items: center; justify-content: center;
+    padding: 70px 26px 26px; background:
+      radial-gradient(70% 60% at 50% 40%, rgba(127,166,184,.10) 0%, rgba(127,166,184,0) 70%), var(--char); }
+  .mapwrap svg { width: 100%; height: auto; max-width: 100%; max-height: 78dvh; }
+  .outline { fill: #10151a; stroke: rgba(236,238,233,.22); stroke-width: .8; }
+  .track { fill: none; stroke: rgba(236,238,233,.2); stroke-width: .7; stroke-dasharray: 2 2; }
+  .drawn { fill: none; stroke: var(--flare); stroke-width: 1.2; stroke-linecap: round; transition: stroke-dashoffset .5s ease; }
+  .pin circle { fill: #10151a; stroke: var(--bone-2); stroke-width: .8; transition: fill .3s, stroke .3s, r .3s; }
+  .pin text { font-family: "IBM Plex Sans", sans-serif; font-size: 3.4px; fill: var(--bone-2); transition: fill .3s; }
+  .pin.done circle { stroke: var(--flare); }
+  .pin.on circle { fill: var(--flare); stroke: var(--flare); r: 2.6; }
+  .pin.on text { fill: var(--bone); font-weight: 600; }
+  .legend { position: absolute; left: 26px; bottom: 26px; font-size: 12px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--bone-2); }
+
+  /* stops */
+  .stops { border-left: 1px solid var(--line); }
+  .stop { min-height: 100dvh; display: flex; flex-direction: column; justify-content: center;
+    padding: 90px 44px; border-bottom: 1px solid var(--line); position: relative; }
+  .stop .art { position: absolute; inset: 0; opacity: .5; }
+  .stop > * { position: relative; }
+  .stop .meta { display: flex; gap: 14px; flex-wrap: wrap; align-items: baseline; }
+  .stop .meta .n { font-family: Staatliches, sans-serif; font-size: 15px; letter-spacing: .26em; color: var(--flare); }
+  .stop .meta .leg { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--bone-2);
+    font-variant-numeric: tabular-nums; }
+  .stop h2 { font-size: clamp(36px, 6vw, 74px); margin-top: 10px; }
+  .stop .sub { font-size: 15px; letter-spacing: .16em; text-transform: uppercase; color: var(--steel); margin: 8px 0 0; }
+  .stop p.body { color: var(--bone-2); max-width: 52ch; margin: 20px 0 0; font-size: 18px; }
+  .stop p.body em { color: var(--bone); font-style: normal; }
+  .why { margin-top: 22px; border-left: 2px solid rgba(226,102,60,.55); padding-left: 16px; max-width: 46ch; }
+  .why .k { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--flare); }
+  .why p { margin: 8px 0 0; color: var(--bone); font-size: 16px; }
+  .stop .more { margin-top: 22px; align-self: flex-start; display: inline-flex; gap: 10px; text-decoration: none;
+    font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--bone);
+    border: 1px solid var(--line); padding: 11px 20px; }
+  .stop .more:hover, .stop .more:focus-visible { border-color: var(--flare); background: rgba(226,102,60,.1); outline: none; }
+
+  /* end */
+  .end { padding: 92px 24px 88px; max-width: 1200px; margin: 0 auto; }
+  .end h2 { font-size: clamp(32px, 6vw, 74px); }
+  .end .lede { color: var(--bone-2); max-width: 56ch; margin-top: 14px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+  .cards a { background: var(--char-2); border: 1px solid var(--line); padding: 24px; text-decoration: none; color: var(--bone); display: block; }
+  .cards a:hover { border-color: var(--flare); }
+  .cards h3 { font-size: 21px; }
+  .cards p { margin: 10px 0 0; color: var(--bone-2); font-size: 15px; }
+  footer { margin-top: 50px; border-top: 1px solid var(--line); padding-top: 20px;
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; color: var(--bone-2); font-size: 13px; }
+  footer a { color: var(--bone-2); text-decoration: none; }
+  footer a:hover { color: var(--flare); }
+
+  @media (max-width: 950px) {
+    .route { grid-template-columns: 1fr; }
+    .mapwrap { height: 42dvh; padding: 64px 18px 14px; }
+    .stops { border-left: 0; }
+    .stop { min-height: auto; padding: 44px 22px; }
+    .cards { grid-template-columns: 1fr; }
+    .hud .km { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <a class="mark" href="#top">Come to Poland<span>.</span></a>
+  <span class="km">Stop <b id="j-now">01</b> / 06 · <b id="j-km">0</b> km travelled</span>
+</div>
+
+<section class="open" id="top">
+  <div class="bg"></div><div class="vig"></div>
+  <div class="in">
+    <p class="eyebrow">Six stops · north to south · about 900 km</p>
+    <h1>One line down<br>the country,<br><span class="fl">drawn as you go</span></h1>
+    <p class="lede">The fastest way to understand Poland is to travel its length: the Baltic ports at the top, the mountains at the bottom, and a thousand years of argument in between. Scroll, and the route draws itself.</p>
+    <a class="go" href="#route">Leave from Gdańsk →</a>
+  </div>
+</section>
+
+<div class="route" id="route">
+  <div class="mapwrap">
+    <svg viewBox="0 0 100 86" role="img" aria-label="Stylised map of Poland with a route from Gdańsk in the north to Zakopane in the south">
+      <polygon class="outline" points="8,18 20,12 36,9 55,8 70,10 78,12 86,22 88,32 85,44 78,54 82,66 76,74 60,76 45,79 32,72 20,66 12,58 6,44 4,30"></polygon>
+      <path class="track" d="M50,14 L40,30 L58,40 L26,55 L54,66 L50,74"></path>
+      <path class="drawn" id="j-drawn" d="M50,14 L40,30 L58,40 L26,55 L54,66 L50,74"></path>
+      <g class="pin on" data-i="0"><circle cx="50" cy="14" r="2"></circle><text x="53.5" y="15">Gdańsk</text></g>
+      <g class="pin" data-i="1"><circle cx="40" cy="30" r="2"></circle><text x="43.5" y="31">Toruń</text></g>
+      <g class="pin" data-i="2"><circle cx="58" cy="40" r="2"></circle><text x="61.5" y="41">Warsaw</text></g>
+      <g class="pin" data-i="3"><circle cx="26" cy="55" r="2"></circle><text x="29.5" y="56">Wrocław</text></g>
+      <g class="pin" data-i="4"><circle cx="54" cy="66" r="2"></circle><text x="57.5" y="67">Kraków</text></g>
+      <g class="pin" data-i="5"><circle cx="50" cy="74" r="2"></circle><text x="53.5" y="75">Zakopane</text></g>
+    </svg>
+    <span class="legend">Stylised map · not to scale</span>
+  </div>
+
+  <div class="stops">
+
+    <article class="stop" data-i="0" data-km="0">
+      <div class="art" style="background:radial-gradient(60% 50% at 70% 26%, rgba(127,166,184,.24) 0%, rgba(127,166,184,0) 62%), linear-gradient(200deg,#141d23 0%,#0b0d0f 78%)"></div>
+      <div class="meta"><span class="n">STOP 01</span><span class="leg">Start · Baltic coast</span></div>
+      <h2>Gdańsk</h2>
+      <p class="sub">The port that started and ended the century</p>
+      <p class="body">The first shots of the Second World War were fired here in September 1939. Forty-one years later, <em>a strike in the shipyard began the end of communism in Europe</em>. The tall merchant houses on the main street look seventeenth-century and were rebuilt in the 1950s from ruins.</p>
+      <div class="why">
+        <span class="k">Why it's stop one</span>
+        <p>Because the two events that define modern Poland happened within three kilometres of each other, here.</p>
+      </div>
+      <a class="more" href="#">Read about Gdańsk →</a>
+    </article>
+
+    <article class="stop" data-i="1" data-km="170">
+      <div class="art" style="background:radial-gradient(60% 50% at 34% 26%, rgba(200,160,90,.22) 0%, rgba(200,160,90,0) 62%), linear-gradient(200deg,#201c14 0%,#0b0d0f 78%)"></div>
+      <div class="meta"><span class="n">STOP 02</span><span class="leg">170 km · on the Vistula</span></div>
+      <h2>Toruń</h2>
+      <p class="sub">Gothic brick, and the man who moved the Earth</p>
+      <p class="body">A medieval trading town that the war left almost untouched - <em>a whole city centre of red brick, unreconstructed</em>. Nicolaus Copernicus was born here in 1473; he would publish the argument that the Earth orbits the Sun in the year he died.</p>
+      <div class="why">
+        <span class="k">Why it's on the route</span>
+        <p>It shows you what the rebuilt cities were rebuilt to look like. Also: gingerbread, baked here since the Middle Ages.</p>
+      </div>
+      <a class="more" href="#">Read about Toruń →</a>
+    </article>
+
+    <article class="stop" data-i="2" data-km="380">
+      <div class="art" style="background:radial-gradient(60% 50% at 62% 24%, rgba(226,102,60,.22) 0%, rgba(226,102,60,0) 62%), linear-gradient(200deg,#241a16 0%,#0b0d0f 78%)"></div>
+      <div class="meta"><span class="n">STOP 03</span><span class="leg">380 km · the capital</span></div>
+      <h2>Warsaw</h2>
+      <p class="sub">Rebuilt from photographs and paintings</p>
+      <p class="body">Deliberately destroyed after the 1944 uprising, then put back between 1945 and 1984 using surviving fragments and eighteenth-century cityscapes. <em>The Old Town is medieval in shape and post-war in fact.</em> Around it stands the newest skyline in this part of Europe.</p>
+      <div class="why">
+        <span class="k">Don't skip</span>
+        <p>POLIN, the museum of the history of Polish Jews, and the ghetto boundary marked in the pavement outside it.</p>
+      </div>
+      <a class="more" href="#">Read about Warsaw →</a>
+    </article>
+
+    <article class="stop" data-i="3" data-km="730">
+      <div class="art" style="background:radial-gradient(60% 50% at 40% 26%, rgba(140,180,150,.22) 0%, rgba(140,180,150,0) 62%), linear-gradient(200deg,#15201a 0%,#0b0d0f 78%)"></div>
+      <div class="meta"><span class="n">STOP 04</span><span class="leg">730 km · Lower Silesia</span></div>
+      <h2>Wrocław</h2>
+      <p class="sub">The city that changed country without moving</p>
+      <p class="body">Until 1945 this was Breslau, and German. Then the borders shifted west, the population was expelled, and <em>people arrived from Polish towns that had just become Soviet</em>. An entire city was replaced, inhabitants and all, inside a few years - and it is now one of the most cheerful places in the country.</p>
+      <div class="why">
+        <span class="k">Look down</span>
+        <p>Several hundred small bronze dwarves are hidden around the streets. They began as anti-communist street protest.</p>
+      </div>
+      <a class="more" href="#">Read about Wrocław →</a>
+    </article>
+
+    <article class="stop" data-i="4" data-km="1000">
+      <div class="art" style="background:radial-gradient(60% 50% at 58% 26%, rgba(226,186,104,.24) 0%, rgba(226,186,104,0) 62%), linear-gradient(200deg,#221d13 0%,#0b0d0f 78%)"></div>
+      <div class="meta"><span class="n">STOP 05</span><span class="leg">1 000 km · Lesser Poland</span></div>
+      <h2>Kraków</h2>
+      <p class="sub">The one the war left standing</p>
+      <p class="body">Royal castle on a hill, a market square the size of a district, and a former Jewish quarter that is now the busiest part of town. It is also <em>an hour from Auschwitz-Birkenau</em> - which belongs to this stop as history, not as an excursion, and should be booked and entered accordingly.</p>
+      <div class="why">
+        <span class="k">Underground</span>
+        <p>Wieliczka: a salt mine worked continuously from the thirteenth century until 1996, with chapels carved in salt.</p>
+      </div>
+      <a class="more" href="#">Read about Kraków →</a>
+    </article>
+
+    <article class="stop" data-i="5" data-km="1100">
+      <div class="art" style="background:radial-gradient(60% 50% at 46% 22%, rgba(176,196,214,.24) 0%, rgba(176,196,214,0) 60%), linear-gradient(200deg,#1a222a 0%,#0b0d0f 78%)"></div>
+      <div class="meta"><span class="n">STOP 06</span><span class="leg">1 100 km · end of the road</span></div>
+      <h2>Zakopane</h2>
+      <p class="sub">Where the country runs out of flat</p>
+      <p class="body">A mountain town with its own wooden architecture, its own dialect and a highlander culture older than the modern state. Above it the Tatras rise to <em>2 499 metres at Rysy</em> - small, steep and genuinely alpine, with weather that turns in twenty minutes and a mountain rescue service that is called out constantly.</p>
+      <div class="why">
+        <span class="k">Before you go up</span>
+        <p>Trails are graded and often chained. Check the forecast and the avalanche level, and start early.</p>
+      </div>
+      <a class="more" href="#">Read about the Tatras →</a>
+    </article>
+
+  </div>
+</div>
+
+<section class="end">
+  <p class="eyebrow">End of the line</p>
+  <h2>Nine hundred kilometres,<br>one thousand years</h2>
+  <p class="lede">Every stop on this route stands on something that happened to it. Follow whichever thread you want next - all of it is written out, sourced and dated.</p>
+  <div class="cards">
+    <a href="#"><h3>The timeline</h3><p>966 to 1989 in chapters, each one ending somewhere on this map.</p></a>
+    <a href="#"><h3>Sea to summit</h3><p>The same journey told as landscape: dunes, lakes, plain, limestone, granite.</p></a>
+    <a href="#"><h3>Getting between them</h3><p>Intercity trains, night trains, buses and what they actually cost. Dated and re-checked.</p></a>
+  </div>
+  <footer>
+    <span>Come to Poland - an independent guide to the country. Distances are approximate road distances.</span>
+    <span><a href="#">Sources</a> · <a href="#">Corrections</a> · <a href="#">Contact</a></span>
+  </footer>
+</section>
+
+<script>
+  var stops = Array.prototype.slice.call(document.querySelectorAll('.stop'));
+  var pins = Array.prototype.slice.call(document.querySelectorAll('.pin'));
+  var drawn = document.getElementById('j-drawn');
+  var nowEl = document.getElementById('j-now');
+  var kmEl = document.getElementById('j-km');
+  var total = drawn.getTotalLength();
+
+  drawn.style.strokeDasharray = total;
+  drawn.style.strokeDashoffset = total;
+
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+  function setActive(i, km) {
+    pins.forEach(function (p, j) {
+      p.classList.toggle('on', j === i);
+      p.classList.toggle('done', j < i);
+    });
+    drawn.style.strokeDashoffset = total - (total * (i / (stops.length - 1)));
+    nowEl.textContent = pad(i + 1);
+    kmEl.textContent = km;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) { return; }
+      setActive(Number(e.target.dataset.i), e.target.dataset.km);
+    });
+  }, { threshold: 0.5 });
+  stops.forEach(function (s) { io.observe(s); });
+
+  setActive(0, '0');
+</script>
+</body>
+</html>

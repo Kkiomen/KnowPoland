@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poland - The Trailer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Source+Sans+3:wght@300;400;600&display=swap">
+<style>
+  /* Cinematic, single-theme by design: a trailer plays in the dark. */
+  :root {
+    --black: #07080a;
+    --bone: #f2efe9;
+    --bone-2: #a7a49d;
+    --amber: #f0a23c;
+    --amber-deep: #7a4f13;
+    --line: rgba(242,239,233,.14);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--black); color: var(--bone);
+    font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif; font-size: 17px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+  h1, h2, h3, .display { font-family: "Archivo Black", Impact, sans-serif; font-weight: 400;
+    text-transform: uppercase; letter-spacing: -.02em; line-height: .92; margin: 0; text-wrap: balance; }
+  a { color: var(--amber); }
+
+  .reel { height: 100dvh; overflow-y: auto; scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { .reel { scroll-snap-type: none; scroll-behavior: auto; } }
+  .chapter { position: relative; min-height: 100dvh; scroll-snap-align: start; scroll-snap-stop: always;
+    display: flex; align-items: flex-end; overflow: hidden; }
+  .plate { position: absolute; inset: 0; }
+  .plate .grade { position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(7,8,10,.55) 0%, rgba(7,8,10,.15) 38%, rgba(7,8,10,.94) 92%); }
+  .plate .scan { position: absolute; inset: 0; opacity: .5;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,.22) 0 1px, rgba(0,0,0,0) 1px 3px); }
+  .inner { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px 72px; }
+
+  .hud { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 40;
+    display: flex; align-items: center; gap: 18px; padding: 16px 24px;
+    background: linear-gradient(180deg, rgba(7,8,10,.85), rgba(7,8,10,0)); }
+  .hud .mark { font-family: "Archivo Black", sans-serif; text-transform: uppercase; font-size: 14px;
+    letter-spacing: .04em; text-decoration: none; color: var(--bone); }
+  .hud .mark span { color: var(--amber); }
+  .hud nav { margin-left: auto; display: flex; gap: 20px; }
+  .hud nav a { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--bone-2); text-decoration: none; }
+  .hud nav a:hover, .hud nav a:focus-visible { color: var(--bone); }
+
+  .dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 40;
+    display: flex; flex-direction: column; gap: 14px; }
+  .dots button { width: 10px; height: 10px; padding: 0; border-radius: 50%; cursor: pointer;
+    border: 1px solid var(--bone-2); background: transparent; transition: background .2s, transform .2s, border-color .2s; }
+  .dots button[aria-current="true"] { background: var(--amber); border-color: var(--amber); transform: scale(1.35); }
+  .dots button:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+  .opening { align-items: center; }
+  .opening .inner { padding-bottom: 24px; }
+  .kicker { font-size: 12px; letter-spacing: .34em; text-transform: uppercase; color: var(--amber); margin: 0; }
+  .opening h1 { font-size: clamp(46px, 11.5vw, 156px); margin-top: 18px; }
+  .opening h1 .thin { -webkit-text-stroke: 1.5px var(--bone); color: transparent; }
+  .opening .sub { max-width: 46ch; color: var(--bone-2); font-size: clamp(17px, 2vw, 21px); margin-top: 26px; }
+  .start { margin-top: 34px; display: inline-flex; align-items: center; gap: 14px; text-decoration: none;
+    font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: var(--bone);
+    border: 1px solid var(--line); border-radius: 999px; padding: 14px 26px; transition: border-color .2s, background .2s; }
+  .start:hover, .start:focus-visible { border-color: var(--amber); background: rgba(240,162,60,.10); outline: none; }
+  .start i { width: 8px; height: 8px; border-right: 1.5px solid var(--amber); border-bottom: 1.5px solid var(--amber);
+    transform: rotate(45deg); display: inline-block; }
+
+  .num { font-family: "Archivo Black", sans-serif; font-size: 13px; letter-spacing: .3em; color: var(--amber); margin: 0; }
+  .chapter h2 { font-size: clamp(38px, 8vw, 104px); margin-top: 14px; }
+  .yr { display: block; font-size: clamp(13px, 1.5vw, 16px); text-transform: uppercase;
+    color: var(--bone-2); margin-bottom: 14px; letter-spacing: .3em; }
+  .body-row { display: grid; grid-template-columns: 1.05fr 1fr; gap: 44px; align-items: end; margin-top: 30px; }
+  .body-row p { margin: 0; color: var(--bone-2); max-width: 54ch; font-size: 18px; }
+  .body-row p em { color: var(--bone); font-style: normal; }
+  .stand { border-left: 2px solid var(--amber-deep); padding-left: 18px; }
+  .stand .lbl { font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: var(--amber); margin: 0; }
+  .stand p { margin: 8px 0 0; color: var(--bone); font-size: 16px; }
+  .more { margin-top: 22px; display: inline-flex; gap: 10px; align-items: center; text-decoration: none;
+    font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--bone);
+    border-bottom: 1px solid var(--amber-deep); padding-bottom: 6px; }
+  .more:hover { border-color: var(--amber); color: var(--amber); }
+
+  .closing { align-items: center; }
+  .closing h2 { font-size: clamp(32px, 6vw, 74px); }
+  .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
+  .col { border-top: 1px solid var(--line); padding-top: 16px; text-decoration: none; color: var(--bone); display: block; }
+  .col:hover { border-color: var(--amber); }
+  .col h3 { font-size: 19px; letter-spacing: 0; }
+  .col p { margin: 8px 0 0; color: var(--bone-2); font-size: 15px; }
+  .foot { margin-top: 48px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: space-between;
+    border-top: 1px solid var(--line); padding-top: 20px; color: var(--bone-2); font-size: 13px; }
+
+  @media (max-width: 860px) {
+    .body-row, .cols { grid-template-columns: 1fr; gap: 24px; }
+    .hud nav { display: none; }
+    .dots { right: 12px; }
+    .inner { padding-bottom: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <a class="mark" href="#c0">Come to Poland<span>.</span></a>
+  <nav>
+    <a href="#c1">Chapters</a>
+    <a href="#c6">Today</a>
+    <a href="#c7">Read</a>
+  </nav>
+</div>
+
+<div class="dots" id="v1-dots" role="group" aria-label="Chapters"></div>
+
+<div class="reel" id="v1-reel">
+
+  <section class="chapter opening" id="c0" data-label="Opening">
+    <div class="plate">
+      <div style="position:absolute;inset:0;background:
+        radial-gradient(70% 55% at 76% 26%, rgba(240,162,60,.30) 0%, rgba(240,162,60,0) 64%),
+        radial-gradient(85% 70% at 18% 88%, rgba(140,52,44,.34) 0%, rgba(140,52,44,0) 62%),
+        linear-gradient(196deg, #1b2027 0%, #07080a 74%)"></div>
+      <div class="scan"></div>
+      <div class="grade"></div>
+    </div>
+    <div class="inner">
+      <p class="kicker">A country in seven chapters</p>
+      <h1>This place<br><span class="thin">is older than</span><br>the map of it</h1>
+      <p class="sub">Poland has been Europe's largest state and, for 123 years, nothing at all. Before you book anything, spend ten minutes finding out what actually happened here - one chapter at a time.</p>
+      <a class="start" href="#c1">Start chapter 01 <i></i></a>
+    </div>
+  </section>
+
+  <section class="chapter" id="c1" data-label="966">
+    <div class="plate">
+      <div style="position:absolute;inset:0;background:
+        radial-gradient(60% 50% at 30% 22%, rgba(226,203,142,.24) 0%, rgba(226,203,142,0) 60%),
+        linear-gradient(190deg, #2a3330 0%, #07080a 78%)"></div>
+      <div class="scan"></div><div class="grade"></div>
+    </div>
+    <div class="inner">
+      <p class="num">CHAPTER 01</p>
+      <h2>The baptism</h2>
+      <div class="body-row">
+        <div>
+          <span class="yr">966 · Gniezno</span>
+          <p>A duke named Mieszko accepts Christianity, and a cluster of Slavic tribes becomes a country inside Latin Europe - <em>Latin script, Latin law, a western alphabet for a Slavic language</em>. Nearly every argument about where Poland belongs starts from this single decision.</p>
+        </div>
+        <div class="stand">
+          <p class="lbl">Where you can stand in it</p>
+          <p>Gniezno Cathedral - the coronation church of the first Polish kings, with bronze doors from the 1170s.</p>
+          <a class="more" href="#">Read chapter 01 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="c2" data-label="1569">
+    <div class="plate">
+      <div style="position:absolute;inset:0;background:
+        radial-gradient(65% 55% at 72% 28%, rgba(196,148,70,.26) 0%, rgba(196,148,70,0) 62%),
+        linear-gradient(190deg, #34291d 0%, #07080a 76%)"></div>
+      <div class="scan"></div><div class="grade"></div>
+    </div>
+    <div class="inner">
+      <p class="num">CHAPTER 02</p>
+      <h2>The republic<br>of nobles</h2>
+      <div class="body-row">
+        <div>
+          <span class="yr">1569-1795 · The Commonwealth</span>
+          <p>Poland and Lithuania merge into one of the largest states in Europe, with an <em>elected king</em> and a parliament where a single deputy could veto everything. It writes Europe's first modern codified constitution on 3 May 1791 - and is wiped off the map four years later.</p>
+        </div>
+        <div class="stand">
+          <p class="lbl">Where you can stand in it</p>
+          <p>The Royal Castle in Warsaw, where the constitution was adopted - itself a post-war reconstruction.</p>
+          <a class="more" href="#">Read chapter 02 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="c3" data-label="1795">
+    <div class="plate">
+      <div style="position:absolute;inset:0;background:
+        radial-gradient(70% 60% at 22% 30%, rgba(120,132,148,.22) 0%, rgba(120,132,148,0) 60%),
+        linear-gradient(190deg, #232830 0%, #07080a 78%)"></div>
+      <div class="scan"></div><div class="grade"></div>
+    </div>
+    <div class="inner">
+      <p class="num">CHAPTER 03</p>
+      <h2>Erased</h2>
+      <div class="body-row">
+        <div>
+          <span class="yr">1795-1918 · 123 years without a state</span>
+          <p>Russia, Prussia and Austria divide the country between them. There is no Poland on any map for four generations - <em>but there are Polish books, songs, uprisings and secret schools</em>, which is why the language and the idea are still here when the empires collapse in 1918.</p>
+        </div>
+        <div class="stand">
+          <p class="lbl">Where you can stand in it</p>
+          <p>Any 19th-century city centre: Kraków, Poznań and Warsaw were built by three different empires, and still look it.</p>
+          <a class="more" href="#">Read chapter 03 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="c4" data-label="1939">
+    <div class="plate">
+      <div style="position:absolute;inset:0;background:
+        radial-gradient(60% 50% at 78% 24%, rgba(176,66,54,.30) 0%, rgba(176,66,54,0) 58%),
+        linear-gradient(190deg, #2a1c19 0%, #07080a 76%)"></div>
+      <div class="scan"></div><div class="grade"></div>
+    </div>
+    <div class="inner">
+      <p class="num">CHAPTER 04</p>
+      <h2>1939</h2>
+      <div class="body-row">
+        <div>
+          <span class="yr">1 September 1939 · The war starts here</span>
+          <p>Germany invades from the west; the Soviet Union from the east on 17 September. The occupation that follows kills millions of Polish citizens, <em>including almost the entire pre-war Jewish population</em>. Warsaw ends the war as rubble. This chapter is not a sightseeing stop - it is the reason the country looks the way it does.</p>
+        </div>
+        <div class="stand">
+          <p class="lbl">How to visit it properly</p>
+          <p>Westerplatte, the Warsaw Rising Museum, Auschwitz-Birkenau - book ahead, go quietly, leave the camera in your bag.</p>
+          <a class="more" href="#">Read chapter 04 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="c5" data-label="1980">
+    <div class="plate">
+      <div style="position:absolute;inset:0;background:
+        radial-gradient(62% 52% at 30% 26%, rgba(214,150,58,.26) 0%, rgba(214,150,58,0) 60%),
+        linear-gradient(190deg, #2c2a23 0%, #07080a 76%)"></div>
+      <div class="scan"></div><div class="grade"></div>
+    </div>
+    <div class="inner">
+      <p class="num">CHAPTER 05</p>
+      <h2>Solidarity</h2>
+      <div class="body-row">
+        <div>
+          <span class="yr">1980-1989 · Gdańsk, and then everywhere</span>
+          <p>Shipyard workers strike and win an independent trade union - <em>ten million members inside a year</em>. Martial law follows in December 1981, but the argument is already lost. In June 1989 partly free elections hand the opposition every seat it is allowed to win, and the rest of the bloc follows within months.</p>
+        </div>
+        <div class="stand">
+          <p class="lbl">Where you can stand in it</p>
+          <p>The European Solidarity Centre, built against the shipyard gate where the strike demands were nailed up.</p>
+          <a class="more" href="#">Read chapter 05 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="c6" data-label="Now">
+    <div class="plate">
+      <div style="position:absolute;inset:0;background:
+        radial-gradient(64% 54% at 70% 28%, rgba(96,164,196,.24) 0%, rgba(96,164,196,0) 60%),
+        linear-gradient(190deg, #1c2a30 0%, #07080a 76%)"></div>
+      <div class="scan"></div><div class="grade"></div>
+    </div>
+    <div class="inner">
+      <p class="num">CHAPTER 06</p>
+      <h2>The country<br>you'll land in</h2>
+      <div class="body-row">
+        <div>
+          <span class="yr">1989 - today</span>
+          <p>Card payments on every bus, intercity trains that arrive on time, mountains in the south and two thousand lakes in the north-east. The currency is the złoty and not the euro, <em>the milk bars still serve lunch for the price of a coffee in Berlin</em>, and the whole country is noticeably younger and faster than its own reputation abroad.</p>
+        </div>
+        <div class="stand">
+          <p class="lbl">Practical, checked monthly</p>
+          <p>Money, trains, phone data, tipping, pharmacy hours - the short version, with dates on it.</p>
+          <a class="more" href="#">Read the practical notes →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter closing" id="c7" data-label="Next">
+    <div class="plate">
+      <div style="position:absolute;inset:0;background:
+        radial-gradient(80% 60% at 50% 20%, rgba(240,162,60,.18) 0%, rgba(240,162,60,0) 62%),
+        linear-gradient(196deg, #14181d 0%, #07080a 72%)"></div>
+      <div class="scan"></div><div class="grade"></div>
+    </div>
+    <div class="inner">
+      <p class="kicker">End of the trailer</p>
+      <h2>Now pick where<br>to go deeper</h2>
+      <div class="cols">
+        <a class="col" href="#">
+          <h3>The full timeline</h3>
+          <p>Forty entries from 966 to now, each five minutes long, each with a place you can visit.</p>
+        </a>
+        <a class="col" href="#">
+          <h3>Everyday Poland</h3>
+          <p>Language, food, manners, Sunday trading, name days, and what counts as rude.</p>
+        </a>
+        <a class="col" href="#">
+          <h3>Before you go</h3>
+          <p>Złoty, trains, SIM cards, memorial-site etiquette. Dated, and re-checked.</p>
+        </a>
+      </div>
+      <div class="foot">
+        <span>Come to Poland - independent, unsponsored, corrected in public.</span>
+        <span>Sources · Corrections · Contact</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  var reel = document.getElementById('v1-reel');
+  var chapters = Array.prototype.slice.call(reel.querySelectorAll('.chapter'));
+  var dots = document.getElementById('v1-dots');
+
+  chapters.forEach(function (sec, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Go to ' + (sec.dataset.label || ('chapter ' + i)));
+    b.setAttribute('aria-current', String(i === 0));
+    b.addEventListener('click', function () { sec.scrollIntoView({ behavior: 'smooth' }); });
+    dots.appendChild(b);
+  });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        var i = chapters.indexOf(e.target);
+        Array.prototype.forEach.call(dots.children, function (d, j) {
+          d.setAttribute('aria-current', String(i === j));
+        });
+      }
+    });
+  }, { root: reel, threshold: 0.55 });
+  chapters.forEach(function (c) { io.observe(c); });
+</script>
+</body>
+</html>
