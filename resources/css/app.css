@@ -32,6 +32,9 @@
     /* National colours, used only where the country itself is the subject. */
     --color-flag-white: #ffffff;
     --color-flag-red: #dc143c; /* the red of the shield in the coat of arms */
+    /* The same red for thin text on ink: small glyphs read darker than the
+       solid shield, and this lift also clears 4.5:1 contrast on the ink. */
+    --color-flag-red-text: #e6294d;
 }
 
 @layer base {

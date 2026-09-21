@@ -1,1 +1,0 @@
-import{C as e,p as t,y as n}from"./app-B1FjH1EC.js";import{t as r}from"./CityPage-BT4mt2dL.js";var i=n({__name:`PlaceGdansk`,setup(n){return(n,i)=>(e(),t(r,{city:`gdansk`,lon:18.6466,lat:54.352}))}});export{i as default};

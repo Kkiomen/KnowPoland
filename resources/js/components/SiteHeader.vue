@@ -55,7 +55,7 @@ onBeforeUnmount(() => {
                 class="font-display text-bone hover:text-amber -my-[13px] inline-flex min-h-[44px] items-center text-lg leading-none tracking-tight lowercase transition-colors"
             >
                 {{ t('home.masthead.wordmark')
-                }}<span class="text-flag-red">{{
+                }}<span class="text-flag-red-text">{{
                     t('home.masthead.wordmark_suffix')
                 }}</span>
             </Link>
