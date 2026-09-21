@@ -1,0 +1,1 @@
+import{C as e,h as t,y as n}from"./app-D9vjZEOA.js";var r=[`alt`,`aria-hidden`],i=n({__name:`PolishEmblem`,props:{label:{}},setup(n){return(i,a)=>(e(),t(`img`,{src:`/images/godlo-polski.svg`,alt:n.label??``,"aria-hidden":n.label?void 0:`true`,decoding:`async`,width:`3158`,height:`3716`},null,8,r))}});export{i as t};

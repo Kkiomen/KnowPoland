@@ -1,0 +1,1 @@
+import{C as e,p as t,y as n}from"./app-D9vjZEOA.js";import{t as r}from"./CityPage-Cqei4krT.js";var i=n({__name:`PlaceTorun`,setup(n){return(n,i)=>(e(),t(r,{city:`torun`,lon:18.5984,lat:53.0138}))}});export{i as default};

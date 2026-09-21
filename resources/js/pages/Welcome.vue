@@ -377,7 +377,7 @@ onBeforeUnmount(() => {
                             <component
                                 :is="'href' in section ? Link : 'a'"
                                 :href="'href' in section ? section.href : '#'"
-                                class="border-amber-deep hover:border-amber hover:text-amber focus-visible:outline-amber inline-flex items-center gap-2.5 border-b pb-1.5 text-xs tracking-[0.2em] uppercase transition focus-visible:outline-2 focus-visible:outline-offset-4"
+                                class="border-amber-deep hover:border-amber hover:text-amber focus-visible:outline-amber inline-flex min-h-[44px] items-end gap-2.5 border-b pb-1.5 text-xs tracking-[0.2em] uppercase transition focus-visible:outline-2 focus-visible:outline-offset-4"
                             >
                                 {{ t(`home.sections.${section.key}.link`) }}
                                 &rarr;
@@ -490,7 +490,7 @@ onBeforeUnmount(() => {
                             <component
                                 :is="'href' in section ? Link : 'a'"
                                 :href="'href' in section ? section.href : '#'"
-                                class="border-amber-deep hover:border-amber hover:text-amber focus-visible:outline-amber mt-6 inline-flex items-center gap-2.5 border-b pb-1.5 text-xs tracking-[0.2em] uppercase transition focus-visible:outline-2 focus-visible:outline-offset-4"
+                                class="border-amber-deep hover:border-amber hover:text-amber focus-visible:outline-amber mt-6 inline-flex min-h-[44px] items-end gap-2.5 border-b pb-1.5 text-xs tracking-[0.2em] uppercase transition focus-visible:outline-2 focus-visible:outline-offset-4"
                             >
                                 {{ t(`home.sections.${section.key}.link`) }}
                                 &rarr;

@@ -35,7 +35,7 @@ return [
             'start' => 'Zacznij od historii',
             'label' => 'Początek',
             'emblem_alt' => 'Godło Polski',
-            'author_label' => 'Kto to pisze',
+            'author_label' => 'Pisane w Polsce, dla przyjezdnych',
             'author_note' => 'Pisze to Polak, który chce pokazać swój kraj, a nie ministerstwo, urząd turystyczny czy ktokolwiek sprzedający bilety. Po prostu historia, miejsca i codzienne rzeczy, z których jestem dumny, spisane dla każdego, kto jest na tyle ciekawy, żeby to przeczytać.',
         ],
         'sections' => [

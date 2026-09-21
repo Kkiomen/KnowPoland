@@ -40,7 +40,7 @@ return [
             'start' => 'Start with the history',
             'label' => 'Opening',
             'emblem_alt' => 'The coat of arms of Poland',
-            'author_label' => 'Who writes this',
+            'author_label' => 'Written in Poland, for visitors',
             'author_note' => 'Written by a Pole who wants to show you his country - not by a ministry, a tourist board or anyone with tickets to sell. Just the history, the places and the everyday things I am proud of, written down for whoever is curious enough to read them.',
         ],
 

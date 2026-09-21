@@ -1,5 +1,13 @@
 @import 'tailwindcss';
 
+/*
+ * The history filmstrip turns sideways only on a screen that is wide and tall
+ * enough to hold a whole frame. On a 1366x768 laptop the frame text was taller
+ * than the window and its first lines were cut off, so a short window gets the
+ * stacked layout a tablet gets. The pages' scripts use the same query.
+ */
+@custom-variant film (@media (min-width: 1024px) and (min-height: 900px));
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 

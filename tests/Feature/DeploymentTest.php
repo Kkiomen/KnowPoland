@@ -123,6 +123,14 @@ it('offers the AVIF first wherever it shows a photograph', function (): void {
 
             $before = implode('<img', array_slice(explode('<img', $markup), 0, $index));
 
+            $tag = substr($part, 0, (int) strpos($part, '>'));
+
+            // a vector such as the coat of arms has no AVIF and must stay a
+            // bare img, or the size classes put on its component miss it
+            if (str_contains($tag, '.svg')) {
+                continue;
+            }
+
             // every img that carries a photograph sits inside a picture, so
             // that a browser which knows AVIF never downloads the JPEG
             if (strrpos($before, '<picture') <= strrpos($before, '</picture>')) {
@@ -189,4 +197,15 @@ it('lets the browser fetch the rates when the server could not', function (): vo
 
     expect((string) file_get_contents(resource_path('js/pages/LifeNow.vue')))
         ->toContain("props.rateSource.endpoint.replace(':code', code)");
+});
+
+it('keeps the coat of arms a bare img, so the page can size it', function (): void {
+    $emblem = (string) file_get_contents(resource_path('js/components/PolishEmblem.vue'));
+    $template = trim(substr($emblem, (int) strpos($emblem, '<template>') + 10));
+
+    // the classes Welcome.vue puts on the component land on its root element,
+    // and wrapped in a picture the emblem rendered at its natural 3158 pixels
+    expect(preg_replace('/<!--.*?-->/s', '', $template))->toStartWith('
+    <img')
+        ->and($emblem)->not->toContain('<picture');
 });

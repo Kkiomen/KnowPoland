@@ -1,1 +1,0 @@
-import{C as e,p as t,y as n}from"./app-BbmuKuwG.js";import{t as r}from"./CityPage-_taDldmP.js";var i=n({__name:`PlaceKatowice`,setup(n){return(n,i)=>(e(),t(r,{city:`katowice`,lon:19.0238,lat:50.2649}))}});export{i as default};

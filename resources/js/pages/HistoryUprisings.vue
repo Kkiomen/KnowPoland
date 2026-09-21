@@ -85,7 +85,7 @@ const active = ref(0);
 
 const horizontal = () =>
     typeof window !== 'undefined' &&
-    window.matchMedia('(min-width: 1024px)').matches &&
+    window.matchMedia('(min-width: 1024px) and (min-height: 900px)').matches &&
     !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let frameRequested = false;
@@ -254,15 +254,15 @@ onBeforeUnmount(() => {
 
         <!-- The filmstrip -->
         <div ref="strip" class="relative">
-            <div class="lg:sticky lg:top-0 lg:h-dvh lg:overflow-hidden">
+            <div class="film:sticky film:top-0 film:h-dvh film:overflow-hidden">
                 <div
                     ref="track"
-                    class="lg:flex lg:h-full lg:will-change-transform"
+                    class="film:flex film:h-full film:will-change-transform"
                 >
                     <article
                         v-for="(frame, index) in frames"
                         :key="frame.key"
-                        class="border-hairline relative flex min-h-[86dvh] shrink-0 items-end overflow-hidden border-t lg:h-full lg:min-h-0 lg:w-screen lg:border-t-0 lg:border-l"
+                        class="border-hairline relative flex min-h-[86dvh] shrink-0 items-end overflow-hidden border-t film:h-full film:min-h-0 film:w-screen film:border-t-0 film:border-l"
                     >
                         <picture>
                             <source
@@ -287,26 +287,26 @@ onBeforeUnmount(() => {
                             />
                         </picture>
                         <div
-                            class="from-ink via-ink/55 absolute inset-0 bg-linear-to-r to-transparent"
+                            class="from-ink via-ink/55 to-ink/55 absolute inset-0 bg-linear-to-r film:to-transparent"
                         />
                         <div
                             class="from-ink/95 absolute inset-0 bg-linear-to-t via-transparent to-transparent"
                         />
                         <!-- On a phone the text runs the full width, over the bright half of the photograph too -->
-                        <div class="bg-ink/45 absolute inset-0 lg:hidden" />
+                        <div class="bg-ink/45 absolute inset-0 film:hidden" />
                         <div
                             class="absolute inset-0 opacity-40 [background:repeating-linear-gradient(0deg,rgba(0,0,0,.22)_0_1px,rgba(0,0,0,0)_1px_3px)]"
                         />
 
                         <div
-                            class="relative mx-auto w-full max-w-[1200px] px-6 pt-36 pb-14 sm:pt-32 lg:pt-24 lg:pb-20"
+                            class="relative mx-auto w-full max-w-[1200px] px-6 pt-36 pb-14 sm:pt-32 film:pt-24 film:pb-20"
                         >
                             <div
-                                class="grid gap-8 lg:items-end"
+                                class="grid gap-8 film:items-end"
                                 :class="
                                     isWide(frame.key)
-                                        ? 'lg:grid-cols-[minmax(0,46ch)_minmax(0,34rem)]'
-                                        : 'lg:grid-cols-[minmax(0,46ch)_minmax(0,22rem)]'
+                                        ? 'film:grid-cols-[minmax(0,46ch)_minmax(0,34rem)]'
+                                        : 'film:grid-cols-[minmax(0,46ch)_minmax(0,22rem)]'
                                 "
                             >
                                 <div class="max-w-[46ch]">
@@ -379,7 +379,7 @@ onBeforeUnmount(() => {
 
                 <!-- Progress rail, on the wide layout only -->
                 <div
-                    class="from-ink/90 pointer-events-none absolute inset-x-0 bottom-0 hidden bg-linear-to-t to-transparent px-6 pt-10 pb-5 lg:block"
+                    class="from-ink/90 pointer-events-none absolute inset-x-0 bottom-0 hidden bg-linear-to-t to-transparent px-6 pt-10 pb-5 film:block"
                 >
                     <div class="mx-auto w-full max-w-[1200px]">
                         <div class="bg-hairline relative h-px">

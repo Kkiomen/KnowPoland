@@ -15,15 +15,14 @@ defineProps<{
 </script>
 
 <template>
-    <picture>
-        <source type="image/avif" srcset="/images/godlo-polski.svg" />
-        <img
-            src="/images/godlo-polski.svg"
-            :alt="label ?? ''"
-            :aria-hidden="label ? undefined : 'true'"
-            decoding="async"
-            width="3158"
-            height="3716"
-        />
-    </picture>
+    <!-- A vector already, so no AVIF, and the img stays the root element:
+         the size classes a page puts on this component land on it. -->
+    <img
+        src="/images/godlo-polski.svg"
+        :alt="label ?? ''"
+        :aria-hidden="label ? undefined : 'true'"
+        decoding="async"
+        width="3158"
+        height="3716"
+    />
 </template>
