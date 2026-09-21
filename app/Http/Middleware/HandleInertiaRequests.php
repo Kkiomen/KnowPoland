@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Support\PageCopy;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -44,7 +45,7 @@ class HandleInertiaRequests extends Middleware
             'supportUrl' => config('site.support_url'),
             'locale' => app()->getLocale(),
             'availableLocales' => SetLocale::availableLocales(),
-            'translations' => trans('site'),
+            'translations' => PageCopy::for($request),
         ];
     }
 }

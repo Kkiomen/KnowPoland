@@ -77,6 +77,8 @@ No text is written into a component. Every heading, sentence, button label, alt 
 
 A missing key renders as the key itself, so a gap is visible on the page rather than silent.
 
+A page does not receive the whole file. `app/Support/PageCopy.php` sends its own group, the groups shared components read (header, footer, picture viewer, address list), and every page's title and description, which keeps the data in each page at 40 to 80 KB instead of a megabyte. A component that starts reading a new group has to add it to `PageCopy::SHARED`, and a test fails until it does.
+
 ## Search engines
 
 The app renders on the client, and link scrapers do not run JavaScript, so everything a crawler reads is printed on the server in `resources/views/app.blade.php`: title, description, canonical, `hreflang` alternates, Open Graph and Twitter cards, and JSON-LD structured data.
