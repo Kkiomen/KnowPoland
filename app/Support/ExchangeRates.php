@@ -2,7 +2,6 @@
 
 namespace App\Support;
 
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -14,8 +13,9 @@ use Illuminate\Support\Facades\Log;
  * something wrong most of the time. The bank publishes one table per working
  * day and the API needs no key, so the page asks for it and caches the answer.
  *
- * If the bank cannot be reached the page simply shows no rates rather than a
- * stale or invented one.
+ * If the bank cannot be reached the page shows the last rates it did get,
+ * with the date the bank published them, and none at all if it never got any.
+ * It never invents one.
  */
 class ExchangeRates
 {
@@ -25,7 +25,7 @@ class ExchangeRates
     public function all(): array
     {
         /** @var array<int, array{code: string, rate: string, date: string}> */
-        return Cache::flexible(
+        return LiveCache::remember(
             'poland.rates',
             [
                 now()->addMinutes((int) config('poland.rates.cache_minutes', 240)),

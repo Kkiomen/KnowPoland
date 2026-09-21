@@ -2,7 +2,6 @@
 
 namespace App\Support;
 
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -29,7 +28,7 @@ class Statistics
     public function all(): array
     {
         /** @var array<string, array{value: string, year: string}> */
-        return Cache::flexible(
+        return LiveCache::remember(
             'poland.statistics',
             [
                 now()->addHours((int) config('poland.statistics.fresh_hours', 12)),
