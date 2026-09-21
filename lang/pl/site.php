@@ -23,7 +23,8 @@ return [
             'description' => 'Przewodnik po Polsce, który zaczyna się od pytania „dlaczego”: tysiąc lat historii opowiedziane rozdziałami, dla ludzi myślących o przyjeździe.',
         ],
         'masthead' => [
-            'title' => 'Poznaj Polskę',
+            'wordmark' => 'knowpoland',
+            'wordmark_suffix' => '.com',
             'tagline' => 'Historia, codzienność i kraj, którego nie widać na pocztówkach',
         ],
         'opening' => [

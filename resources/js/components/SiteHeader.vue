@@ -52,9 +52,12 @@ onBeforeUnmount(() => {
         >
             <Link
                 href="/"
-                class="font-display text-bone hover:text-amber -my-[13px] inline-flex min-h-[44px] items-center text-lg leading-none tracking-tight uppercase transition-colors"
+                class="font-display text-bone hover:text-amber -my-[13px] inline-flex min-h-[44px] items-center text-lg leading-none tracking-tight lowercase transition-colors"
             >
-                {{ t('home.masthead.title') }}<span class="text-amber">.</span>
+                {{ t('home.masthead.wordmark')
+                }}<span class="text-amber">{{
+                    t('home.masthead.wordmark_suffix')
+                }}</span>
             </Link>
             <p class="text-bone-muted text-sm">
                 {{ t('home.masthead.tagline') }}

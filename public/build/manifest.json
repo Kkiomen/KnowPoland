@@ -1,45 +1,45 @@
 {
-  "_CityPage-Cqei4krT.js": {
-    "file": "assets/CityPage-Cqei4krT.js",
+  "_CityPage-Daw5w6Z9.js": {
+    "file": "assets/CityPage-Daw5w6Z9.js",
     "name": "CityPage",
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_poland-outline-duy7zFaD.js"
     ]
   },
-  "_ExhibitImage-Copt7OmR.js": {
-    "file": "assets/ExhibitImage-Copt7OmR.js",
+  "_ExhibitImage-CejC2VtD.js": {
+    "file": "assets/ExhibitImage-CejC2VtD.js",
     "name": "ExhibitImage",
     "imports": [
       "resources/js/app.ts"
     ]
   },
-  "_PartitionMap-TqJ7JxNw.js": {
-    "file": "assets/PartitionMap-TqJ7JxNw.js",
+  "_PartitionMap-BIOfl-YD.js": {
+    "file": "assets/PartitionMap-BIOfl-YD.js",
     "name": "PartitionMap",
     "imports": [
       "resources/js/app.ts",
       "_poland-outline-duy7zFaD.js"
     ]
   },
-  "_PolishEmblem-BpMtNJjh.js": {
-    "file": "assets/PolishEmblem-BpMtNJjh.js",
+  "_PolishEmblem-DKavHNsb.js": {
+    "file": "assets/PolishEmblem-DKavHNsb.js",
     "name": "PolishEmblem",
     "imports": [
       "resources/js/app.ts"
     ]
   },
-  "_SiteHeader-C8jh17p6.js": {
-    "file": "assets/SiteHeader-C8jh17p6.js",
+  "_SiteHeader-N2FMfymv.js": {
+    "file": "assets/SiteHeader-N2FMfymv.js",
     "name": "SiteHeader",
     "imports": [
       "resources/js/app.ts"
     ]
   },
-  "_UsefulLinks-DhSJMRpn.js": {
-    "file": "assets/UsefulLinks-DhSJMRpn.js",
+  "_UsefulLinks-DYmxznOh.js": {
+    "file": "assets/UsefulLinks-DYmxznOh.js",
     "name": "UsefulLinks",
     "imports": [
       "resources/js/app.ts"
@@ -122,7 +122,7 @@
     "src": "_source-sans-3-600-normal-Wy7HIzqC.woff"
   },
   "resources/css/app.css": {
-    "file": "assets/app-Dc1X72r-.css",
+    "file": "assets/app-Cj9qnUyI.css",
     "name": "app",
     "names": [
       "app.css"
@@ -131,7 +131,7 @@
     "isEntry": true
   },
   "resources/js/app.ts": {
-    "file": "assets/app-D9vjZEOA.js",
+    "file": "assets/app-i8aS2kI-.js",
     "name": "app",
     "src": "resources/js/app.ts",
     "isEntry": true,
@@ -214,865 +214,865 @@
     ]
   },
   "resources/js/pages/Everyday.vue": {
-    "file": "assets/Everyday-CEkvtpMw.js",
+    "file": "assets/Everyday-DktMQvWy.js",
     "name": "Everyday",
     "src": "resources/js/pages/Everyday.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_UsefulLinks-DhSJMRpn.js"
+      "_SiteHeader-N2FMfymv.js",
+      "_UsefulLinks-DYmxznOh.js"
     ]
   },
   "resources/js/pages/Food.vue": {
-    "file": "assets/Food-BqG-NQ1A.js",
+    "file": "assets/Food-CbSHjbjA.js",
     "name": "Food",
     "src": "resources/js/pages/Food.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js"
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js"
     ]
   },
   "resources/js/pages/History.vue": {
-    "file": "assets/History-D-vqKlMw.js",
+    "file": "assets/History-DNb0D4ah.js",
     "name": "History",
     "src": "resources/js/pages/History.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
+      "_SiteHeader-N2FMfymv.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryBaptism.vue": {
-    "file": "assets/HistoryBaptism-Do7yYb1o.js",
+    "file": "assets/HistoryBaptism-CJnw-K0L.js",
     "name": "HistoryBaptism",
     "src": "resources/js/pages/HistoryBaptism.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js",
       "_poland-outline-duy7zFaD.js"
     ]
   },
   "resources/js/pages/HistoryBorders.vue": {
-    "file": "assets/HistoryBorders-CEDZGCxv.js",
+    "file": "assets/HistoryBorders-CVsHhnmk.js",
     "name": "HistoryBorders",
     "src": "resources/js/pages/HistoryBorders.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js",
       "_poland-outline-duy7zFaD.js"
     ]
   },
   "resources/js/pages/HistoryCamps.vue": {
-    "file": "assets/HistoryCamps-BGHJX-1V.js",
+    "file": "assets/HistoryCamps-DLQXslju.js",
     "name": "HistoryCamps",
     "src": "resources/js/pages/HistoryCamps.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryCasimir.vue": {
-    "file": "assets/HistoryCasimir-B88FfcpV.js",
+    "file": "assets/HistoryCasimir-CEOKdHEA.js",
     "name": "HistoryCasimir",
     "src": "resources/js/pages/HistoryCasimir.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js",
       "_poland-outline-duy7zFaD.js"
     ]
   },
   "resources/js/pages/HistoryConstitution.vue": {
-    "file": "assets/HistoryConstitution-Bv0SNHo4.js",
+    "file": "assets/HistoryConstitution-DRYWsTgb.js",
     "name": "HistoryConstitution",
     "src": "resources/js/pages/HistoryConstitution.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryDanzig.vue": {
-    "file": "assets/HistoryDanzig-71d_mxPX.js",
+    "file": "assets/HistoryDanzig-D6IAoEL4.js",
     "name": "HistoryDanzig",
     "src": "resources/js/pages/HistoryDanzig.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryEagle.vue": {
-    "file": "assets/HistoryEagle-Dg4n5J_V.js",
+    "file": "assets/HistoryEagle-DgfVKVpe.js",
     "name": "HistoryEagle",
     "src": "resources/js/pages/HistoryEagle.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js",
-      "_PolishEmblem-BpMtNJjh.js"
+      "_PolishEmblem-DKavHNsb.js"
     ]
   },
   "resources/js/pages/HistoryEnigma.vue": {
-    "file": "assets/HistoryEnigma-CMs2ralA.js",
+    "file": "assets/HistoryEnigma-DXRmjMMx.js",
     "name": "HistoryEnigma",
     "src": "resources/js/pages/HistoryEnigma.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
+      "_SiteHeader-N2FMfymv.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryEurope.vue": {
-    "file": "assets/HistoryEurope-BnbUI5pS.js",
+    "file": "assets/HistoryEurope-DBDYD-uZ.js",
     "name": "HistoryEurope",
     "src": "resources/js/pages/HistoryEurope.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
+      "_SiteHeader-N2FMfymv.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryExile.vue": {
-    "file": "assets/HistoryExile-D3P54zMN.js",
+    "file": "assets/HistoryExile-QmUQVq5D.js",
     "name": "HistoryExile",
     "src": "resources/js/pages/HistoryExile.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryFaiths.vue": {
-    "file": "assets/HistoryFaiths-BcroM5ZC.js",
+    "file": "assets/HistoryFaiths-DG7uZ0Cu.js",
     "name": "HistoryFaiths",
     "src": "resources/js/pages/HistoryFaiths.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js",
       "_poland-outline-duy7zFaD.js"
     ]
   },
   "resources/js/pages/HistoryFirstPartition.vue": {
-    "file": "assets/HistoryFirstPartition-C6BEGj-3.js",
+    "file": "assets/HistoryFirstPartition-CFc5G-bp.js",
     "name": "HistoryFirstPartition",
     "src": "resources/js/pages/HistoryFirstPartition.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js",
-      "_PartitionMap-TqJ7JxNw.js"
+      "_PartitionMap-BIOfl-YD.js"
     ]
   },
   "resources/js/pages/HistoryForces.vue": {
-    "file": "assets/HistoryForces-Cup9mLrk.js",
+    "file": "assets/HistoryForces-BEVoRiTE.js",
     "name": "HistoryForces",
     "src": "resources/js/pages/HistoryForces.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryGeneralGovernment.vue": {
-    "file": "assets/HistoryGeneralGovernment-Cbc8Mvd_.js",
+    "file": "assets/HistoryGeneralGovernment-CU-vfPR1.js",
     "name": "HistoryGeneralGovernment",
     "src": "resources/js/pages/HistoryGeneralGovernment.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryGhettoUprising.vue": {
-    "file": "assets/HistoryGhettoUprising-CSXneH1l.js",
+    "file": "assets/HistoryGhettoUprising-HsE0kTWA.js",
     "name": "HistoryGhettoUprising",
     "src": "resources/js/pages/HistoryGhettoUprising.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryGhettos.vue": {
-    "file": "assets/HistoryGhettos-CRC5yrAl.js",
+    "file": "assets/HistoryGhettos-DlHFYoi5.js",
     "name": "HistoryGhettos",
     "src": "resources/js/pages/HistoryGhettos.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryGniezno.vue": {
-    "file": "assets/HistoryGniezno-DEZq5AJ6.js",
+    "file": "assets/HistoryGniezno-BVGeSUag.js",
     "name": "HistoryGniezno",
     "src": "resources/js/pages/HistoryGniezno.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryGoldenAge.vue": {
-    "file": "assets/HistoryGoldenAge-CiqyDKKZ.js",
+    "file": "assets/HistoryGoldenAge-BHmBvDK1.js",
     "name": "HistoryGoldenAge",
     "src": "resources/js/pages/HistoryGoldenAge.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js",
       "_poland-outline-duy7zFaD.js"
     ]
   },
   "resources/js/pages/HistoryGrunwald.vue": {
-    "file": "assets/HistoryGrunwald-3PzS7Gjo.js",
+    "file": "assets/HistoryGrunwald-BuStNhed.js",
     "name": "HistoryGrunwald",
     "src": "resources/js/pages/HistoryGrunwald.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js",
       "_poland-outline-duy7zFaD.js"
     ]
   },
   "resources/js/pages/HistoryJune1989.vue": {
-    "file": "assets/HistoryJune1989-DsVA0lCg.js",
+    "file": "assets/HistoryJune1989-CoFldRpH.js",
     "name": "HistoryJune1989",
     "src": "resources/js/pages/HistoryJune1989.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryKarski.vue": {
-    "file": "assets/HistoryKarski-ChMVzhfS.js",
+    "file": "assets/HistoryKarski-B2a3yieZ.js",
     "name": "HistoryKarski",
     "src": "resources/js/pages/HistoryKarski.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
+      "_SiteHeader-N2FMfymv.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryKatyn.vue": {
-    "file": "assets/HistoryKatyn-g8YuJMIP.js",
+    "file": "assets/HistoryKatyn-CkDbc7dV.js",
     "name": "HistoryKatyn",
     "src": "resources/js/pages/HistoryKatyn.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryKeeping.vue": {
-    "file": "assets/HistoryKeeping-VfnUXUD6.js",
+    "file": "assets/HistoryKeeping-Bm871w0i.js",
     "name": "HistoryKeeping",
     "src": "resources/js/pages/HistoryKeeping.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryKosciuszko.vue": {
-    "file": "assets/HistoryKosciuszko-DSQ8j_Xm.js",
+    "file": "assets/HistoryKosciuszko-DnflKLUI.js",
     "name": "HistoryKosciuszko",
     "src": "resources/js/pages/HistoryKosciuszko.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js",
-      "_PartitionMap-TqJ7JxNw.js"
+      "_PartitionMap-BIOfl-YD.js"
     ]
   },
   "resources/js/pages/HistoryOccupation.vue": {
-    "file": "assets/HistoryOccupation-Df3D2uOt.js",
+    "file": "assets/HistoryOccupation-B0UmrdWp.js",
     "name": "HistoryOccupation",
     "src": "resources/js/pages/HistoryOccupation.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryOrigins.vue": {
-    "file": "assets/HistoryOrigins-DvwCx1Qx.js",
+    "file": "assets/HistoryOrigins-DSGI6wbV.js",
     "name": "HistoryOrigins",
     "src": "resources/js/pages/HistoryOrigins.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryPact.vue": {
-    "file": "assets/HistoryPact-kBik9kBp.js",
+    "file": "assets/HistoryPact-BAk6nTsN.js",
     "name": "HistoryPact",
     "src": "resources/js/pages/HistoryPact.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryPilecki.vue": {
-    "file": "assets/HistoryPilecki-CrUtM9-r.js",
+    "file": "assets/HistoryPilecki-CBQI76-l.js",
     "name": "HistoryPilecki",
     "src": "resources/js/pages/HistoryPilecki.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
+      "_SiteHeader-N2FMfymv.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryRebuilding.vue": {
-    "file": "assets/HistoryRebuilding-YqWldROq.js",
+    "file": "assets/HistoryRebuilding-6EtdDjSK.js",
     "name": "HistoryRebuilding",
     "src": "resources/js/pages/HistoryRebuilding.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryRising.vue": {
-    "file": "assets/HistoryRising-CD3nkjKo.js",
+    "file": "assets/HistoryRising-CnlEzOOM.js",
     "name": "HistoryRising",
     "src": "resources/js/pages/HistoryRising.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistorySecondPartition.vue": {
-    "file": "assets/HistorySecondPartition-CpyhUDLA.js",
+    "file": "assets/HistorySecondPartition-D03x4hPT.js",
     "name": "HistorySecondPartition",
     "src": "resources/js/pages/HistorySecondPartition.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistorySecondRepublic.vue": {
-    "file": "assets/HistorySecondRepublic-D7svuMyX.js",
+    "file": "assets/HistorySecondRepublic-CZ0aEpI9.js",
     "name": "HistorySecondRepublic",
     "src": "resources/js/pages/HistorySecondRepublic.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistorySeptember1939.vue": {
-    "file": "assets/HistorySeptember1939-Ba-cRGLA.js",
+    "file": "assets/HistorySeptember1939-NdeouTaI.js",
     "name": "HistorySeptember1939",
     "src": "resources/js/pages/HistorySeptember1939.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistorySerfdom.vue": {
-    "file": "assets/HistorySerfdom-BpDqKQBI.js",
+    "file": "assets/HistorySerfdom-DVyXkEhc.js",
     "name": "HistorySerfdom",
     "src": "resources/js/pages/HistorySerfdom.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistorySolidarity.vue": {
-    "file": "assets/HistorySolidarity-CAlObyYf.js",
+    "file": "assets/HistorySolidarity-BAGReo1d.js",
     "name": "HistorySolidarity",
     "src": "resources/js/pages/HistorySolidarity.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryThirdPartition.vue": {
-    "file": "assets/HistoryThirdPartition-Deyy8TUH.js",
+    "file": "assets/HistoryThirdPartition-tXhDrkD2.js",
     "name": "HistoryThirdPartition",
     "src": "resources/js/pages/HistoryThirdPartition.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryThreeEmpires.vue": {
-    "file": "assets/HistoryThreeEmpires-DY_61xno.js",
+    "file": "assets/HistoryThreeEmpires-Drfwn7Vh.js",
     "name": "HistoryThreeEmpires",
     "src": "resources/js/pages/HistoryThreeEmpires.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js",
-      "_PartitionMap-TqJ7JxNw.js"
+      "_PartitionMap-BIOfl-YD.js"
     ]
   },
   "resources/js/pages/HistoryToday.vue": {
-    "file": "assets/HistoryToday-y4GEWsdv.js",
+    "file": "assets/HistoryToday-Bv4HUP4d.js",
     "name": "HistoryToday",
     "src": "resources/js/pages/HistoryToday.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
+      "_SiteHeader-N2FMfymv.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryTransition.vue": {
-    "file": "assets/HistoryTransition-Dv8HJ5yC.js",
+    "file": "assets/HistoryTransition-D55RwYSW.js",
     "name": "HistoryTransition",
     "src": "resources/js/pages/HistoryTransition.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryUnderground.vue": {
-    "file": "assets/HistoryUnderground-BN3Bfv6k.js",
+    "file": "assets/HistoryUnderground-D2RMDR06.js",
     "name": "HistoryUnderground",
     "src": "resources/js/pages/HistoryUnderground.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryUprisings.vue": {
-    "file": "assets/HistoryUprisings-DdY-2nX_.js",
+    "file": "assets/HistoryUprisings-C39LESin.js",
     "name": "HistoryUprisings",
     "src": "resources/js/pages/HistoryUprisings.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js",
-      "_PartitionMap-TqJ7JxNw.js"
+      "_PartitionMap-BIOfl-YD.js"
     ]
   },
   "resources/js/pages/HistoryVeto.vue": {
-    "file": "assets/HistoryVeto-BwxXsYLZ.js",
+    "file": "assets/HistoryVeto-gGeQnb5q.js",
     "name": "HistoryVeto",
     "src": "resources/js/pages/HistoryVeto.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryVienna.vue": {
-    "file": "assets/HistoryVienna-CL_56VxE.js",
+    "file": "assets/HistoryVienna-GDg7m3_V.js",
     "name": "HistoryVienna",
     "src": "resources/js/pages/HistoryVienna.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js",
       "_poland-outline-duy7zFaD.js"
     ]
   },
   "resources/js/pages/HistoryVolhynia.vue": {
-    "file": "assets/HistoryVolhynia-D5ROgDoi.js",
+    "file": "assets/HistoryVolhynia-CRYO3EAq.js",
     "name": "HistoryVolhynia",
     "src": "resources/js/pages/HistoryVolhynia.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryWar.vue": {
-    "file": "assets/HistoryWar-DrQOkGQN.js",
+    "file": "assets/HistoryWar-xOpu3FM_.js",
     "name": "HistoryWar",
     "src": "resources/js/pages/HistoryWar.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryWarsaw1920.vue": {
-    "file": "assets/HistoryWarsaw1920-Bob9EZxF.js",
+    "file": "assets/HistoryWarsaw1920-CPu8d0dm.js",
     "name": "HistoryWarsaw1920",
     "src": "resources/js/pages/HistoryWarsaw1920.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryWesterplatte.vue": {
-    "file": "assets/HistoryWesterplatte-CrVwQPN6.js",
+    "file": "assets/HistoryWesterplatte-CS2heNXJ.js",
     "name": "HistoryWesterplatte",
     "src": "resources/js/pages/HistoryWesterplatte.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/HistoryWhere.vue": {
-    "file": "assets/HistoryWhere-vyARKyFS.js",
+    "file": "assets/HistoryWhere-DGV868or.js",
     "name": "HistoryWhere",
     "src": "resources/js/pages/HistoryWhere.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js",
       "_poland-outline-duy7zFaD.js"
     ]
   },
   "resources/js/pages/HistoryZamosc.vue": {
-    "file": "assets/HistoryZamosc-CHN6NZue.js",
+    "file": "assets/HistoryZamosc-D5v7kfR-.js",
     "name": "HistoryZamosc",
     "src": "resources/js/pages/HistoryZamosc.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_ExhibitImage-Copt7OmR.js",
+      "_SiteHeader-N2FMfymv.js",
+      "_ExhibitImage-CejC2VtD.js",
       "_history-articles-DUkZICDM.js"
     ]
   },
   "resources/js/pages/LifeNow.vue": {
-    "file": "assets/LifeNow-CGK4VvPR.js",
+    "file": "assets/LifeNow-DfR7u-bv.js",
     "name": "LifeNow",
     "src": "resources/js/pages/LifeNow.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_UsefulLinks-DhSJMRpn.js"
+      "_SiteHeader-N2FMfymv.js",
+      "_UsefulLinks-DYmxznOh.js"
     ]
   },
   "resources/js/pages/Method.vue": {
-    "file": "assets/Method-D-fuPNiw.js",
+    "file": "assets/Method-xCiZgI6m.js",
     "name": "Method",
     "src": "resources/js/pages/Method.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js"
+      "_SiteHeader-N2FMfymv.js"
     ]
   },
   "resources/js/pages/NotFound.vue": {
-    "file": "assets/NotFound-l5eWh-kw.js",
+    "file": "assets/NotFound-CKvHvSkT.js",
     "name": "NotFound",
     "src": "resources/js/pages/NotFound.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js"
+      "_SiteHeader-N2FMfymv.js"
     ]
   },
   "resources/js/pages/PlaceBialowieza.vue": {
-    "file": "assets/PlaceBialowieza-Bm5w8z0y.js",
+    "file": "assets/PlaceBialowieza-BBQhyB0u.js",
     "name": "PlaceBialowieza",
     "src": "resources/js/pages/PlaceBialowieza.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceBydgoszcz.vue": {
-    "file": "assets/PlaceBydgoszcz-BYrBkVdm.js",
+    "file": "assets/PlaceBydgoszcz-CNOguf8J.js",
     "name": "PlaceBydgoszcz",
     "src": "resources/js/pages/PlaceBydgoszcz.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceGdansk.vue": {
-    "file": "assets/PlaceGdansk-DUi-AK2H.js",
+    "file": "assets/PlaceGdansk-4opk_-ij.js",
     "name": "PlaceGdansk",
     "src": "resources/js/pages/PlaceGdansk.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceKatowice.vue": {
-    "file": "assets/PlaceKatowice-BBGUEmF7.js",
+    "file": "assets/PlaceKatowice-BzLJgQWB.js",
     "name": "PlaceKatowice",
     "src": "resources/js/pages/PlaceKatowice.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceKrakow.vue": {
-    "file": "assets/PlaceKrakow-DT_uq--D.js",
+    "file": "assets/PlaceKrakow-DeUg6N-E.js",
     "name": "PlaceKrakow",
     "src": "resources/js/pages/PlaceKrakow.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceLodz.vue": {
-    "file": "assets/PlaceLodz-DjpkuQbq.js",
+    "file": "assets/PlaceLodz-u8QUFiIB.js",
     "name": "PlaceLodz",
     "src": "resources/js/pages/PlaceLodz.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceLublin.vue": {
-    "file": "assets/PlaceLublin-OxaPi_jq.js",
+    "file": "assets/PlaceLublin-DfkdZ9E8.js",
     "name": "PlaceLublin",
     "src": "resources/js/pages/PlaceLublin.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceMalbork.vue": {
-    "file": "assets/PlaceMalbork-BaexpqU6.js",
+    "file": "assets/PlaceMalbork-BEzTqVGP.js",
     "name": "PlaceMalbork",
     "src": "resources/js/pages/PlaceMalbork.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceMazury.vue": {
-    "file": "assets/PlaceMazury-BHoWRkPA.js",
+    "file": "assets/PlaceMazury-BXHDOHZj.js",
     "name": "PlaceMazury",
     "src": "resources/js/pages/PlaceMazury.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlacePoznan.vue": {
-    "file": "assets/PlacePoznan-Do4QR6f0.js",
+    "file": "assets/PlacePoznan-DGkhhcgg.js",
     "name": "PlacePoznan",
     "src": "resources/js/pages/PlacePoznan.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceSzczecin.vue": {
-    "file": "assets/PlaceSzczecin-DYzOGVb8.js",
+    "file": "assets/PlaceSzczecin-BW6SQDsk.js",
     "name": "PlaceSzczecin",
     "src": "resources/js/pages/PlaceSzczecin.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceTorun.vue": {
-    "file": "assets/PlaceTorun-CwW8zCvt.js",
+    "file": "assets/PlaceTorun-Ces2t7vx.js",
     "name": "PlaceTorun",
     "src": "resources/js/pages/PlaceTorun.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceWarszawa.vue": {
-    "file": "assets/PlaceWarszawa-D6hBKdL1.js",
+    "file": "assets/PlaceWarszawa-DfiDeLzu.js",
     "name": "PlaceWarszawa",
     "src": "resources/js/pages/PlaceWarszawa.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceWieliczka.vue": {
-    "file": "assets/PlaceWieliczka-2o2Sa8eS.js",
+    "file": "assets/PlaceWieliczka-BNjD9Jcy.js",
     "name": "PlaceWieliczka",
     "src": "resources/js/pages/PlaceWieliczka.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceWroclaw.vue": {
-    "file": "assets/PlaceWroclaw-B3WYnKQj.js",
+    "file": "assets/PlaceWroclaw-Dp2-kZll.js",
     "name": "PlaceWroclaw",
     "src": "resources/js/pages/PlaceWroclaw.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/PlaceZakopane.vue": {
-    "file": "assets/PlaceZakopane-CMb84AzU.js",
+    "file": "assets/PlaceZakopane-DM-b-gM1.js",
     "name": "PlaceZakopane",
     "src": "resources/js/pages/PlaceZakopane.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_CityPage-Cqei4krT.js"
+      "_CityPage-Daw5w6Z9.js"
     ]
   },
   "resources/js/pages/Places.vue": {
-    "file": "assets/Places-BZZ148VT.js",
+    "file": "assets/Places-DmkWIcDT.js",
     "name": "Places",
     "src": "resources/js/pages/Places.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
+      "_SiteHeader-N2FMfymv.js",
       "_poland-outline-duy7zFaD.js"
     ]
   },
   "resources/js/pages/Roots.vue": {
-    "file": "assets/Roots-UAGA8ii-.js",
+    "file": "assets/Roots-DkhprL8X.js",
     "name": "Roots",
     "src": "resources/js/pages/Roots.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js"
+      "_SiteHeader-N2FMfymv.js"
     ]
   },
   "resources/js/pages/Start.vue": {
-    "file": "assets/Start-BhQj7NDi.js",
+    "file": "assets/Start-CloNd41l.js",
     "name": "Start",
     "src": "resources/js/pages/Start.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js"
+      "_SiteHeader-N2FMfymv.js"
     ]
   },
   "resources/js/pages/Welcome.vue": {
-    "file": "assets/Welcome-C8iTrErz.js",
+    "file": "assets/Welcome-CxBS8VSN.js",
     "name": "Welcome",
     "src": "resources/js/pages/Welcome.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.ts",
-      "_SiteHeader-C8jh17p6.js",
-      "_PolishEmblem-BpMtNJjh.js"
+      "_SiteHeader-N2FMfymv.js",
+      "_PolishEmblem-DKavHNsb.js"
     ]
   }
 }

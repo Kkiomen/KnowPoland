@@ -22,7 +22,7 @@ final class PageCopy
     /**
      * Groups read by components that appear on many pages.
      *
-     * home: the masthead title and tagline in the header. history: the labels
+     * home: the masthead wordmark and tagline in the header. history: the labels
      * of the picture viewer and the article navigation. places: the city list
      * and the way back on every place page. The rest are small.
      */

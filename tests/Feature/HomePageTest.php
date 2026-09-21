@@ -16,14 +16,15 @@ it('renders the home page with shared translations', function (): void {
         ->assertInertia(fn (AssertableInertia $page) => $page
             ->component('Welcome')
             ->where('locale', 'en')
-            ->where('translations.home.masthead.title', 'Get to know Poland')
+            ->where('translations.home.masthead.wordmark', 'knowpoland')
+            ->where('translations.home.masthead.wordmark_suffix', '.com')
             ->has('translations.home.sections', 6)
             ->has('availableLocales')
         );
 });
 
 it('serves English copy by default', function (): void {
-    $this->get('/')->assertSee('Get to know Poland', escape: false);
+    $this->get('/')->assertSee('Get to Know Poland', escape: false);
 });
 
 it('ignores a language that has no translation file', function (): void {
@@ -37,7 +38,9 @@ it('switches to Polish when asked', function (): void {
         ->assertOk()
         ->assertInertia(fn (AssertableInertia $page) => $page
             ->where('locale', 'pl')
-            ->where('translations.home.masthead.title', 'Poznaj Polskę')
+            ->where('translations.home.meta.title', 'Poznaj Polskę')
+            // the wordmark is the address, so a screenshot in any language leads back here
+            ->where('translations.home.masthead.wordmark', 'knowpoland')
         );
 });
 

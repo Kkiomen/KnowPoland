@@ -27,7 +27,8 @@ return [
         ],
 
         'masthead' => [
-            'title' => 'Get to know Poland',
+            'wordmark' => 'knowpoland',
+            'wordmark_suffix' => '.com',
             'tagline' => 'History, everyday life, and the country behind the postcards',
         ],
 

@@ -1,0 +1,1 @@
+import{C as e,p as t,y as n}from"./app-i8aS2kI-.js";import{t as r}from"./CityPage-Daw5w6Z9.js";var i=n({__name:`PlaceMazury`,setup(n){return(n,i)=>(e(),t(r,{city:`mazury`,lon:21.5675,lat:53.8022}))}});export{i as default};

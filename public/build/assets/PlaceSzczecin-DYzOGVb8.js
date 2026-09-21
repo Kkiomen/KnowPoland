@@ -1,1 +1,0 @@
-import{C as e,p as t,y as n}from"./app-D9vjZEOA.js";import{t as r}from"./CityPage-Cqei4krT.js";var i=n({__name:`PlaceSzczecin`,setup(n){return(n,i)=>(e(),t(r,{city:`szczecin`,lon:14.5528,lat:53.4285}))}});export{i as default};

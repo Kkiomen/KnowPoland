@@ -69,7 +69,7 @@ it('sends an article its own copy in full and only the titles of the others', fu
             ->has('translations.pact.meta.title')
             ->missing('translations.pact.frames')
             ->has('translations.history.enlarge')
-            ->has('translations.home.masthead.title')
+            ->has('translations.home.masthead.wordmark')
         );
 });
 
