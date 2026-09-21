@@ -23,6 +23,13 @@ class LifeNowController extends Controller
             'figures' => $this->figures($statistics),
             'prices' => config('poland.prices', []),
             'rates' => $rates->all(),
+            // Some hosts only let a server reach a short list of addresses, and
+            // the bank is not on it. The API answers any browser, so when the
+            // server came back empty the page asks for the rates itself.
+            'rateSource' => [
+                'endpoint' => config('poland.rates.endpoint'),
+                'codes' => config('poland.rates.codes'),
+            ],
         ]);
     }
 

@@ -170,3 +170,23 @@ it('says why the live figures could not be fetched', function (): void {
         ->expectsOutputToContain('Statistics Poland: HTTP 403')
         ->assertSuccessful();
 });
+
+it('lets the browser fetch the rates when the server could not', function (): void {
+    // the live host lets the server reach only a few addresses, and the bank
+    // is not one of them, while its API answers any browser
+    Http::fake(['*' => Http::response('', 500)]);
+
+    Cache::flush();
+
+    $this->get('/poland-today')
+        ->assertOk()
+        ->assertInertia(fn (AssertableInertia $page) => $page
+            ->component('LifeNow')
+            ->where('rates', [])
+            ->where('rateSource.endpoint', config('poland.rates.endpoint'))
+            ->where('rateSource.codes', config('poland.rates.codes'))
+        );
+
+    expect((string) file_get_contents(resource_path('js/pages/LifeNow.vue')))
+        ->toContain("props.rateSource.endpoint.replace(':code', code)");
+});

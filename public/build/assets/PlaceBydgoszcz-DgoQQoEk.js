@@ -1,1 +1,0 @@
-import{C as e,p as t,y as n}from"./app-CbBGm3hX.js";import{t as r}from"./CityPage-Bxau_9ia.js";var i=n({__name:`PlaceBydgoszcz`,setup(n){return(n,i)=>(e(),t(r,{city:`bydgoszcz`,lon:18.0084,lat:53.1235}))}});export{i as default};

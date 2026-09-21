@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/vue3';
-import { computed } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 
 import SiteFooter from '@/components/SiteFooter.vue';
 import SiteHeader from '@/components/SiteHeader.vue';
@@ -34,7 +34,59 @@ const props = defineProps<{
     figures: Figure[];
     prices: Price[];
     rates: Rate[];
+    rateSource: { endpoint: string; codes: string[] };
 }>();
+
+/**
+ * The rates the server fetched, or the ones the browser fetches instead.
+ *
+ * The live host only lets the server reach a short list of addresses and the
+ * National Bank of Poland is not on it, but the bank's API answers any
+ * browser. So when the server comes back empty, the reader's browser asks the
+ * bank directly, once, and formats the answer exactly as the server would. If
+ * that fails too, the page says the rates are unavailable, as before.
+ */
+const rates = ref<Rate[]>(props.rates);
+
+type NbpAnswer = { rates?: { mid?: number; effectiveDate?: string }[] };
+
+async function fetchRate(code: string): Promise<Rate | null> {
+    try {
+        const response = await fetch(
+            props.rateSource.endpoint.replace(':code', code),
+            { headers: { Accept: 'application/json' } },
+        );
+
+        if (!response.ok) {
+            return null;
+        }
+
+        const answer = (await response.json()) as NbpAnswer;
+        const reading = answer.rates?.[0];
+
+        if (typeof reading?.mid !== 'number' || !reading.effectiveDate) {
+            return null;
+        }
+
+        return {
+            code: code.toUpperCase(),
+            rate: reading.mid.toFixed(2).replace('.', ','),
+            date: reading.effectiveDate,
+        };
+    } catch {
+        return null;
+    }
+}
+
+onMounted(async () => {
+    if (rates.value.length > 0) {
+        return;
+    }
+
+    const fetched = await Promise.all(props.rateSource.codes.map(fetchRate));
+
+    rates.value = fetched.filter((rate): rate is Rate => rate !== null);
+});
 
 const text = (path: string): string => t(`life_now.${path}`);
 
@@ -580,14 +632,10 @@ const reasons = computed(() =>
                     </div>
 
                     <div
-                        v-if="props.rates.length"
+                        v-if="rates.length"
                         class="mt-4 flex flex-wrap gap-x-10 gap-y-4"
                     >
-                        <p
-                            v-for="rate in props.rates"
-                            :key="rate.code"
-                            class="m-0"
-                        >
+                        <p v-for="rate in rates" :key="rate.code" class="m-0">
                             <span
                                 class="font-display text-[1.7rem] leading-none text-[#221e19] tabular-nums"
                             >
@@ -605,11 +653,11 @@ const reasons = computed(() =>
                     </p>
 
                     <p
-                        v-if="props.rates.length"
+                        v-if="rates.length"
                         class="mt-4 text-[0.8125rem] leading-relaxed text-[#6e6459]"
                     >
                         {{ text('figures.rates_note') }}
-                        {{ props.rates[0].date }}
+                        {{ rates[0].date }}
                     </p>
                 </div>
             </div>

@@ -1,0 +1,1 @@
+import{C as e,p as t,y as n}from"./app-BbmuKuwG.js";import{t as r}from"./CityPage-_taDldmP.js";var i=n({__name:`PlaceWieliczka`,setup(n){return(n,i)=>(e(),t(r,{city:`wieliczka`,lon:20.0546,lat:49.9847}))}});export{i as default};
