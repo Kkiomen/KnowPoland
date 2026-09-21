@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ErrorPageController;
+use App\Http\Middleware\CanonicalHost;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Foundation\Application;
@@ -17,6 +18,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // The live site may sit behind a proxy that terminates TLS, Cloudflare
+        // or a hosting load balancer. Trusting its forwarded headers is what
+        // lets the application see that the reader is on https at all.
+        $middleware->trustProxies(at: '*');
+
+        $middleware->prepend(CanonicalHost::class);
+
         $middleware->web(append: [
             SetLocale::class,
             HandleInertiaRequests::class,

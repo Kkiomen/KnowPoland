@@ -114,6 +114,16 @@ php artisan poland:warm
 
 `poland:warm` fetches the exchange rates and statistics the *Poland today* page prints, so the first reader after a deployment does not wait for those services to answer.
 
+### HTTPS and the one canonical address
+
+- Point the domain's document root at `public/`, never at the project root, or `.env` becomes downloadable.
+- Get a certificate from the host (Let's Encrypt in most panels, `certbot` on a VPS). Behind Cloudflare, use the *Full (strict)* SSL mode.
+- In `.env`: `APP_ENV=production`, `APP_DEBUG=false`, `APP_URL=https://knowpoland.com`, `SESSION_SECURE_COOKIE=true`.
+
+The rest is in the application. In production every request that is not `https://knowpoland.com` gets a permanent redirect there, keeping the path and the language, and every secure response carries a one year `Strict-Transport-Security` header. Forwarded headers from a proxy are trusted, so TLS ending at Cloudflare or a load balancer does not cause a loop, and `/up` answers over plain http for health checks. `public/.htaccess` repeats the redirect for images and other static files on Apache.
+
+To check: `curl -I http://www.knowpoland.com` should answer `301` with `Location: https://knowpoland.com/`.
+
 Reader counting is off by default. Set `ANALYTICS_SCRIPT` and `ANALYTICS_DOMAIN` to load a cookie-free counter such as Plausible, and the site still needs no consent banner.
 
 ## Licence

@@ -41,6 +41,10 @@ class AppServiceProvider extends ServiceProvider
         if (app()->isProduction()) {
             URL::forceScheme('https');
 
+            // Canonical tags, hreflang and the sitemap name the host from
+            // APP_URL, never whichever variant of it a request came in on.
+            URL::forceRootUrl((string) config('app.url'));
+
             // public/hot is written by the development server and points Vite
             // at a laptop on localhost. One copy of it uploaded by accident
             // would leave the live site without styles or scripts, so in

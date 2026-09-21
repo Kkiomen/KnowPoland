@@ -5,6 +5,19 @@
 
     RewriteEngine On
 
+    # The live domain only: https, without www. The application does the same
+    # for every page, this also covers images and other static files. The
+    # checks on HTTPS and X-Forwarded-Proto stop a redirect loop when TLS ends
+    # at a proxy in front of the server, such as Cloudflare.
+    RewriteCond %{HTTP_HOST} ^(www\.)?knowpoland\.com$ [NC]
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+    RewriteCond %{ENV:HTTPS} !=on
+    RewriteRule ^ https://knowpoland.com%{REQUEST_URI} [L,R=301]
+
+    RewriteCond %{HTTP_HOST} ^www\.knowpoland\.com$ [NC]
+    RewriteRule ^ https://knowpoland.com%{REQUEST_URI} [L,R=301]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
