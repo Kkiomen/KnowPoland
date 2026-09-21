@@ -1,0 +1,1 @@
+import{C as e,p as t,y as n}from"./app-B1FjH1EC.js";import{t as r}from"./CityPage-BT4mt2dL.js";var i=n({__name:`PlacePoznan`,setup(n){return(n,i)=>(e(),t(r,{city:`poznan`,lon:16.9252,lat:52.4064}))}});export{i as default};
