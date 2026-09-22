@@ -2014,7 +2014,7 @@ it('places the first partition article right after the constitution, opening the
     // search engines and link previews read the title and the card from the server
     $this->get('/history/first-partition-1772')
         ->assertSee(e(trans('site.partition1.meta.title')), escape: false)
-        ->assertSee('partition1-rejtan-lg.jpg', escape: false);
+        ->assertSee('/images/cards/partition1.jpg', escape: false);
 });
 
 it('keeps every first partition frame inside the layout budgets in every language', function (): void {
@@ -2211,7 +2211,7 @@ it('places the second partition article right after the first, as the second par
     // search engines and link previews read the title and the card from the server
     $this->get('/history/second-partition-1793')
         ->assertSee(e(trans('site.partition2.meta.title')), escape: false)
-        ->assertSee('partition2-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/partition2.jpg', escape: false);
 });
 
 it('keeps every second partition frame inside the layout budgets in every language', function (): void {
@@ -2426,7 +2426,7 @@ it('places the Kosciuszko article right after the second partition, as the third
     // search engines and link previews read the title and the card from the server
     $this->get('/history/kosciuszko-1794')
         ->assertSee(e(trans('site.kosciuszko.meta.title')), escape: false)
-        ->assertSee('kosciuszko-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/kosciuszko.jpg', escape: false);
 });
 
 it('keeps every Kosciuszko frame inside the layout budgets in every language', function (): void {
@@ -2668,7 +2668,7 @@ it('places the third partition article right after Kosciuszko, as the fourth par
     // search engines and link previews read the title and the card from the server
     $this->get('/history/third-partition-1795')
         ->assertSee(e(trans('site.partition3.meta.title')), escape: false)
-        ->assertSee('partition3-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/partition3.jpg', escape: false);
 });
 
 it('keeps every third partition frame inside the layout budgets in every language', function (): void {
@@ -2871,7 +2871,7 @@ it('places the uprisings article right after the Third Partition, as the fifth p
     // search engines and link previews read the title and the card from the server
     $this->get('/history/uprisings-1830-1863')
         ->assertSee(e(trans('site.uprisings.meta.title')), escape: false)
-        ->assertSee('uprisings-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/uprisings.jpg', escape: false);
 });
 
 it('keeps every uprisings frame inside the layout budgets in every language', function (): void {
@@ -3106,7 +3106,7 @@ it('places the keeping article right after the uprisings, as the sixth partition
     // search engines and link previews read the title and the card from the server
     $this->get('/history/keeping-a-country')
         ->assertSee(e(trans('site.keeping.meta.title')), escape: false)
-        ->assertSee('keeping-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/keeping.jpg', escape: false);
 });
 
 it('keeps every keeping frame inside the layout budgets in every language', function (): void {
@@ -3319,7 +3319,7 @@ it('places the three empires article right after the keeping article, as the sev
     // search engines and link previews read the title and the card from the server
     $this->get('/history/three-empires-three-cities')
         ->assertSee(e(trans('site.empires.meta.title')), escape: false)
-        ->assertSee('empires-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/empires.jpg', escape: false);
 });
 
 it('keeps every three empires frame inside the layout budgets in every language', function (): void {
@@ -3555,7 +3555,7 @@ it('places the Second Republic article after the three empires and before the wa
     // search engines and link previews read the title and the card from the server
     $this->get('/history/second-republic-1918')
         ->assertSee(e(trans('site.republic.meta.title')), escape: false)
-        ->assertSee('republic-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/republic.jpg', escape: false);
 });
 
 it('keeps every Second Republic frame inside the layout budgets in every language', function (): void {
@@ -3803,7 +3803,7 @@ it('places the Battle of Warsaw article after the Second Republic, as the second
     // search engines and link previews read the title and the card from the server
     $this->get('/history/battle-of-warsaw-1920')
         ->assertSee(e(trans('site.war1920.meta.title')), escape: false)
-        ->assertSee('war1920-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/war1920.jpg', escape: false);
 });
 
 it('keeps every Battle of Warsaw frame inside the layout budgets in every language', function (): void {
@@ -4048,7 +4048,7 @@ it('places the moved borders article after the war, as the first communism topic
     // search engines and link previews read the title and the card from the server
     $this->get('/history/the-borders-moved')
         ->assertSee(e(trans('site.borders.meta.title')), escape: false)
-        ->assertSee('borders-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/borders.jpg', escape: false);
 });
 
 it('keeps every moved borders frame inside the layout budgets in every language', function (): void {
@@ -4270,7 +4270,7 @@ it('places the rebuilding article after the moved borders, as the second communi
     // search engines and link previews read the title and the card from the server
     $this->get('/history/rebuilding-warsaw')
         ->assertSee(e(trans('site.rebuilding.meta.title')), escape: false)
-        ->assertSee('rebuilding-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/rebuilding.jpg', escape: false);
 });
 
 it('keeps every rebuilding frame inside the layout budgets in every language', function (): void {
@@ -4487,7 +4487,7 @@ it('places the Solidarity article after the rebuilding of Warsaw, as the third c
     // search engines and link previews read the title and the card from the server
     $this->get('/history/solidarity-1980')
         ->assertSee(e(trans('site.solidarity.meta.title')), escape: false)
-        ->assertSee('solidarity-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/solidarity.jpg', escape: false);
 });
 
 it('keeps every Solidarity frame inside the layout budgets in every language', function (): void {
@@ -4712,7 +4712,7 @@ it('places the June 1989 article after Solidarity, as the fourth communism topic
     // search engines and link previews read the title and the card from the server
     $this->get('/history/june-1989')
         ->assertSee(e(trans('site.june1989.meta.title')), escape: false)
-        ->assertSee('june1989-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/june1989.jpg', escape: false);
 });
 
 it('keeps every June 1989 frame inside the layout budgets in every language', function (): void {
@@ -4925,7 +4925,7 @@ it('places the transition article after June 1989, as the first topic after 1989
     // search engines and link previews read the title and the card from the server
     $this->get('/history/the-transition')
         ->assertSee(e(trans('site.transition.meta.title')), escape: false)
-        ->assertSee('transition-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/transition.jpg', escape: false);
 });
 
 it('keeps every transition frame inside the layout budgets in every language', function (): void {
@@ -5136,7 +5136,7 @@ it('places the NATO and European Union article after the transition', function (
     // search engines and link previews read the title and the card from the server
     $this->get('/history/nato-and-the-eu')
         ->assertSee(e(trans('site.euro.meta.title')), escape: false)
-        ->assertSee('euro-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/euro.jpg', escape: false);
 });
 
 it('keeps every NATO and European Union frame inside the layout budgets in every language', function (): void {
@@ -5369,7 +5369,7 @@ it('closes the reading order with the article on Poland since 2004', function ()
     // search engines and link previews read the title and the card from the server
     $this->get('/history/poland-since-2004')
         ->assertSee(e(trans('site.today.meta.title')), escape: false)
-        ->assertSee('today-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/today.jpg', escape: false);
 });
 
 it('keeps every frame about Poland since 2004 inside the layout budgets in every language', function (): void {
@@ -5596,7 +5596,7 @@ it('places the September 1939 article after the Battle of Warsaw, as the third w
     // search engines and link previews read the title and the card from the server
     $this->get('/history/september-1939')
         ->assertSee(e(trans('site.sept1939.meta.title')), escape: false)
-        ->assertSee('sept1939-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/sept1939.jpg', escape: false);
 });
 
 it('keeps every September 1939 frame inside the layout budgets in every language', function (): void {
@@ -5847,7 +5847,7 @@ it('places the occupation article after September 1939, as the fourth wars topic
     // search engines and link previews read the title and the card from the server
     $this->get('/history/occupation-and-holocaust')
         ->assertSee(e(trans('site.occupation.meta.title')), escape: false)
-        ->assertSee('occupation-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/occupation.jpg', escape: false);
 });
 
 it('keeps every occupation frame inside the layout budgets in every language', function (): void {
@@ -6132,7 +6132,7 @@ it('hangs the Danzig article off the first topic of the war overview', function 
     // search engines and link previews read the title and the card from the server
     $this->get('/history/free-city-of-danzig')
         ->assertSee(e(trans('site.danzig.meta.title')), escape: false)
-        ->assertSee('danzig-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/danzig.jpg', escape: false);
 });
 
 it('points every warTopic at a chapter and a topic that exist in both languages', function (): void {
@@ -6423,7 +6423,7 @@ it('hangs the Westerplatte article off the second topic of the war overview', fu
     // search engines and link previews read the title and the card from the server
     $this->get('/history/westerplatte')
         ->assertSee(e(trans('site.westerplatte.meta.title')), escape: false)
-        ->assertSee('westerplatte-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/westerplatte.jpg', escape: false);
 });
 
 it('keeps every Westerplatte frame inside the layout budgets in every language', function (): void {
@@ -6693,7 +6693,7 @@ it('hangs the pact article off the fourth topic of the war overview', function (
     // search engines and link previews read the title and the card from the server
     $this->get('/history/molotov-ribbentrop-pact')
         ->assertSee(e(trans('site.pact.meta.title')), escape: false)
-        ->assertSee('pact-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/pact.jpg', escape: false);
 });
 
 it('keeps every pact frame inside the layout budgets in every language', function (): void {
@@ -6991,7 +6991,7 @@ it('places the Second World War article after September 1939 and answers the 194
 
     $this->get('/history/second-world-war')
         ->assertSee(e(trans('site.war.meta.title')), escape: false)
-        ->assertSee('tlo-memory-1400.jpg', escape: false);
+        ->assertSee('/images/cards/war.jpg', escape: false);
 });
 
 it('keeps every war chapter inside the layout budgets in every language', function (): void {
@@ -7520,7 +7520,7 @@ it('hangs the exile article off the fifth topic of the war overview', function (
     // search engines and link previews read the title and the card from the server
     $this->get('/history/government-in-exile')
         ->assertSee(e(trans('site.exile.meta.title')), escape: false)
-        ->assertSee('exile-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/exile.jpg', escape: false);
 });
 
 it('keeps every exile frame inside the layout budgets in every language', function (): void {
@@ -7762,7 +7762,7 @@ it('hangs the General Government article off the first topic of the occupation c
     // search engines and link previews read the title and the card from the server
     $this->get('/history/general-government')
         ->assertSee(e(trans('site.gg.meta.title')), escape: false)
-        ->assertSee('gg-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/gg.jpg', escape: false);
 });
 
 it('keeps every General Government frame inside the layout budgets in every language', function (): void {
@@ -7998,7 +7998,7 @@ it('hangs the Katyn article off the third topic of the occupation chapter', func
     // search engines and link previews read the title and the card from the server
     $this->get('/history/katyn')
         ->assertSee(e(trans('site.katyn.meta.title')), escape: false)
-        ->assertSee('katyn-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/katyn.jpg', escape: false);
 });
 
 it('keeps every Katyn frame inside the layout budgets in every language', function (): void {
@@ -8286,7 +8286,7 @@ it('hangs the Zamosc article off the fourth topic of the occupation chapter', fu
     // search engines and link previews read the title and the card from the server
     $this->get('/history/zamosc-expulsions')
         ->assertSee(e(trans('site.zamosc.meta.title')), escape: false)
-        ->assertSee('zamosc-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/zamosc.jpg', escape: false);
 });
 
 it('keeps every Zamosc frame inside the layout budgets in every language', function (): void {
@@ -8641,7 +8641,7 @@ it('hangs the ghettos article off the first topic of the Holocaust chapter', fun
     // search engines and link previews read the title and the card from the server
     $this->get('/history/the-ghettos')
         ->assertSee(e(trans('site.ghettos.meta.title')), escape: false)
-        ->assertSee('ghettos-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/ghettos.jpg', escape: false);
 });
 
 it('keeps every ghettos frame inside the layout budgets in every language', function (): void {
@@ -9058,7 +9058,7 @@ it('hangs the death camps article off the second topic of the Holocaust chapter'
     // search engines and link previews read the title and the card from the server
     $this->get('/history/the-death-camps')
         ->assertSee(e(trans('site.camps.meta.title')), escape: false)
-        ->assertSee('camps-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/camps.jpg', escape: false);
 });
 
 it('keeps every death camps frame inside the layout budgets in every language', function (): void {
@@ -9306,7 +9306,7 @@ it('hangs the ghetto uprising article off the third topic of the Holocaust chapt
     // search engines and link previews read the title and the card from the server
     $this->get('/history/warsaw-ghetto-uprising')
         ->assertSee(e(trans('site.ghettouprising.meta.title')), escape: false)
-        ->assertSee('ghettouprising-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/ghettouprising.jpg', escape: false);
 });
 
 it('keeps every ghetto uprising frame inside the layout budgets in every language', function (): void {
@@ -9586,7 +9586,7 @@ it('hangs the underground state article off the first topic of the resistance ch
     // search engines and link previews read the title and the card from the server
     $this->get('/history/underground-state')
         ->assertSee(e(trans('site.underground.meta.title')), escape: false)
-        ->assertSee('underground-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/underground.jpg', escape: false);
 });
 
 it('keeps every underground state frame inside the layout budgets in every language', function (): void {
@@ -9951,7 +9951,7 @@ it('hangs the Witold Pilecki article off the second topic of the resistance chap
     // search engines and link previews read the title and the card from the server
     $this->get('/history/witold-pilecki')
         ->assertSee(e(trans('site.pilecki.meta.title')), escape: false)
-        ->assertSee('pilecki-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/pilecki.jpg', escape: false);
 });
 
 it('keeps every Witold Pilecki frame inside the layout budgets in every language', function (): void {
@@ -10194,7 +10194,7 @@ it('hangs the Jan Karski article off the third topic of the resistance chapter',
     // search engines and link previews read the title and the card from the server
     $this->get('/history/jan-karski')
         ->assertSee(e(trans('site.karski.meta.title')), escape: false)
-        ->assertSee('karski-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/karski.jpg', escape: false);
 });
 
 it('keeps every Jan Karski frame inside the layout budgets in every language', function (): void {
@@ -10407,7 +10407,7 @@ it('hangs the Enigma article off the fourth topic of the resistance chapter', fu
     // search engines and link previews read the title and the card from the server
     $this->get('/history/enigma')
         ->assertSee(e(trans('site.enigma.meta.title')), escape: false)
-        ->assertSee('enigma-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/enigma.jpg', escape: false);
 });
 
 it('keeps every Enigma frame inside the layout budgets in every language', function (): void {
@@ -10663,7 +10663,7 @@ it('hangs the Polish forces article off the fifth topic of the resistance chapte
     // search engines and link previews read the title and the card from the server
     $this->get('/history/polish-forces-abroad')
         ->assertSee(e(trans('site.forces.meta.title')), escape: false)
-        ->assertSee('forces-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/forces.jpg', escape: false);
 });
 
 it('keeps every Polish forces frame inside the layout budgets in every language', function (): void {
@@ -11009,7 +11009,7 @@ it('hangs the Warsaw Uprising article off every topic of the uprising chapter', 
     // search engines and link previews read the title and the card from the server
     $this->get('/history/warsaw-uprising-1944')
         ->assertSee(e(trans('site.rising.meta.title')), escape: false)
-        ->assertSee('rising-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/rising.jpg', escape: false);
 });
 
 it('keeps every Warsaw Uprising frame inside the layout budgets in every language', function (): void {
@@ -11396,7 +11396,7 @@ it('hangs the Volhynia article off the fifth topic of the occupation chapter', f
     // search engines and link previews read the title and the card from the server
     $this->get('/history/volhynia-1943')
         ->assertSee(e(trans('site.volhynia.meta.title')), escape: false)
-        ->assertSee('volhynia-hero-lg.jpg', escape: false);
+        ->assertSee('/images/cards/volhynia.jpg', escape: false);
 });
 
 it('keeps every Volhynia frame inside the layout budgets in every language', function (): void {

@@ -26,7 +26,9 @@ it('sends the reader to the real donation page', function (): void {
 
     $this->get('/')
         ->assertOk()
-        ->assertSee('https://buymeacoffee.com/owsianka', escape: false);
+        ->assertInertia(fn (AssertableInertia $page) => $page
+            ->where('supportUrl', 'https://buymeacoffee.com/owsianka')
+        );
 });
 
 it('names the donation link in every language', function (): void {
