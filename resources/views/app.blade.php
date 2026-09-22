@@ -66,6 +66,30 @@
             ></script>
         @endif
 
+        {{-- Google Analytics sets cookies, so it starts with every kind of
+             storage denied. The cookie banner in SiteFooter stores the reader's
+             answer under this key and grants analytics storage only on a yes. --}}
+        @if (config('site.google_analytics'))
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('consent', 'default', {
+                    ad_storage: 'denied',
+                    ad_user_data: 'denied',
+                    ad_personalization: 'denied',
+                    analytics_storage: 'denied',
+                });
+                try {
+                    if (localStorage.getItem('analytics-consent') === 'granted') {
+                        gtag('consent', 'update', { analytics_storage: 'granted' });
+                    }
+                } catch (error) {}
+                gtag('js', new Date());
+                gtag('config', @json(config('site.google_analytics')));
+            </script>
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{ urlencode(config('site.google_analytics')) }}"></script>
+        @endif
+
         @fonts
 
         @vite(['resources/css/app.css', 'resources/js/app.ts', "resources/js/pages/{$page['component']}.vue"])

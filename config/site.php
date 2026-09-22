@@ -31,4 +31,14 @@ return [
         'domain' => env('ANALYTICS_DOMAIN'),
     ],
 
+    /*
+     * The Google Analytics measurement ID, such as G-XXXXXXXXXX.
+     *
+     * Google Analytics sets cookies, so it starts in Consent Mode with every
+     * kind of storage denied, and only the reader's yes in the banner grants
+     * analytics storage. Advertising storage is never granted. Left empty,
+     * nothing is loaded and no banner appears.
+     */
+    'google_analytics' => env('GOOGLE_ANALYTICS_ID'),
+
 ];

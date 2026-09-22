@@ -10172,6 +10172,7 @@ return [
             'label' => 'The deal',
             'title' => 'What this site is and what it is not',
             'body_1' => 'I write it myself, as a private person. It is not a travel agency and it is not an institutional project either. There are no advertisements, no sponsored entries, no affiliate links and nothing to buy. There is no newsletter waiting at the bottom of the screen. Nobody pays me to make one place come out better than another.',
+            'counting' => 'There is a visitor counter, though, and it works only if you agree to it. When you say yes in the box at the bottom of the screen, Google Analytics sets a cookie and counts your visit, so I can see which pages get read and how people find the site. The data goes to Google, and I do not use it for advertising. When you say no, nothing is stored in your browser, and Google receives only a bare signal that a page was opened, with no cookie that could recognise you on your next visit. You can change your answer at any time with the Cookies link at the bottom of every page.',
             'body_2' => 'What I do not promise: that everything is here, or that I am never wrong. The site is written piece by piece, plenty of subjects are still waiting their turn, and some of the text certainly contains mistakes I do not know about yet. That is what the list below is for, along with the address for telling me about the next one.',
         ],
         'sources' => [
@@ -10363,6 +10364,13 @@ return [
         'sources' => 'Sources',
         'corrections' => 'Corrections',
         'support' => 'Support the site',
+        'cookies' => 'Cookies',
+        'consent' => [
+            'label' => 'Cookie consent',
+            'body' => 'May I count your visit? If you agree, Google Analytics will set a cookie that shows me which pages people read and how they found the site. The data goes to Google. I do not use it for advertising, and you can change your mind at any time with the Cookies link at the bottom of every page.',
+            'accept' => 'Yes, count me',
+            'reject' => 'No, thanks',
+        ],
     ],
 
     'a11y' => [

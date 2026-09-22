@@ -10217,6 +10217,7 @@ return [
             'label' => 'Umowa z czytelnikiem',
             'title' => 'Czym ta strona jest, a czym nie',
             'body_1' => 'Piszę ją sam, jako prywatna osoba, i nie jest to biuro podróży ani projekt żadnej instytucji. Nie ma tu reklam, treści sponsorowanych, linków afiliacyjnych ani niczego do kupienia. Nie ma newslettera czyhającego na dole ekranu. Nikt mi nie płaci za to, żeby jakieś miejsce wypadło lepiej niż inne.',
+            'counting' => 'Jest za to licznik odwiedzin i działa tylko za twoją zgodą. Jeśli zgodzisz się w okienku na dole ekranu, Google Analytics zapisze ciasteczko i policzy wizytę, żebym widział, które strony są czytane i jak ludzie tu trafiają. Dane trafiają do Google, a ja nie używam ich do reklam. Jeśli odmówisz, w przeglądarce nic się nie zapisuje, a Google dostaje tylko sam sygnał, że strona została otwarta, bez ciasteczka, po którym mógłby cię rozpoznać przy następnej wizycie. Zdanie możesz zmienić w każdej chwili linkiem Ciasteczka na dole każdej strony.',
             'body_2' => 'Czego nie obiecuję: że jest tu wszystko i że nigdy się nie mylę. Strona jest pisana po kawałku, wiele tematów czeka na swoją kolej, a część tekstów na pewno zawiera błędy, o których jeszcze nie wiem. Dlatego niżej jest spis tych, o których już wiem, i adres, pod którym można zgłosić następne.',
         ],
         'sources' => [
@@ -10407,6 +10408,13 @@ return [
         'sources' => 'Źródła',
         'corrections' => 'Poprawki',
         'support' => 'Postaw mi kawę',
+        'cookies' => 'Ciasteczka',
+        'consent' => [
+            'label' => 'Zgoda na ciasteczka',
+            'body' => 'Czy mogę policzyć twoją wizytę? Jeśli się zgodzisz, Google Analytics zapisze ciasteczko, dzięki któremu zobaczę, które strony są czytane i skąd czytelnicy tu trafiają. Dane trafiają do Google. Nie używam ich do reklam, a zdanie możesz zmienić w każdej chwili linkiem Ciasteczka na dole każdej strony.',
+            'accept' => 'Tak, zgadzam się',
+            'reject' => 'Nie, dziękuję',
+        ],
     ],
     'a11y' => [
         'chapter_nav' => 'Działy',

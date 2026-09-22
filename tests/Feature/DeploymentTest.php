@@ -165,6 +165,29 @@ it('loads no counting script until one is configured', function (): void {
         ->toContain('https://example.test/js/script.js');
 });
 
+it('loads Google Analytics only when configured and with consent denied first', function (): void {
+    config(['site.google_analytics' => null]);
+
+    $this->get('/')
+        ->assertInertia(fn (AssertableInertia $page) => $page->where('analyticsConsent', false));
+    expect((string) $this->get('/')->getContent())->not->toContain('googletagmanager');
+
+    config(['site.google_analytics' => 'G-TEST123']);
+
+    $html = (string) $this->get('/')->getContent();
+
+    // the default has to be set before the tag loads, or the first hit sets a cookie
+    expect($html)->toContain('googletagmanager.com/gtag/js?id=G-TEST123')
+        ->and(strpos($html, "analytics_storage: 'denied'"))->toBeLessThan(strpos($html, 'googletagmanager'));
+
+    $this->get('/')
+        ->assertInertia(fn (AssertableInertia $page) => $page
+            ->where('analyticsConsent', true)
+            ->has('translations.footer.consent.accept')
+            ->has('translations.footer.consent.reject')
+        );
+});
+
 it('says why the live figures could not be fetched', function (): void {
     Http::fake(['*' => Http::response('Forbidden', 403)]);
 

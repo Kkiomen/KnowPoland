@@ -102,6 +102,9 @@ const column = (name: string): string => text(`corrections.columns.${name}`);
                         {{ text('promise.body_2') }}
                     </p>
                 </div>
+                <p class="mt-6 max-w-3xl leading-relaxed text-[#6e6459]">
+                    {{ text('promise.counting') }}
+                </p>
             </div>
         </section>
 

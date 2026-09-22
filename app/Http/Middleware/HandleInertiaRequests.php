@@ -43,6 +43,7 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
             'supportUrl' => config('site.support_url'),
+            'analyticsConsent' => filled(config('site.google_analytics')),
             'locale' => app()->getLocale(),
             'availableLocales' => SetLocale::availableLocales(),
             'translations' => PageCopy::for($request),

@@ -1,0 +1,1 @@
+import{C as e,p as t,y as n}from"./app-CzVnZwHo.js";import{t as r}from"./CityPage-DilKMp0k.js";var i=n({__name:`PlaceMalbork`,setup(n){return(n,i)=>(e(),t(r,{city:`malbork`,lon:19.0279,lat:54.0397}))}});export{i as default};

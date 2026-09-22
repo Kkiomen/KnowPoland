@@ -1,0 +1,1 @@
+import{C as e,p as t,y as n}from"./app-CzVnZwHo.js";import{t as r}from"./CityPage-DilKMp0k.js";var i=n({__name:`PlaceWroclaw`,setup(n){return(n,i)=>(e(),t(r,{city:`wroclaw`,lon:17.0385,lat:51.1079}))}});export{i as default};

@@ -1,1 +1,0 @@
-import{C as e,p as t,y as n}from"./app-BrB0NQMf.js";import{t as r}from"./CityPage-qJii8pX2.js";var i=n({__name:`PlaceWarszawa`,setup(n){return(n,i)=>(e(),t(r,{city:`warszawa`,lon:21.0122,lat:52.2297}))}});export{i as default};

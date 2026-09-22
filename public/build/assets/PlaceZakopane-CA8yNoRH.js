@@ -1,1 +1,0 @@
-import{C as e,p as t,y as n}from"./app-BrB0NQMf.js";import{t as r}from"./CityPage-qJii8pX2.js";var i=n({__name:`PlaceZakopane`,setup(n){return(n,i)=>(e(),t(r,{city:`zakopane`,lon:19.9497,lat:49.2992}))}});export{i as default};
